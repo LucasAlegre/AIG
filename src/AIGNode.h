@@ -8,6 +8,9 @@
 #ifndef AIGNODE_H_
 #define AIGNODE_H_
 
+#include<iostream>
+using namespace std;
+
 typedef enum {
     AND_NODE,       // 0: AND object
     INPUT_NODE,     // 1: Input object
@@ -29,6 +32,8 @@ public:
 
 	virtual AigNodeType getNodeType() = 0;
 
+	virtual AIGNode* getInput(const int input0or1) = 0;
+
 };
 
 
@@ -37,6 +42,10 @@ class InputNode: public AIGNode{
 public:
 	AigNodeType getNodeType();
     InputNode(const int id);
+	AIGNode* getInput(const int input0or1){
+		cout << "Tried to get input from an input node.\n";
+		return NULL;
+	}
 };
 
 
@@ -55,6 +64,8 @@ public:
 	AigNodeType getNodeType();
 
 	void setInput(AIGNode* node);
+
+	AIGNode* getInput(const int input0or1);
 
 	bool isInputInverted() const;
 
@@ -83,6 +94,8 @@ public:
 	void setInput(AIGNode* inp0, AIGNode* in1);
 
 	bool isInputInverted(const int input0or1) const;
+
+	AIGNode* getInput(const int input0or1);
 
 	void setInputInverted(const bool inputInverted, const int input0or1);
 };

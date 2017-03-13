@@ -36,6 +36,7 @@ public:
 
 	vector<AIGNode*> getNodes();
 	vector<InputNode*> getInputNodes();
+	vector<AndNode*> getAndNodes();
 
 };
 

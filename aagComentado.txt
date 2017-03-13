@@ -1,31 +1,31 @@
 aag 10 3 0 2 7
 The file header is ok!
 
-read the input0 from the file
+read the input 0 Id: 2 from the file
    create in0 and add it to an input list and the all nodes list
-read the input1 from the file
+read the input 1 Id: 4 from the file
    create in1 and add it to an input list and the all nodes list
-read the input2 from the file
+read the input 2 Id: 6 from the file
    create in2 and add it to an input list and the all nodes list
 
-read the output0 from the file
+read the output 0 Id: 8 from the file
    create out0 and add it to an output list and the all nodes list
-read the output1 from the file
+read the output 1 Id: 11 from the file
    create out1 and add it to an output list and the all nodes list
 
-read the and0 output and inputs
+read the and 0 Id: 12 from the file
    connect the and0 and set the inversion of this pins
-read the and1 output and inputs
+read the and 1 Id: 14 from the file
    connect the and1 and set the inversion of this pins
-read the and2 output and inputs
+read the and 2 Id: 16 from the file
    connect the and2 and set the inversion of this pins
-read the and3 output and inputs
+read the and 3 Id: 18 from the file
    connect the and3 and set the inversion of this pins
-read the and4 output and inputs
+read the and 4 Id: 10 from the file
    connect the and4 and set the inversion of this pins
-read the and5 output and inputs
+read the and 5 Id: 20 from the file
    connect the and5 and set the inversion of this pins
-read the and6 output and inputs
+read the and 6 Id: 8 from the file
    connect the and6 and set the inversion of this pins
 
 the comments began. Ignore the file from here!

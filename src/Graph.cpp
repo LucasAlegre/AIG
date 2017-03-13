@@ -27,6 +27,10 @@ vector<InputNode*> Graph::getInputNodes(){
 	return this->inputs;
 }
 
+vector<AndNode*> Graph::getAndNodes(){
+	return this->andNodes;
+}
+
 void Graph::insertInputNode(InputNode* input){
 	this->inputs.push_back(input);
 	this->nodes.push_back(input);

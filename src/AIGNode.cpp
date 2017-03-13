@@ -39,10 +39,10 @@ AigNodeType AndNode::getNodeType(){
 
 bool AndNode::isInputInverted(const int input0or1)const{
      if(input0or1 == 0)
-    	 return this->input0;
+    	 return this->input0Inverted;
 
      else if(input0or1 == 1)
-    	 return this->input1;
+    	 return this->input1Inverted;
 
      else{
     	 std::cout << "Invalid input number" << "\n";
@@ -83,25 +83,27 @@ void OutputNode::setInput(AIGNode* node){
 	}
 }
 
+AIGNode* OutputNode::getInput(const int input0or1){
+	return this->input0;
+}
+
 void AndNode::setInput(AIGNode* in0, AIGNode *in1){
+
 	this->input0 = in0;
 	this->input1 = in1;
-
-	if(in0->getId() % 2 == 0){
-		this->setInputInverted(false, 0);
-	}
-	else{
-		this->setInputInverted(true, 0);
-	}
-
-	if(in1->getId() % 2 == 0){
-		this->setInputInverted(false, 1);
-	}
-	else{
-		this->setInputInverted(true, 1);
-	}
-
 }
+
+AIGNode* AndNode::getInput(const int input0or1){
+	if(input0or1 == 0)
+		return this->input0;
+	else if(input0or1 == 1)
+		return this->input1;
+	else{
+		cout << "Invalid parameter \n";
+		return NULL;
+	}
+}
+
 
 InputNode::InputNode(const int id){
 	this->setId(id);

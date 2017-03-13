@@ -21,10 +21,9 @@ AAGReader::AAGReader(string sourcePath)
 Graph* AAGReader::readFile()
 {
     //treating header
-    source.getline(buf, 250, '\n');
+    source.getline(buf, 250);
     string s = buf;
-    istringstream line;
-    line.str(s);
+    istringstream line(s);
     line >> word;
 
     if(strcmp("aag",word.c_str())!=0)
@@ -45,6 +44,7 @@ Graph* AAGReader::readFile()
     line >> word;
     nAnds = atoi(word.c_str());
 
+
     if (nNodes != nInputs + nFFs + nAnds) {
         cout << "Wrong file header";
         return NULL;
@@ -59,50 +59,47 @@ Graph* AAGReader::readFile()
 
     Graph* aig = new Graph;
 
-    InputNode* input;
     //treating inputs
     for (int i = 0; i < nInputs; i++) {
 
-        source.getline(buf, 250, '\n');
+        source.getline(buf, 250);
         string s = buf;
-        line.str(s);
+        istringstream line(s);
         line >> word;
 
-    	input = new InputNode(atoi(word.c_str()));
+    	InputNode* input = new InputNode(atoi(word.c_str()));
     	aig->insertInputNode(input);
 
-        debug << "read the input" << i << " from the file\n";
+        debug << "read the input " << i << " Id: " << input->getId() << " from the file\n";
         debug << "   create in" << i << " and add it to an input list and the all nodes list\n";
     }
 
-    OutputNode* output;
     //treating outputs
     debug << "\n";
     for (int i = 0; i < nOutputs; i++) {
 
-        source.getline(buf, 250, '\n');
+        source.getline(buf, 250);
         string s = buf;
-        line.str(s);
+        istringstream line(s);
         line >> word;
 
-    	output = new OutputNode(atoi(word.c_str()));
+    	OutputNode* output = new OutputNode(atoi(word.c_str()));
     	aig->insertOutputNode(output);
 
-        debug << "read the output" << i << " from the file\n";
+        debug << "read the output " << i << " Id: " << output->getId()  << " from the file\n";
         debug << "   create out" << i << " and add it to an output list and the all nodes list\n";
     }
 
-    AndNode* andnode;
     //connecting ands
     debug << "\n";
     for (int i = 0; i < nAnds; i++) {
 
         source.getline(buf, 250, '\n');
         string s = buf;
-        line.str(s);
+        istringstream line(s);
         line >> word;
 
-    	andnode = new AndNode(atoi(word.c_str()));
+    	AndNode* andnode = new AndNode(atoi(word.c_str()));
 
     	int i0, i1;
     	line >> word;
@@ -110,18 +107,36 @@ Graph* AAGReader::readFile()
     	line >> word;
     	i1 = atoi(word.c_str());
 
-    	andnode->setInput(aig->findNodeById(i0), aig->findNodeById(i1));
+    	if(i0 % 2 == 0){
+    		andnode->setInputInverted(false, 0);
+    	}
+    	else{
+    		andnode->setInputInverted(true, 0);
+    		i0--;
+    	}
 
-        debug << "read the and" << i << " output and inputs\n";
+    	if(i1 % 2 == 0){
+    		andnode->setInputInverted(false, 1);
+    	}
+    	else{
+    		andnode->setInputInverted(true, 1);
+    		i1--;
+    	}
+
+    	andnode->setInput(aig->findNodeById(i0), aig->findNodeById(i1));
+    	aig->insertAndNode(andnode);
+
+        debug << "read the and " << i << " Id: " << andnode->getId()  << " from the file\n";
         debug << "   connect the and" << i << " and set the inversion of this pins\n";
     }
 
     debug << "\n";
     string aigName;
+
     while(source)
     {
         source.getline(buf, 250, '\n');
-        string s=buf;
+        string s = buf;
         istringstream line;
         line.seekg(0);line.str(s);
         line >> word;
