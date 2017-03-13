@@ -26,11 +26,15 @@ private:
 
 public:
     AAGReader(string sourcePath);
-    Graph* readFile();
+
     ~AAGReader(){
     	source.close();
     	debug.close();
     }
+
+    Graph* readFile();
+
+    void generateDot(Graph* aig, string filename);
 };
 
 #endif /* AAGREADER_H_ */

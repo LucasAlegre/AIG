@@ -34,9 +34,10 @@ public:
 	OutputNode* findOutputtById(const int id);
 	AndNode* findAndById(const int id);
 
-	vector<AIGNode*> getNodes();
-	vector<InputNode*> getInputNodes();
-	vector<AndNode*> getAndNodes();
+	vector<AIGNode*> * getNodes();
+	vector<InputNode*> * getInputNodes();
+	vector<AndNode*> * getAndNodes();
+	vector<OutputNode*> * getOutputNodes();
 
 };
 

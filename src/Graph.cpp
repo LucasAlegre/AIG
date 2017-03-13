@@ -19,16 +19,20 @@ Graph::Graph() {
 Graph::~Graph() {
 }
 
-vector<AIGNode*> Graph::getNodes(){
-	return this->nodes;
+vector<AIGNode*> * Graph::getNodes(){
+	return &(this->nodes);
 }
 
-vector<InputNode*> Graph::getInputNodes(){
-	return this->inputs;
+vector<InputNode*> * Graph::getInputNodes(){
+	return &(this->inputs);
 }
 
-vector<AndNode*> Graph::getAndNodes(){
-	return this->andNodes;
+vector<OutputNode*> * Graph::getOutputNodes(){
+	return &(this->outputs);
+}
+
+vector<AndNode*> * Graph::getAndNodes(){
+	return &(this->andNodes);
 }
 
 void Graph::insertInputNode(InputNode* input){

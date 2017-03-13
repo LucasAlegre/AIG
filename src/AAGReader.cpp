@@ -5,12 +5,24 @@
  *      Author: lucas
  */
 
-#include "AAGReader.h"
+#include "Graph.h"
 #include "AIGNode.h"
 #include "Graph.h"
-
+#include "AAGReader.h"
 #include <string.h>
+#include <iostream>
+#include <string>
+#include <sstream>
 
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
 
 AAGReader::AAGReader(string sourcePath)
 {
@@ -157,4 +169,39 @@ Graph* AAGReader::readFile()
     debug << "return the AIG";
 
     return aig;
+}
+
+void AAGReader::generateDot(Graph* aig, string filename){
+
+	ofstream dotfile(filename.c_str());
+	string inputDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#ff8080\", fontsize=20]";
+    string andDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#ffffff\", fontsize=20]";
+    string outputDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#008080\", fontsize=20]";
+
+    //first line of the dot file
+	dotfile << "digraph aig {" << endl;
+
+	//write the input nodes on the dot file
+    vector<InputNode*> *inputs = aig->getInputNodes();
+    vector<InputNode*>::iterator it;
+	for(it = inputs->begin(); it < inputs->end(); it++){
+		dotfile << "\"" << patch::to_string((*it)->getId()) << "\"" << inputDetails << endl;
+	}
+
+	//write the and nodes on the dot file
+    vector<AndNode*> *ands = aig->getAndNodes();
+    vector<AndNode*>::iterator it2;
+	for(it2 = ands->begin(); it2 < ands->end(); it2++){
+		dotfile << "\"" << patch::to_string((*it2)->getId()) << "\"" << andDetails << endl;
+	}
+
+	//write the output nodes on the dot file
+    vector<OutputNode*> *outputs = aig->getOutputNodes();
+    vector<OutputNode*>::iterator it3;
+	for(it3 = outputs->begin(); it3 < outputs->end(); it3++){
+		dotfile << "\"S" << patch::to_string((*it3)->getId()) << "\"" << outputDetails << endl;
+	}
+
+
+
 }
