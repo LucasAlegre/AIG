@@ -32,8 +32,6 @@ public:
 
 	virtual AigNodeType getNodeType() = 0;
 
-	virtual AIGNode* getInput(const int input0or1) = 0;
-
 };
 
 
@@ -65,7 +63,7 @@ public:
 
 	void setInput(AIGNode* node);
 
-	AIGNode* getInput(const int input0or1);
+	AIGNode* getInput();
 
 	bool isInputInverted() const;
 

@@ -1,0 +1,350 @@
+aag 163 36 0 7 127
+The file header is ok!
+
+read the input 0 Id: 2 from the file
+   create in0 and add it to an input list and the all nodes list
+read the input 1 Id: 4 from the file
+   create in1 and add it to an input list and the all nodes list
+read the input 2 Id: 6 from the file
+   create in2 and add it to an input list and the all nodes list
+read the input 3 Id: 8 from the file
+   create in3 and add it to an input list and the all nodes list
+read the input 4 Id: 10 from the file
+   create in4 and add it to an input list and the all nodes list
+read the input 5 Id: 12 from the file
+   create in5 and add it to an input list and the all nodes list
+read the input 6 Id: 14 from the file
+   create in6 and add it to an input list and the all nodes list
+read the input 7 Id: 16 from the file
+   create in7 and add it to an input list and the all nodes list
+read the input 8 Id: 18 from the file
+   create in8 and add it to an input list and the all nodes list
+read the input 9 Id: 20 from the file
+   create in9 and add it to an input list and the all nodes list
+read the input 10 Id: 22 from the file
+   create in10 and add it to an input list and the all nodes list
+read the input 11 Id: 24 from the file
+   create in11 and add it to an input list and the all nodes list
+read the input 12 Id: 26 from the file
+   create in12 and add it to an input list and the all nodes list
+read the input 13 Id: 28 from the file
+   create in13 and add it to an input list and the all nodes list
+read the input 14 Id: 30 from the file
+   create in14 and add it to an input list and the all nodes list
+read the input 15 Id: 32 from the file
+   create in15 and add it to an input list and the all nodes list
+read the input 16 Id: 34 from the file
+   create in16 and add it to an input list and the all nodes list
+read the input 17 Id: 36 from the file
+   create in17 and add it to an input list and the all nodes list
+read the input 18 Id: 38 from the file
+   create in18 and add it to an input list and the all nodes list
+read the input 19 Id: 40 from the file
+   create in19 and add it to an input list and the all nodes list
+read the input 20 Id: 42 from the file
+   create in20 and add it to an input list and the all nodes list
+read the input 21 Id: 44 from the file
+   create in21 and add it to an input list and the all nodes list
+read the input 22 Id: 46 from the file
+   create in22 and add it to an input list and the all nodes list
+read the input 23 Id: 48 from the file
+   create in23 and add it to an input list and the all nodes list
+read the input 24 Id: 50 from the file
+   create in24 and add it to an input list and the all nodes list
+read the input 25 Id: 52 from the file
+   create in25 and add it to an input list and the all nodes list
+read the input 26 Id: 54 from the file
+   create in26 and add it to an input list and the all nodes list
+read the input 27 Id: 56 from the file
+   create in27 and add it to an input list and the all nodes list
+read the input 28 Id: 58 from the file
+   create in28 and add it to an input list and the all nodes list
+read the input 29 Id: 60 from the file
+   create in29 and add it to an input list and the all nodes list
+read the input 30 Id: 62 from the file
+   create in30 and add it to an input list and the all nodes list
+read the input 31 Id: 64 from the file
+   create in31 and add it to an input list and the all nodes list
+read the input 32 Id: 66 from the file
+   create in32 and add it to an input list and the all nodes list
+read the input 33 Id: 68 from the file
+   create in33 and add it to an input list and the all nodes list
+read the input 34 Id: 70 from the file
+   create in34 and add it to an input list and the all nodes list
+read the input 35 Id: 72 from the file
+   create in35 and add it to an input list and the all nodes list
+
+read the output 0 Id: 107 from the file
+   create out0 and add it to an output list and the all nodes list
+read the output 1 Id: 177 from the file
+   create out1 and add it to an output list and the all nodes list
+read the output 2 Id: 255 from the file
+   create out2 and add it to an output list and the all nodes list
+read the output 3 Id: 306 from the file
+   create out3 and add it to an output list and the all nodes list
+read the output 4 Id: 277 from the file
+   create out4 and add it to an output list and the all nodes list
+read the output 5 Id: 317 from the file
+   create out5 and add it to an output list and the all nodes list
+read the output 6 Id: 327 from the file
+   create out6 and add it to an output list and the all nodes list
+
+read the and 0 Id: 74 from the file
+   connect the and0 and set the inversion of this pins
+read the and 1 Id: 76 from the file
+   connect the and1 and set the inversion of this pins
+read the and 2 Id: 78 from the file
+   connect the and2 and set the inversion of this pins
+read the and 3 Id: 80 from the file
+   connect the and3 and set the inversion of this pins
+read the and 4 Id: 82 from the file
+   connect the and4 and set the inversion of this pins
+read the and 5 Id: 84 from the file
+   connect the and5 and set the inversion of this pins
+read the and 6 Id: 86 from the file
+   connect the and6 and set the inversion of this pins
+read the and 7 Id: 88 from the file
+   connect the and7 and set the inversion of this pins
+read the and 8 Id: 90 from the file
+   connect the and8 and set the inversion of this pins
+read the and 9 Id: 92 from the file
+   connect the and9 and set the inversion of this pins
+read the and 10 Id: 94 from the file
+   connect the and10 and set the inversion of this pins
+read the and 11 Id: 96 from the file
+   connect the and11 and set the inversion of this pins
+read the and 12 Id: 98 from the file
+   connect the and12 and set the inversion of this pins
+read the and 13 Id: 100 from the file
+   connect the and13 and set the inversion of this pins
+read the and 14 Id: 102 from the file
+   connect the and14 and set the inversion of this pins
+read the and 15 Id: 104 from the file
+   connect the and15 and set the inversion of this pins
+read the and 16 Id: 106 from the file
+   connect the and16 and set the inversion of this pins
+read the and 17 Id: 108 from the file
+   connect the and17 and set the inversion of this pins
+read the and 18 Id: 110 from the file
+   connect the and18 and set the inversion of this pins
+read the and 19 Id: 112 from the file
+   connect the and19 and set the inversion of this pins
+read the and 20 Id: 114 from the file
+   connect the and20 and set the inversion of this pins
+read the and 21 Id: 116 from the file
+   connect the and21 and set the inversion of this pins
+read the and 22 Id: 118 from the file
+   connect the and22 and set the inversion of this pins
+read the and 23 Id: 120 from the file
+   connect the and23 and set the inversion of this pins
+read the and 24 Id: 122 from the file
+   connect the and24 and set the inversion of this pins
+read the and 25 Id: 124 from the file
+   connect the and25 and set the inversion of this pins
+read the and 26 Id: 126 from the file
+   connect the and26 and set the inversion of this pins
+read the and 27 Id: 128 from the file
+   connect the and27 and set the inversion of this pins
+read the and 28 Id: 130 from the file
+   connect the and28 and set the inversion of this pins
+read the and 29 Id: 132 from the file
+   connect the and29 and set the inversion of this pins
+read the and 30 Id: 134 from the file
+   connect the and30 and set the inversion of this pins
+read the and 31 Id: 136 from the file
+   connect the and31 and set the inversion of this pins
+read the and 32 Id: 138 from the file
+   connect the and32 and set the inversion of this pins
+read the and 33 Id: 140 from the file
+   connect the and33 and set the inversion of this pins
+read the and 34 Id: 142 from the file
+   connect the and34 and set the inversion of this pins
+read the and 35 Id: 144 from the file
+   connect the and35 and set the inversion of this pins
+read the and 36 Id: 146 from the file
+   connect the and36 and set the inversion of this pins
+read the and 37 Id: 148 from the file
+   connect the and37 and set the inversion of this pins
+read the and 38 Id: 150 from the file
+   connect the and38 and set the inversion of this pins
+read the and 39 Id: 152 from the file
+   connect the and39 and set the inversion of this pins
+read the and 40 Id: 154 from the file
+   connect the and40 and set the inversion of this pins
+read the and 41 Id: 156 from the file
+   connect the and41 and set the inversion of this pins
+read the and 42 Id: 158 from the file
+   connect the and42 and set the inversion of this pins
+read the and 43 Id: 160 from the file
+   connect the and43 and set the inversion of this pins
+read the and 44 Id: 162 from the file
+   connect the and44 and set the inversion of this pins
+read the and 45 Id: 164 from the file
+   connect the and45 and set the inversion of this pins
+read the and 46 Id: 166 from the file
+   connect the and46 and set the inversion of this pins
+read the and 47 Id: 168 from the file
+   connect the and47 and set the inversion of this pins
+read the and 48 Id: 170 from the file
+   connect the and48 and set the inversion of this pins
+read the and 49 Id: 172 from the file
+   connect the and49 and set the inversion of this pins
+read the and 50 Id: 174 from the file
+   connect the and50 and set the inversion of this pins
+read the and 51 Id: 176 from the file
+   connect the and51 and set the inversion of this pins
+read the and 52 Id: 178 from the file
+   connect the and52 and set the inversion of this pins
+read the and 53 Id: 180 from the file
+   connect the and53 and set the inversion of this pins
+read the and 54 Id: 182 from the file
+   connect the and54 and set the inversion of this pins
+read the and 55 Id: 184 from the file
+   connect the and55 and set the inversion of this pins
+read the and 56 Id: 186 from the file
+   connect the and56 and set the inversion of this pins
+read the and 57 Id: 188 from the file
+   connect the and57 and set the inversion of this pins
+read the and 58 Id: 190 from the file
+   connect the and58 and set the inversion of this pins
+read the and 59 Id: 192 from the file
+   connect the and59 and set the inversion of this pins
+read the and 60 Id: 194 from the file
+   connect the and60 and set the inversion of this pins
+read the and 61 Id: 196 from the file
+   connect the and61 and set the inversion of this pins
+read the and 62 Id: 198 from the file
+   connect the and62 and set the inversion of this pins
+read the and 63 Id: 200 from the file
+   connect the and63 and set the inversion of this pins
+read the and 64 Id: 202 from the file
+   connect the and64 and set the inversion of this pins
+read the and 65 Id: 204 from the file
+   connect the and65 and set the inversion of this pins
+read the and 66 Id: 206 from the file
+   connect the and66 and set the inversion of this pins
+read the and 67 Id: 208 from the file
+   connect the and67 and set the inversion of this pins
+read the and 68 Id: 210 from the file
+   connect the and68 and set the inversion of this pins
+read the and 69 Id: 212 from the file
+   connect the and69 and set the inversion of this pins
+read the and 70 Id: 214 from the file
+   connect the and70 and set the inversion of this pins
+read the and 71 Id: 216 from the file
+   connect the and71 and set the inversion of this pins
+read the and 72 Id: 218 from the file
+   connect the and72 and set the inversion of this pins
+read the and 73 Id: 220 from the file
+   connect the and73 and set the inversion of this pins
+read the and 74 Id: 222 from the file
+   connect the and74 and set the inversion of this pins
+read the and 75 Id: 224 from the file
+   connect the and75 and set the inversion of this pins
+read the and 76 Id: 226 from the file
+   connect the and76 and set the inversion of this pins
+read the and 77 Id: 228 from the file
+   connect the and77 and set the inversion of this pins
+read the and 78 Id: 230 from the file
+   connect the and78 and set the inversion of this pins
+read the and 79 Id: 232 from the file
+   connect the and79 and set the inversion of this pins
+read the and 80 Id: 234 from the file
+   connect the and80 and set the inversion of this pins
+read the and 81 Id: 236 from the file
+   connect the and81 and set the inversion of this pins
+read the and 82 Id: 238 from the file
+   connect the and82 and set the inversion of this pins
+read the and 83 Id: 240 from the file
+   connect the and83 and set the inversion of this pins
+read the and 84 Id: 242 from the file
+   connect the and84 and set the inversion of this pins
+read the and 85 Id: 244 from the file
+   connect the and85 and set the inversion of this pins
+read the and 86 Id: 246 from the file
+   connect the and86 and set the inversion of this pins
+read the and 87 Id: 248 from the file
+   connect the and87 and set the inversion of this pins
+read the and 88 Id: 250 from the file
+   connect the and88 and set the inversion of this pins
+read the and 89 Id: 252 from the file
+   connect the and89 and set the inversion of this pins
+read the and 90 Id: 254 from the file
+   connect the and90 and set the inversion of this pins
+read the and 91 Id: 256 from the file
+   connect the and91 and set the inversion of this pins
+read the and 92 Id: 258 from the file
+   connect the and92 and set the inversion of this pins
+read the and 93 Id: 260 from the file
+   connect the and93 and set the inversion of this pins
+read the and 94 Id: 262 from the file
+   connect the and94 and set the inversion of this pins
+read the and 95 Id: 264 from the file
+   connect the and95 and set the inversion of this pins
+read the and 96 Id: 266 from the file
+   connect the and96 and set the inversion of this pins
+read the and 97 Id: 268 from the file
+   connect the and97 and set the inversion of this pins
+read the and 98 Id: 270 from the file
+   connect the and98 and set the inversion of this pins
+read the and 99 Id: 272 from the file
+   connect the and99 and set the inversion of this pins
+read the and 100 Id: 274 from the file
+   connect the and100 and set the inversion of this pins
+read the and 101 Id: 276 from the file
+   connect the and101 and set the inversion of this pins
+read the and 102 Id: 278 from the file
+   connect the and102 and set the inversion of this pins
+read the and 103 Id: 280 from the file
+   connect the and103 and set the inversion of this pins
+read the and 104 Id: 282 from the file
+   connect the and104 and set the inversion of this pins
+read the and 105 Id: 284 from the file
+   connect the and105 and set the inversion of this pins
+read the and 106 Id: 286 from the file
+   connect the and106 and set the inversion of this pins
+read the and 107 Id: 288 from the file
+   connect the and107 and set the inversion of this pins
+read the and 108 Id: 290 from the file
+   connect the and108 and set the inversion of this pins
+read the and 109 Id: 292 from the file
+   connect the and109 and set the inversion of this pins
+read the and 110 Id: 294 from the file
+   connect the and110 and set the inversion of this pins
+read the and 111 Id: 296 from the file
+   connect the and111 and set the inversion of this pins
+read the and 112 Id: 298 from the file
+   connect the and112 and set the inversion of this pins
+read the and 113 Id: 300 from the file
+   connect the and113 and set the inversion of this pins
+read the and 114 Id: 302 from the file
+   connect the and114 and set the inversion of this pins
+read the and 115 Id: 304 from the file
+   connect the and115 and set the inversion of this pins
+read the and 116 Id: 306 from the file
+   connect the and116 and set the inversion of this pins
+read the and 117 Id: 308 from the file
+   connect the and117 and set the inversion of this pins
+read the and 118 Id: 310 from the file
+   connect the and118 and set the inversion of this pins
+read the and 119 Id: 312 from the file
+   connect the and119 and set the inversion of this pins
+read the and 120 Id: 314 from the file
+   connect the and120 and set the inversion of this pins
+read the and 121 Id: 316 from the file
+   connect the and121 and set the inversion of this pins
+read the and 122 Id: 318 from the file
+   connect the and122 and set the inversion of this pins
+read the and 123 Id: 320 from the file
+   connect the and123 and set the inversion of this pins
+read the and 124 Id: 322 from the file
+   connect the and124 and set the inversion of this pins
+read the and 125 Id: 324 from the file
+   connect the and125 and set the inversion of this pins
+read the and 126 Id: 326 from the file
+   connect the and126 and set the inversion of this pins
+
+the comments began. Ignore the file from here!
+
+create the AIG and add all nodes
+return the AIG

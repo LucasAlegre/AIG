@@ -74,16 +74,10 @@ bool OutputNode::isInputInverted()const{
 void OutputNode::setInput(AIGNode* node){
 
 	this->input0 = node;
-
-	if(node->getId() % 2 == 0){
-		this->setInputInverted(false);
-	}
-	else{
-		this->setInputInverted(true);
-	}
 }
 
-AIGNode* OutputNode::getInput(const int input0or1){
+AIGNode* OutputNode::getInput(){
+
 	return this->input0;
 }
 
@@ -94,6 +88,7 @@ void AndNode::setInput(AIGNode* in0, AIGNode *in1){
 }
 
 AIGNode* AndNode::getInput(const int input0or1){
+
 	if(input0or1 == 0)
 		return this->input0;
 	else if(input0or1 == 1)

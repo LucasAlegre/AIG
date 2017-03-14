@@ -26,8 +26,14 @@ namespace patch
 
 AAGReader::AAGReader(string sourcePath)
 {
-    source.open(sourcePath.c_str());
-    debug.open("aagComentado.txt");
+	try{
+		source.open(sourcePath.c_str());
+	    debug.open("aagComentado.txt");
+	}
+	catch (const ifstream::failure& e) {
+	    cout << "Exception opening/reading file";
+    }
+
 }
 
 Graph* AAGReader::readFile()
@@ -165,6 +171,20 @@ Graph* AAGReader::readFile()
         }
     }
 
+    //connect the outputs to its andnodes
+    vector<OutputNode*>::iterator it;
+    vector<OutputNode*> *outputs = aig->getOutputNodes();
+	for(it = outputs->begin(); it < outputs->end(); it++){
+		int idinp = (*it)->getId();
+		if(idinp % 2 != 0){
+			(*it)->setInputInverted(true);
+			idinp--;
+		}
+		AndNode* andnode = aig->findAndById(idinp);
+		(*it)->setInput(andnode);
+	}
+
+
     debug << "\ncreate the AIG and add all nodes\n";
     debug << "return the AIG";
 
@@ -177,6 +197,10 @@ void AAGReader::generateDot(Graph* aig, string filename){
 	string inputDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#ff8080\", fontsize=20]";
     string andDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#ffffff\", fontsize=20]";
     string outputDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#008080\", fontsize=20]";
+    string positiveEdgeDetails = " [penwidth = 3, color=blue]";
+    string negativeEdgeDetails = " [penwidth = 3, color=red, style=dashed]";
+    string inputsIds;
+    string outputsIds;
 
     //first line of the dot file
 	dotfile << "digraph aig {" << endl;
@@ -185,23 +209,54 @@ void AAGReader::generateDot(Graph* aig, string filename){
     vector<InputNode*> *inputs = aig->getInputNodes();
     vector<InputNode*>::iterator it;
 	for(it = inputs->begin(); it < inputs->end(); it++){
-		dotfile << "\"" << patch::to_string((*it)->getId()) << "\"" << inputDetails << endl;
+		dotfile << "\"" << (*it)->getId() << "\"" << inputDetails << endl;
+		inputsIds += "\"" +  patch::to_string((*it)->getId()) + "\" ";
 	}
 
 	//write the and nodes on the dot file
     vector<AndNode*> *ands = aig->getAndNodes();
     vector<AndNode*>::iterator it2;
 	for(it2 = ands->begin(); it2 < ands->end(); it2++){
-		dotfile << "\"" << patch::to_string((*it2)->getId()) << "\"" << andDetails << endl;
+		dotfile << "\"" << (*it2)->getId() << "\"" << andDetails << endl;
 	}
 
 	//write the output nodes on the dot file
     vector<OutputNode*> *outputs = aig->getOutputNodes();
     vector<OutputNode*>::iterator it3;
 	for(it3 = outputs->begin(); it3 < outputs->end(); it3++){
-		dotfile << "\"S" << patch::to_string((*it3)->getId()) << "\"" << outputDetails << endl;
+		dotfile << "\"S" << (*it3)->getId() << "\"" << outputDetails << endl;
+		outputsIds += "\"S" + patch::to_string((*it3)->getId()) + "\" ";
 	}
 
+	//write the ands connections on the dot file
+	for(it2 = ands->begin(); it2 < ands->end(); it2++){
+		dotfile << "\"" << (*it2)->getInput(0)->getId() << "\"" << " -> " << "\"" << (*it2)->getId() << "\"";
+		if( (*it2)->isInputInverted(0) )
+			dotfile << negativeEdgeDetails << endl;
+		else
+			dotfile << positiveEdgeDetails << endl;
 
+		dotfile << "\"" << (*it2)->getInput(1)->getId() << "\"" << " -> " << "\"" << (*it2)->getId() << "\"";
+		if( (*it2)->isInputInverted(1) )
+			dotfile << negativeEdgeDetails << endl;
+		else
+			dotfile << positiveEdgeDetails << endl;
+
+	}
+
+	//write the outputs connections on the dot file
+	for(it3 = outputs->begin(); it3 < outputs->end(); it3++){
+		dotfile << "\"" << (*it3)->getInput()->getId() << "\"" << " -> " << "\"" << "S" << (*it3)->getId() << "\"";
+		if( (*it3)->isInputInverted() )
+			dotfile << negativeEdgeDetails << endl;
+		else
+			dotfile << positiveEdgeDetails << endl;
+	}
+
+	dotfile << "{ rank=source; ";
+    dotfile << inputsIds << "}" << endl;
+    dotfile << "{ rank=since; ";
+    dotfile << outputsIds << "}" << endl;
+    dotfile << "rankdir=\"BT\"" << endl << "}";
 
 }

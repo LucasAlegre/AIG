@@ -13,26 +13,22 @@
 
 using namespace std;
 
-int main(){
+int main(int argc, char* arv[]){
 
-	AAGReader reader("fulladder.aag");
+	if(argc == 1){
+		cout << "Must inform the aag file" << endl;
+		exit(-1);
+	}
+
+	string filePath = "aigs/";
+	string fileName(arv[1]);
+	string fileExtension = ".aag";
+
+	AAGReader reader(filePath + fileName + fileExtension);
+
 	Graph* aig = reader.readFile();
 
-    vector<AIGNode*> *nodes = aig->getNodes();
-    vector<AndNode*> *ands = aig->getAndNodes();
-
-    vector<AIGNode*>::iterator it;
-	for(it = nodes->begin(); it < nodes->end(); it++){
-		cout << (*it)->getId() << endl;
-	}
-
-	vector<AndNode*>::iterator i;
-	for(i = ands->begin(); i < ands->end(); i++){
-       cout << (*i)->getInput(0)->getId() <<" "<< (*i)->isInputInverted(0) << endl;
-	}
-
-	reader.generateDot(aig, "teste.txt");
-
+	reader.generateDot(aig, fileName + ".dot");
 
 	return 0;
 

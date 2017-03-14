@@ -1,0 +1,33 @@
+digraph aig {
+"2" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"4" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"6" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"12" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"14" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"16" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"18" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"10" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"20" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"8" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"S8" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#008080", fontsize=20]
+"S11" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#008080", fontsize=20]
+"2" -> "12" [penwidth = 3, color=blue]
+"4" -> "12" [penwidth = 3, color=blue]
+"2" -> "14" [penwidth = 3, color=red, style=dashed]
+"4" -> "14" [penwidth = 3, color=red, style=dashed]
+"12" -> "16" [penwidth = 3, color=red, style=dashed]
+"14" -> "16" [penwidth = 3, color=red, style=dashed]
+"16" -> "18" [penwidth = 3, color=blue]
+"6" -> "18" [penwidth = 3, color=blue]
+"18" -> "10" [penwidth = 3, color=red, style=dashed]
+"12" -> "10" [penwidth = 3, color=red, style=dashed]
+"16" -> "20" [penwidth = 3, color=red, style=dashed]
+"6" -> "20" [penwidth = 3, color=red, style=dashed]
+"20" -> "8" [penwidth = 3, color=red, style=dashed]
+"18" -> "8" [penwidth = 3, color=red, style=dashed]
+"8" -> "S8" [penwidth = 3, color=blue]
+"10" -> "S11" [penwidth = 3, color=red, style=dashed]
+{ rank=source; "2" "4" "6" }
+{ rank=since; "S8" "S11" }
+rankdir="BT"
+}
