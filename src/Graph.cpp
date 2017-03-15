@@ -13,10 +13,13 @@ using namespace std;
 
 Graph::Graph() {
 	// TODO Auto-generated constructor stub
-
 }
 
 Graph::~Graph() {
+}
+
+void Graph::addOutputToNodes(){
+	this->nodes.insert(nodes.end(), outputs.begin(), outputs.end());
 }
 
 vector<AIGNode*> * Graph::getNodes(){
@@ -42,57 +45,21 @@ void Graph::insertInputNode(InputNode* input){
 
 void Graph::insertOutputNode(OutputNode* output){
 	this->outputs.push_back(output);
-	this->nodes.push_back(output);
-
 }
 
 void Graph::insertAndNode(AndNode* andNode){
 	this->andNodes.push_back(andNode);
 	this->nodes.push_back(andNode);
-
 }
 
 AIGNode* Graph::findNodeById(const unsigned int id){
-	vector<AIGNode*>::iterator it;
+	/*vector<AIGNode*>::iterator it;
 
 	for(it = nodes.begin(); it < nodes.end(); it++){
 		if((*it)->getId() == id){
 			return *it;
 		}
-	}
-	return NULL;
-}
+	}*/
 
-
-InputNode* Graph::findInputById(const unsigned int id){
-	vector<InputNode*>::iterator it;
-
-	for(it = inputs.begin(); it < inputs.end(); it++){
-		if((*it)->getId() == id){
-			return *it;
-		}
-	}
-	return NULL;
-}
-OutputNode* Graph::findOutputtById(const unsigned int id){
-
-	vector<OutputNode*>::iterator it;
-
-	for(it = outputs.begin(); it < outputs.end(); it++){
-		if((*it)->getId() == id){
-			return *it;
-		}
-	}
-	return NULL;
-}
-AndNode* Graph::findAndById(const unsigned int id){
-
-	vector<AndNode*>::iterator it;
-
-	for(it = andNodes.begin(); it < andNodes.end(); it++){
-		if((*it)->getId() == id){
-			return *it;
-		}
-	}
-	return NULL;
+	return nodes[id/2 - 1];
 }

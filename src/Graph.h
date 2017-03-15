@@ -28,11 +28,9 @@ public:
 	void insertInputNode(InputNode* input);
 	void insertOutputNode(OutputNode* output);
 	void insertAndNode(AndNode* andNode);
+	void addOutputToNodes();
 
 	AIGNode* findNodeById(const unsigned int id);
-	InputNode* findInputById(const unsigned int id);
-	OutputNode* findOutputtById(const unsigned int id);
-	AndNode* findAndById(const unsigned int id);
 
 	vector<AIGNode*> * getNodes();
 	vector<InputNode*> * getInputNodes();

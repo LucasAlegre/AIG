@@ -145,7 +145,7 @@ Graph* AigerReader::readAAGFile()
     }
 
 
-    debug << "connect the outputs to its andnodes";
+    debug << "connect the outputs' inputs";
     vector<OutputNode*>::iterator it;
     vector<OutputNode*> *outputs = aig->getOutputNodes();
     vector<InputNode*> *inputs = aig->getInputNodes();
@@ -155,9 +155,10 @@ Graph* AigerReader::readAAGFile()
 			(*it)->setInputInverted(true);
 			idinp--;
 		}
-		AndNode* andnode = aig->findAndById(idinp);
+		AIGNode* andnode = aig->findNodeById(idinp);
 		(*it)->setInput(andnode);
 	}
+	aig->addOutputToNodes();
 
     debug << "\n";
 
@@ -183,7 +184,6 @@ Graph* AigerReader::readAAGFile()
         		counter = 0;
         	else
         		counter++;
-        	debug << word;
         }
         else if(strcmp(word.substr(0,1).c_str(),"o")==0){
         	line >> word;

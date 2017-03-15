@@ -921,8 +921,8 @@ read the and 384 Id: 852 from the file
    connect the and384 and set the inversion of this pins
 read the and 385 Id: 854 from the file
    connect the and385 and set the inversion of this pins
-connect the outputs to its andnodes
-pi00pi01pi02pi03pi04pi05pi06pi07pi08pi09pi10pi11pi12pi13pi14pi15pi16pi17pi18pi19pi20pi21pi22pi23pi24pi25pi26pi27pi28pi29pi30pi31pi32pi33pi34pi35pi36pi37pi38pi39pi40the comments began. Ignore the file from here!
+connect the outputs' inputs
+the comments began. Ignore the file from here!
 
 create the AIG and add all nodes
 return the AIG
