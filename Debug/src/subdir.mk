@@ -4,20 +4,20 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/AAGReader.cpp \
 ../src/AIGNode.cpp \
+../src/AigerReader.cpp \
 ../src/Graph.cpp \
 ../src/main.cpp 
 
 OBJS += \
-./src/AAGReader.o \
 ./src/AIGNode.o \
+./src/AigerReader.o \
 ./src/Graph.o \
 ./src/main.o 
 
 CPP_DEPS += \
-./src/AAGReader.d \
 ./src/AIGNode.d \
+./src/AigerReader.d \
 ./src/Graph.d \
 ./src/main.d 
 

@@ -9,6 +9,9 @@
 #define AIGNODE_H_
 
 #include<iostream>
+#include<string>
+#include<string.h>
+#include<sstream>
 using namespace std;
 
 typedef enum {
@@ -20,15 +23,24 @@ typedef enum {
 
 class AIGNode {
 private:
-	int id;
+	unsigned id;
+	string name;
 
 public:
 	AIGNode();
 	virtual ~AIGNode();
 
-	void setId(const int id);
+	void setId(const unsigned id);
 
-	int getId() const;
+	unsigned int getId() const;
+
+	void setName(const string name){
+		this->name = name;
+	}
+
+	string getName()const{
+		return this->name;
+	}
 
 	virtual AigNodeType getNodeType() = 0;
 
@@ -38,8 +50,11 @@ public:
 
 class InputNode: public AIGNode{
 public:
+
 	AigNodeType getNodeType();
+
     InputNode(const int id);
+
 	AIGNode* getInput(const int input0or1){
 		cout << "Tried to get input from an input node.\n";
 		return NULL;

@@ -29,10 +29,10 @@ public:
 	void insertOutputNode(OutputNode* output);
 	void insertAndNode(AndNode* andNode);
 
-	AIGNode* findNodeById(const int id);
-	InputNode* findInputById(const int id);
-	OutputNode* findOutputtById(const int id);
-	AndNode* findAndById(const int id);
+	AIGNode* findNodeById(const unsigned int id);
+	InputNode* findInputById(const unsigned int id);
+	OutputNode* findOutputtById(const unsigned int id);
+	AndNode* findAndById(const unsigned int id);
 
 	vector<AIGNode*> * getNodes();
 	vector<InputNode*> * getInputNodes();

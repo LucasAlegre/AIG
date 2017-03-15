@@ -5,8 +5,8 @@
  *      Author: lucas
  */
 
-#ifndef AAGREADER_H_
-#define AAGREADER_H_
+#ifndef AIGERREADER_H_
+#define AIGERREADER_H_
 
 #include <cstdlib>
 #include <iostream>
@@ -16,7 +16,7 @@
 #include "Graph.h"
 using namespace std;
 
-class AAGReader
+class AigerReader
 {
 private:
     ifstream source;
@@ -25,16 +25,18 @@ private:
     char buf[250];
 
 public:
-    AAGReader(string sourcePath);
+    AigerReader(string sourcePath);
 
-    ~AAGReader(){
+    ~AigerReader(){
     	source.close();
     	debug.close();
     }
 
-    Graph* readFile();
+    Graph* readAAGFile();
+
+    Graph* readAIGFile();
 
     void generateDot(Graph* aig, string filename);
 };
 
-#endif /* AAGREADER_H_ */
+#endif /* AIGERREADER_H_ */

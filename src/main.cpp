@@ -8,7 +8,7 @@
 #include "Graph.h"
 #include "AIGNode.h"
 #include "Graph.h"
-#include "AAGReader.h"
+#include "AigerReader.h"
 #include <iostream>
 
 using namespace std;
@@ -24,9 +24,9 @@ int main(int argc, char* arv[]){
 	string fileName(arv[1]);
 	string fileExtension = ".aag";
 
-	AAGReader reader(filePath + fileName + fileExtension);
+	AigerReader reader(filePath + fileName + fileExtension);
 
-	Graph* aig = reader.readFile();
+	Graph* aig = reader.readAAGFile();
 
 	reader.generateDot(aig, fileName + ".dot");
 

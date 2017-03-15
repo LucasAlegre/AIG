@@ -7,7 +7,18 @@
 
 #include "AIGNode.h"
 #include "Graph.h"
-#include<iostream>
+#include <iostream>
+
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+
 
 AIGNode::AIGNode() {
     id = -1;
@@ -17,11 +28,11 @@ AIGNode::~AIGNode() {
 	// TODO Auto-generated destructor stub
 }
 
-void AIGNode::setId(const int id){
+void AIGNode::setId(const unsigned id){
 	this->id = id;
 }
 
-int AIGNode::getId()const{
+unsigned int AIGNode::getId()const{
 	return this->id;
 }
 
@@ -112,6 +123,7 @@ OutputNode::OutputNode(const int id){
 
 AndNode::AndNode(const int id){
 	this->setId(id);
+	this->setName(patch::to_string(id));
 	input0 = NULL;
 	input1 = NULL;
 	input0Inverted = false;

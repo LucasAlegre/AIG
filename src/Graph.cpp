@@ -52,7 +52,7 @@ void Graph::insertAndNode(AndNode* andNode){
 
 }
 
-AIGNode* Graph::findNodeById(const int id){
+AIGNode* Graph::findNodeById(const unsigned int id){
 	vector<AIGNode*>::iterator it;
 
 	for(it = nodes.begin(); it < nodes.end(); it++){
@@ -64,7 +64,7 @@ AIGNode* Graph::findNodeById(const int id){
 }
 
 
-InputNode* Graph::findInputById(const int id){
+InputNode* Graph::findInputById(const unsigned int id){
 	vector<InputNode*>::iterator it;
 
 	for(it = inputs.begin(); it < inputs.end(); it++){
@@ -74,7 +74,7 @@ InputNode* Graph::findInputById(const int id){
 	}
 	return NULL;
 }
-OutputNode* Graph::findOutputtById(const int id){
+OutputNode* Graph::findOutputtById(const unsigned int id){
 
 	vector<OutputNode*>::iterator it;
 
@@ -85,7 +85,7 @@ OutputNode* Graph::findOutputtById(const int id){
 	}
 	return NULL;
 }
-AndNode* Graph::findAndById(const int id){
+AndNode* Graph::findAndById(const unsigned int id){
 
 	vector<AndNode*>::iterator it;
 
