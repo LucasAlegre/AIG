@@ -42,27 +42,25 @@ Graph* AigerReader::readAIGFile(){
     readAIGOutputs();
     readAIGAnds();
 
-   // connectAAGOutputs();
+    connectAAGOutputs();
 
-  //  readAAGNames();
+    readAAGNames();
 
-  //  debug << "\ncreate the AIG and add all nodes\n";
-  //  debug << "return the AIG";
+    debug << "\ncreate the AIG and add all nodes\n";
+    debug << "return the AIG";
 
    return aig;
 }
 
 unsigned AigerReader::decode(){
 
-	std::istreambuf_iterator<char> it(source);
 
 	unsigned x = 0, i = 0;
-	unsigned char ch;
+	unsigned char ch = source.get();
 
-	ch = *it;
 	while(ch & 0x80){
 		x |= (ch & 0x7f) << (7 * i++);
-		ch = *(++it);
+		ch = source.get();
 	}
 
 	return x | (ch << (7 * i));
@@ -87,6 +85,7 @@ void AigerReader::readAIGAnds(){
     	rhs0 = lhs - delta0;
     	rhs1 = rhs0 - delta1;
 
+    	debug << delta0 << "  " << delta1 << endl;
     	debug << rhs0 << "  " << rhs1 << endl;
 
     	if(rhs0 % 2 == 0){
