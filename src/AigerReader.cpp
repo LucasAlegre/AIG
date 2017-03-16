@@ -17,6 +17,10 @@
 
 AigerReader::AigerReader(string sourcePath)
 {
+	aig = new Graph;
+
+	nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
+
 	try{
 		source.open(sourcePath.c_str());
 	    debug.open("Comentado.txt");
@@ -28,50 +32,145 @@ AigerReader::AigerReader(string sourcePath)
 }
 
 Graph* AigerReader::readAIGFile(){
-	//TODO
-	return NULL;
+
+    if(!readHeader()){
+    	cout << "Header not correct" << endl;
+    	exit(-1);
+    }
+
+    readAIGInputs();
+    readAIGOutputs();
+    readAIGAnds();
+
+   // connectAAGOutputs();
+
+  //  readAAGNames();
+
+  //  debug << "\ncreate the AIG and add all nodes\n";
+  //  debug << "return the AIG";
+
+   return aig;
+}
+
+unsigned AigerReader::decode(){
+
+	std::istreambuf_iterator<char> it(source);
+
+	unsigned x = 0, i = 0;
+	unsigned char ch;
+
+	ch = *it;
+	while(ch & 0x80){
+		x |= (ch & 0x7f) << (7 * i++);
+		ch = *(++it);
+	}
+
+	return x | (ch << (7 * i));
+
+}
+
+//based on http://fmv.jku.at/aiger/FORMAT-20070427.pdf
+void AigerReader::readAIGAnds(){
+
+	unsigned delta0, delta1, lhs, rhs0, rhs1;
+
+    //connecting ands
+    debug << "\n";
+    for (int i = 0; i < nAnds; i++) {
+
+    	lhs = 2*(nInputs + nFFs) + (2*(i+1));
+    	AndNode* andnode = new AndNode(lhs);
+
+    	delta0 = decode();
+    	delta1 = decode();
+
+    	rhs0 = lhs - delta0;
+    	rhs1 = rhs0 - delta1;
+
+    	debug << rhs0 << "  " << rhs1 << endl;
+
+    	if(rhs0 % 2 == 0){
+    		andnode->setInputInverted(false, 0);
+    	}
+    	else{
+    		andnode->setInputInverted(true, 0);
+    		rhs0--;
+    	}
+
+    	if(rhs1 % 2 == 0){
+    		andnode->setInputInverted(false, 1);
+    	}
+    	else{
+    		andnode->setInputInverted(true, 1);
+    		rhs1--;
+    	}
+
+    	andnode->setInput(aig->findNodeById(rhs0), aig->findNodeById(rhs1));
+    	aig->insertAndNode(andnode);
+
+        debug << "read the and " << i << " Id: " << andnode->getId()  << " from the file\n";
+        debug << "   connect the and" << i << " and set the inversion of this pins\n";
+    }
+
+}
+
+void AigerReader::readAIGInputs(){
+    //treating inputs
+    for (int i = 0; i < nInputs; i++) {
+
+    	InputNode* input = new InputNode((i+1)*2);
+    	aig->insertInputNode(input);
+
+        debug << "read the input " << i << " Id: " << input->getId() << " from the file\n";
+        debug << "   create in" << i << " and add it to an input list and the all nodes list\n";
+    }
+
+}
+
+void AigerReader::readAIGOutputs(){
+
+    //treating outputs
+    debug << "\n";
+    for (int i = 0; i < nOutputs; i++) {
+
+        source.getline(buf, 250);
+        string s = buf;
+        istringstream line(s);
+        line >> word;
+
+    	OutputNode* output = new OutputNode(atoi(word.c_str()));
+    	aig->insertOutputNode(output);
+
+    	debug << word << "  " << nOutputs << "   " << i << endl;
+
+        debug << "read the output " << i << " Id: " << output->getId()  << " from the file\n";
+        debug << "   create out" << i << " and add it to an output list and the all nodes list\n";
+    }
 }
 
 Graph* AigerReader::readAAGFile()
 {
-    //treating header
-    source.getline(buf, 250);
-    string s = buf;
-    istringstream line(s);
-    line >> word;
 
-    if(strcmp("aag",word.c_str())!=0)
-    {
-        cout << "the file is not an AAG file!";
-        return NULL;
+    if(!readHeader()){
+    	cout << "Header not correct" << endl;
+    	exit(-1);
     }
 
-    int nNodes, nInputs, nFFs, nOutputs, nAnds;
-    line >> word;
-    nNodes = atoi(word.c_str());
-    line >> word;
-    nInputs = atoi(word.c_str());
-    line >> word;
-    nFFs = atoi(word.c_str());
-    line >> word;
-    nOutputs = atoi(word.c_str());
-    line >> word;
-    nAnds = atoi(word.c_str());
+    readAAGInputs();
+    readAAGOutputs();
+    readAAGAnds();
 
+    connectAAGOutputs();
 
-    if (nNodes != nInputs + nFFs + nAnds) {
-        cout << "Wrong file header";
-        return NULL;
-    }
+    readAAGNames();
 
-    if (nFFs != 0) {
-        cout << "FF not supported yet";
-        return NULL;
-    }
+    debug << "\ncreate the AIG and add all nodes\n";
+    debug << "return the AIG";
 
-    debug << s << "\nThe file header is ok!\n\n";
+    return aig;
+}
 
-    Graph* aig = new Graph;
+void AigerReader::readAAGInputs(){
 
     //treating inputs
     for (int i = 0; i < nInputs; i++) {
@@ -88,6 +187,10 @@ Graph* AigerReader::readAAGFile()
         debug << "   create in" << i << " and add it to an input list and the all nodes list\n";
     }
 
+}
+
+void AigerReader::readAAGOutputs(){
+
     //treating outputs
     debug << "\n";
     for (int i = 0; i < nOutputs; i++) {
@@ -103,7 +206,9 @@ Graph* AigerReader::readAAGFile()
         debug << "read the output " << i << " Id: " << output->getId()  << " from the file\n";
         debug << "   create out" << i << " and add it to an output list and the all nodes list\n";
     }
+}
 
+void AigerReader::readAAGAnds(){
     //connecting ands
     debug << "\n";
     for (int i = 0; i < nAnds; i++) {
@@ -144,11 +249,55 @@ Graph* AigerReader::readAAGFile()
         debug << "   connect the and" << i << " and set the inversion of this pins\n";
     }
 
+}
 
-    debug << "connect the outputs' inputs";
+bool AigerReader::readHeader()
+{
+	//treating header
+	source.getline(buf, 250);
+	string s = buf;
+	istringstream line(s);
+	line >> word;
+
+	if(strcmp("aag",word.c_str())!=0 && strcmp("aig",word.c_str())!=0)
+	{
+		cout << "the file is not an AAG or AIG file!" << endl;
+		return false;
+	}
+
+	line >> word;
+	nNodes = atoi(word.c_str());
+	line >> word;
+	nInputs = atoi(word.c_str());
+	line >> word;
+	nFFs = atoi(word.c_str());
+	line >> word;
+	nOutputs = atoi(word.c_str());
+	line >> word;
+	nAnds = atoi(word.c_str());
+
+
+	if (nNodes != nInputs + nFFs + nAnds) {
+		cout << "Wrong file header";
+		return false;
+	}
+
+	if (nFFs != 0) {
+		cout << "FF not supported yet";
+		return false;
+	}
+
+	debug << s << "\nThe file header is ok!\n\n";
+	return true;
+}
+
+//Connect the outputs to its inputs
+void AigerReader::connectAAGOutputs(){
+
+
+    debug << "connect the outputs' inputs" << endl;
     vector<OutputNode*>::iterator it;
     vector<OutputNode*> *outputs = aig->getOutputNodes();
-    vector<InputNode*> *inputs = aig->getInputNodes();
 	for(it = outputs->begin(); it < outputs->end(); it++){
 		int idinp = (*it)->getId();
 		if(idinp % 2 != 0){
@@ -159,11 +308,11 @@ Graph* AigerReader::readAAGFile()
 		(*it)->setInput(andnode);
 	}
 	aig->addOutputToNodes();
+}
 
-    debug << "\n";
-
-    string aigName;
-
+void AigerReader::readAAGNames(){
+    vector<OutputNode*> *outputs = aig->getOutputNodes();
+    vector<InputNode*> *inputs = aig->getInputNodes();
     int counter = 0;
     while(source)
     {
@@ -198,13 +347,14 @@ Graph* AigerReader::readAAGFile()
         }
     }
 
-    debug << "\ncreate the AIG and add all nodes\n";
-    debug << "return the AIG";
-
-    return aig;
 }
 
 void AigerReader::generateDot(Graph* aig, string filename){
+
+	if(aig == NULL){
+		cout << "Tryed to generate dotfile from an empty aig" << endl;
+		exit(-2);
+	}
 
 	ofstream dotfile(filename.c_str());
 	string inputDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#ff8080\", fontsize=20]";

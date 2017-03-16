@@ -24,6 +24,10 @@ private:
     string word;
     char buf[250];
 
+    Graph* aig;
+
+	int nNodes, nInputs, nFFs, nOutputs, nAnds;
+
 public:
     AigerReader(string sourcePath);
 
@@ -32,9 +36,23 @@ public:
     	debug.close();
     }
 
+    bool readHeader();
+
+    //AAG FILE
+    void readAAGInputs();
+    void readAAGOutputs();
+    void readAAGAnds();
+    void connectAAGOutputs();
+    void readAAGNames();
     Graph* readAAGFile();
 
+    //AIG FILE
+    void readAIGInputs();
+    void readAIGOutputs();
+    unsigned int decode();
+    void readAIGAnds();
     Graph* readAIGFile();
+
 
     void generateDot(Graph* aig, string filename);
 };

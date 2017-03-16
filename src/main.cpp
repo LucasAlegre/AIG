@@ -20,13 +20,18 @@ int main(int argc, char* arv[]){
 		exit(-1);
 	}
 
-	string filePath = "aigs/";
 	string fileName(arv[1]);
-	string fileExtension = ".aag";
 
-	AigerReader reader(filePath + fileName + fileExtension);
+	string filePathAAG = "aags/";
+	string filePathAIG = "aigs/";
+	string fileExtensionAAG = ".aag";
+	string fileExtensionAIG = ".aig";
 
-	Graph* aig = reader.readAAGFile();
+	//AigerReader reader(filePathAAG + fileName + fileExtensionAAG);
+	//Graph* aig = reader.readAAGFile();
+
+	AigerReader reader(filePathAIG + fileName + fileExtensionAIG);
+	Graph* aig = reader.readAIGFile();
 
 	reader.generateDot(aig, fileName + ".dot");
 
