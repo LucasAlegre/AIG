@@ -19,7 +19,6 @@ namespace patch
     }
 }
 
-
 AIGNode::AIGNode() {
     id = -1;
 }

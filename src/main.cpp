@@ -24,16 +24,19 @@ int main(int argc, char* arv[]){
 
 	string filePathAAG = "aags/";
 	string filePathAIG = "aigs/";
-	string fileExtensionAAG = ".aag";
-	string fileExtensionAIG = ".aig";
 
-	//AigerReader reader(filePathAAG + fileName + fileExtensionAAG);
-	//Graph* aig = reader.readAAGFile();
-
-	AigerReader reader(filePathAIG + fileName + fileExtensionAIG);
-	Graph* aig = reader.readAIGFile();
-
-	reader.generateDot(aig, fileName + ".dot");
+	if(fileName.substr(fileName.find_last_of(".") + 1) == "aag"){
+		AigerReader reader(filePathAAG + fileName);
+	    Graph* aig = reader.readAAGFile();
+		reader.generateDot(aig, fileName + ".dot");
+	}
+	else if(fileName.substr(fileName.find_last_of(".") + 1) == "aig"){
+		AigerReader reader(filePathAIG + fileName);
+		Graph* aig = reader.readAIGFile();
+		reader.generateDot(aig, fileName + ".dot");
+	}
+	else
+		cout << "File must be .aag or .aig\n";
 
 	return 0;
 

@@ -38,6 +38,10 @@ Graph* AigerReader::readAIGFile(){
     	exit(-1);
     }
 
+	InputNode* constant = new InputNode(0);
+	constant->setName("constant");
+	aig->getNodes()->push_back(constant);
+
     readAIGInputs();
     readAIGOutputs();
     readAIGAnds();
@@ -52,8 +56,8 @@ Graph* AigerReader::readAIGFile(){
    return aig;
 }
 
+//based on http://fmv.jku.at/aiger/FORMAT-20070427.pdf
 unsigned AigerReader::decode(){
-
 
 	unsigned x = 0, i = 0;
 	unsigned char ch = source.get();
@@ -85,8 +89,8 @@ void AigerReader::readAIGAnds(){
     	rhs0 = lhs - delta0;
     	rhs1 = rhs0 - delta1;
 
-    	debug << delta0 << "  " << delta1 << endl;
-    	debug << rhs0 << "  " << rhs1 << endl;
+    	debug << "delta0: " << delta0 << "  " << "delta1: "  << delta1 << endl;
+    	debug << "rhs0: " << rhs0 << "  " << "rhs1: " << rhs1 << endl;
 
     	if(rhs0 % 2 == 0){
     		andnode->setInputInverted(false, 0);
@@ -121,7 +125,6 @@ void AigerReader::readAIGInputs(){
     	aig->insertInputNode(input);
 
         debug << "read the input " << i << " Id: " << input->getId() << " from the file\n";
-        debug << "   create in" << i << " and add it to an input list and the all nodes list\n";
     }
 
 }
@@ -140,10 +143,7 @@ void AigerReader::readAIGOutputs(){
     	OutputNode* output = new OutputNode(atoi(word.c_str()));
     	aig->insertOutputNode(output);
 
-    	debug << word << "  " << nOutputs << "   " << i << endl;
-
         debug << "read the output " << i << " Id: " << output->getId()  << " from the file\n";
-        debug << "   create out" << i << " and add it to an output list and the all nodes list\n";
     }
 }
 
@@ -155,6 +155,10 @@ Graph* AigerReader::readAAGFile()
     	exit(-1);
     }
 
+	InputNode* constant = new InputNode(0);
+	constant->setName("constant");
+	aig->getNodes()->push_back(constant);
+
     readAAGInputs();
     readAAGOutputs();
     readAAGAnds();
@@ -164,7 +168,7 @@ Graph* AigerReader::readAAGFile()
     readAAGNames();
 
     debug << "\ncreate the AIG and add all nodes\n";
-    debug << "return the AIG";
+    debug << "return the AIG\n";
 
     return aig;
 }
@@ -293,7 +297,6 @@ bool AigerReader::readHeader()
 //Connect the outputs to its inputs
 void AigerReader::connectAAGOutputs(){
 
-
     debug << "connect the outputs' inputs" << endl;
     vector<OutputNode*>::iterator it;
     vector<OutputNode*> *outputs = aig->getOutputNodes();
@@ -303,8 +306,8 @@ void AigerReader::connectAAGOutputs(){
 			(*it)->setInputInverted(true);
 			idinp--;
 		}
-		AIGNode* andnode = aig->findNodeById(idinp);
-		(*it)->setInput(andnode);
+		AIGNode* node = aig->findNodeById(idinp);
+		(*it)->setInput(node);
 	}
 	aig->addOutputToNodes();
 }
@@ -321,12 +324,15 @@ void AigerReader::readAAGNames(){
         line.seekg(0);line.str(s);
         line >> word;
 
+    	debug << word << endl;
+
         if(strcmp("c",word.substr(0).c_str())==0){
             debug << "the comments began. Ignore the file from here!\n";
             break;
         }
         else if(strcmp(word.substr(0,1).c_str(),"i")==0){
         	line >> word;
+
         	inputs->at(counter)->setName(word);
         	if(counter == nInputs - 1)
         		counter = 0;
@@ -355,6 +361,8 @@ void AigerReader::generateDot(Graph* aig, string filename){
 		exit(-2);
 	}
 
+	debug << "generating dotfile..." << endl;
+
 	ofstream dotfile(filename.c_str());
 	string inputDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#ff8080\", fontsize=20]";
     string andDetails = " [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor=\"#ffffff\", fontsize=20]";
@@ -369,38 +377,35 @@ void AigerReader::generateDot(Graph* aig, string filename){
 
 	//write the input nodes on the dot file
     vector<InputNode*> *inputs = aig->getInputNodes();
-    vector<InputNode*>::iterator it;
-	for(it = inputs->begin(); it < inputs->end(); it++){
+	for(auto it = inputs->begin(); it < inputs->end(); it++){
 		dotfile << "\"" << (*it)->getName() << "\"" << inputDetails << endl;
 		inputsIds += "\"" +  (*it)->getName() + "\" ";
 	}
 
 	//write the and nodes on the dot file
     vector<AndNode*> *ands = aig->getAndNodes();
-    vector<AndNode*>::iterator it2;
-	for(it2 = ands->begin(); it2 < ands->end(); it2++){
-		dotfile << "\"" << (*it2)->getName() << "\"" << andDetails << endl;
+	for(auto it = ands->begin(); it < ands->end(); it++){
+		dotfile << "\"" << (*it)->getName() << "\"" << andDetails << endl;
 	}
 
 	//write the output nodes on the dot file
     vector<OutputNode*> *outputs = aig->getOutputNodes();
-    vector<OutputNode*>::iterator it3;
-	for(it3 = outputs->begin(); it3 < outputs->end(); it3++){
-		dotfile << "\"" << (*it3)->getName() << "\"" << outputDetails << endl;
-		outputsIds += "\"" + (*it3)->getName() + "\" ";
+	for(auto it = outputs->begin(); it < outputs->end(); it++){
+		dotfile << "\"" << (*it)->getName() << "\"" << outputDetails << endl;
+		outputsIds += "\"" + (*it)->getName() + "\" ";
 	}
 
 	//write the ands connections on the dot file
-	for(it2 = ands->begin(); it2 < ands->end(); it2++){
+	for(auto it = ands->begin(); it < ands->end(); it++){
 
-		dotfile << "\"" << (*it2)->getInput(0)->getName() << "\"" << " -> " << "\"" << (*it2)->getName() << "\"";
-		if( (*it2)->isInputInverted(0) )
+		dotfile << "\"" << (*it)->getInput(0)->getName() << "\"" << " -> " << "\"" << (*it)->getName() << "\"";
+		if( (*it)->isInputInverted(0) )
 			dotfile << negativeEdgeDetails << endl;
 		else
 			dotfile << positiveEdgeDetails << endl;
 
-		dotfile << "\"" << (*it2)->getInput(1)->getName() << "\"" << " -> " << "\"" << (*it2)->getName() << "\"";
-		if( (*it2)->isInputInverted(1) )
+		dotfile << "\"" << (*it)->getInput(1)->getName() << "\"" << " -> " << "\"" << (*it)->getName() << "\"";
+		if( (*it)->isInputInverted(1) )
 			dotfile << negativeEdgeDetails << endl;
 		else
 			dotfile << positiveEdgeDetails << endl;
@@ -408,9 +413,9 @@ void AigerReader::generateDot(Graph* aig, string filename){
 	}
 
 	//write the outputs connections on the dot file
-	for(it3 = outputs->begin(); it3 < outputs->end(); it3++){
-		dotfile << "\"" << (*it3)->getInput()->getName() << "\"" << " -> " << "\"" << (*it3)->getName() << "\"";
-		if( (*it3)->isInputInverted() )
+	for(auto it = outputs->begin(); it < outputs->end(); it++){
+		dotfile << "\"" << (*it)->getInput()->getName() << "\"" << " -> " << "\"" << (*it)->getName() << "\"";
+		if( (*it)->isInputInverted() )
 			dotfile << negativeEdgeDetails << endl;
 		else
 			dotfile << positiveEdgeDetails << endl;
@@ -421,5 +426,7 @@ void AigerReader::generateDot(Graph* aig, string filename){
     dotfile << "{ rank=since; ";
     dotfile << outputsIds << "}" << endl;
     dotfile << "rankdir=\"BT\"" << endl << "}";
+
+    debug << "dotfile generated\n";
 
 }

@@ -15,19 +15,3 @@ digraph aig {
 "y" -> "12" [penwidth = 3, color=blue]
 "x" -> "14" [penwidth = 3, color=red, style=dashed]
 "y" -> "14" [penwidth = 3, color=red, style=dashed]
-"12" -> "16" [penwidth = 3, color=red, style=dashed]
-"14" -> "16" [penwidth = 3, color=red, style=dashed]
-"16" -> "18" [penwidth = 3, color=blue]
-"cin" -> "18" [penwidth = 3, color=blue]
-"18" -> "10" [penwidth = 3, color=red, style=dashed]
-"12" -> "10" [penwidth = 3, color=red, style=dashed]
-"16" -> "20" [penwidth = 3, color=red, style=dashed]
-"cin" -> "20" [penwidth = 3, color=red, style=dashed]
-"20" -> "8" [penwidth = 3, color=red, style=dashed]
-"18" -> "8" [penwidth = 3, color=red, style=dashed]
-"8" -> "s" [penwidth = 3, color=blue]
-"10" -> "cout" [penwidth = 3, color=red, style=dashed]
-{ rank=source; "x" "y" "cin" }
-{ rank=since; "s" "cout" }
-rankdir="BT"
-}

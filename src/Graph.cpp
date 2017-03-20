@@ -52,7 +52,9 @@ void Graph::insertAndNode(AndNode* andNode){
 	this->nodes.push_back(andNode);
 }
 
+//it only works for And and Input Nodes
 AIGNode* Graph::findNodeById(const unsigned int id){
+
 	/*vector<AIGNode*>::iterator it;
 
 	for(it = nodes.begin(); it < nodes.end(); it++){
@@ -61,5 +63,8 @@ AIGNode* Graph::findNodeById(const unsigned int id){
 		}
 	}*/
 
-	return nodes[id/2 - 1];
+	if(id == 0)
+		return nodes[0];
+
+	return nodes[id/2];
 }
