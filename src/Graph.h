@@ -14,6 +14,11 @@
 
 using namespace std;
 
+
+/* Graph with Pointers
+*
+*/
+
 class Graph {
 private:
     vector<AIGNode*> nodes;
@@ -25,10 +30,10 @@ public:
 	Graph();
 	virtual ~Graph();
 
-	void insertInputNode(InputNode* input);
-	void insertOutputNode(OutputNode* output);
-	void insertAndNode(AndNode* andNode);
-	void addOutputToNodes();
+	void insertInputNode(const unsigned int id);
+	void insertOutputNode(const unsigned int id);
+	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
+	void addOutputToNodes();  // Insert the outputs vector at the end of the nodes vector
 
 	AIGNode* findNodeById(const unsigned int id);
 
@@ -38,5 +43,6 @@ public:
 	vector<OutputNode*> * getOutputNodes();
 
 };
+
 
 #endif /* GRAPH_H_ */

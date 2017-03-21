@@ -9,8 +9,6 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
 Graph::Graph() {
 	// TODO Auto-generated constructor stub
 }
@@ -38,18 +36,45 @@ vector<AndNode*> * Graph::getAndNodes(){
 	return &(this->andNodes);
 }
 
-void Graph::insertInputNode(InputNode* input){
+void Graph::insertInputNode(const unsigned id){
+
+	InputNode* input = new InputNode(id);
+
 	this->inputs.push_back(input);
 	this->nodes.push_back(input);
 }
 
-void Graph::insertOutputNode(OutputNode* output){
+void Graph::insertOutputNode(const unsigned id){
+
+	OutputNode* output = new OutputNode(id);
+
 	this->outputs.push_back(output);
 }
 
-void Graph::insertAndNode(AndNode* andNode){
-	this->andNodes.push_back(andNode);
-	this->nodes.push_back(andNode);
+void Graph::insertAndNode(const unsigned id, unsigned rhs0, unsigned rhs1){
+
+	AndNode* andnode = new AndNode(id);
+
+	if(rhs0 % 2 == 0){
+		andnode->setInputInverted(false, 0);
+	}
+	else{
+		andnode->setInputInverted(true, 0);
+		rhs0--;
+	}
+
+	if(rhs1 % 2 == 0){
+		andnode->setInputInverted(false, 1);
+	}
+	else{
+		andnode->setInputInverted(true, 1);
+		rhs1--;
+	}
+
+	andnode->setInput(findNodeById(rhs0), findNodeById(rhs1));
+
+	this->andNodes.push_back(andnode);
+	this->nodes.push_back(andnode);
 }
 
 //it only works for And and Input Nodes

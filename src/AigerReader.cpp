@@ -14,7 +14,6 @@
 #include <sstream>
 #include "AigerReader.h"
 
-
 AigerReader::AigerReader(string sourcePath)
 {
 	aig = new Graph;
@@ -26,7 +25,7 @@ AigerReader::AigerReader(string sourcePath)
 	    debug.open("Comentado.txt");
 	}
 	catch (const ifstream::failure& e) {
-	    cout << "Exception opening/reading file";
+	    cout << "Exception opening/reading file\n";
     }
 
 }
@@ -81,7 +80,6 @@ void AigerReader::readAIGAnds(){
     for (int i = 0; i < nAnds; i++) {
 
     	lhs = 2*(nInputs + nFFs) + (2*(i+1));
-    	AndNode* andnode = new AndNode(lhs);
 
     	delta0 = decode();
     	delta1 = decode();
@@ -92,26 +90,9 @@ void AigerReader::readAIGAnds(){
     	debug << "delta0: " << delta0 << "  " << "delta1: "  << delta1 << endl;
     	debug << "rhs0: " << rhs0 << "  " << "rhs1: " << rhs1 << endl;
 
-    	if(rhs0 % 2 == 0){
-    		andnode->setInputInverted(false, 0);
-    	}
-    	else{
-    		andnode->setInputInverted(true, 0);
-    		rhs0--;
-    	}
+    	aig->insertAndNode(lhs, rhs0, rhs1);
 
-    	if(rhs1 % 2 == 0){
-    		andnode->setInputInverted(false, 1);
-    	}
-    	else{
-    		andnode->setInputInverted(true, 1);
-    		rhs1--;
-    	}
-
-    	andnode->setInput(aig->findNodeById(rhs0), aig->findNodeById(rhs1));
-    	aig->insertAndNode(andnode);
-
-        debug << "read the and " << i << " Id: " << andnode->getId()  << " from the file\n";
+        debug << "read the and " << i << " Id: " << lhs  << " from the file\n";
         debug << "   connect the and" << i << " and set the inversion of this pins\n";
     }
 
@@ -121,10 +102,9 @@ void AigerReader::readAIGInputs(){
     //treating inputs
     for (int i = 0; i < nInputs; i++) {
 
-    	InputNode* input = new InputNode((i+1)*2);
-    	aig->insertInputNode(input);
+    	aig->insertInputNode((i+1)*2);
 
-        debug << "read the input " << i << " Id: " << input->getId() << " from the file\n";
+        debug << "read the input " << i << " Id: " << (i+1)*2 << " from the file\n";
     }
 
 }
@@ -140,10 +120,9 @@ void AigerReader::readAIGOutputs(){
         istringstream line(s);
         line >> word;
 
-    	OutputNode* output = new OutputNode(atoi(word.c_str()));
-    	aig->insertOutputNode(output);
+    	aig->insertOutputNode(atoi(word.c_str()));
 
-        debug << "read the output " << i << " Id: " << output->getId()  << " from the file\n";
+        debug << "read the output " << i << " Id: " << word  << " from the file\n";
     }
 }
 
@@ -183,10 +162,9 @@ void AigerReader::readAAGInputs(){
         istringstream line(s);
         line >> word;
 
-    	InputNode* input = new InputNode(atoi(word.c_str()));
-    	aig->insertInputNode(input);
+    	aig->insertInputNode(atoi(word.c_str()));
 
-        debug << "read the input " << i << " Id: " << input->getId() << " from the file\n";
+        debug << "read the input " << i << " Id: " << word << " from the file\n";
         debug << "   create in" << i << " and add it to an input list and the all nodes list\n";
     }
 
@@ -203,10 +181,9 @@ void AigerReader::readAAGOutputs(){
         istringstream line(s);
         line >> word;
 
-    	OutputNode* output = new OutputNode(atoi(word.c_str()));
-    	aig->insertOutputNode(output);
+    	aig->insertOutputNode(atoi(word.c_str()));
 
-        debug << "read the output " << i << " Id: " << output->getId()  << " from the file\n";
+        debug << "read the output " << i << " Id: " << word  << " from the file\n";
         debug << "   create out" << i << " and add it to an output list and the all nodes list\n";
     }
 }
@@ -221,7 +198,7 @@ void AigerReader::readAAGAnds(){
         istringstream line(s);
         line >> word;
 
-    	AndNode* andnode = new AndNode(atoi(word.c_str()));
+        unsigned id = atoi(word.c_str());
 
     	int i0, i1;
     	line >> word;
@@ -229,26 +206,9 @@ void AigerReader::readAAGAnds(){
     	line >> word;
     	i1 = atoi(word.c_str());
 
-    	if(i0 % 2 == 0){
-    		andnode->setInputInverted(false, 0);
-    	}
-    	else{
-    		andnode->setInputInverted(true, 0);
-    		i0--;
-    	}
+    	aig->insertAndNode(id, i0, i1);
 
-    	if(i1 % 2 == 0){
-    		andnode->setInputInverted(false, 1);
-    	}
-    	else{
-    		andnode->setInputInverted(true, 1);
-    		i1--;
-    	}
-
-    	andnode->setInput(aig->findNodeById(i0), aig->findNodeById(i1));
-    	aig->insertAndNode(andnode);
-
-        debug << "read the and " << i << " Id: " << andnode->getId()  << " from the file\n";
+        debug << "read the and " << i << " Id: " << id << " from the file\n";
         debug << "   connect the and" << i << " and set the inversion of this pins\n";
     }
 
@@ -313,9 +273,12 @@ void AigerReader::connectAAGOutputs(){
 }
 
 void AigerReader::readAAGNames(){
+
     vector<OutputNode*> *outputs = aig->getOutputNodes();
     vector<InputNode*> *inputs = aig->getInputNodes();
+
     int counter = 0;
+
     while(source)
     {
         source.getline(buf, 250, '\n');

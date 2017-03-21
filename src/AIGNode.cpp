@@ -9,15 +9,7 @@
 #include "Graph.h"
 #include <iostream>
 
-namespace patch
-{
-    template < typename T > std::string to_string( const T& n )
-    {
-        ostringstream stm ;
-        stm << n ;
-        return stm.str() ;
-    }
-}
+using namespace std;
 
 AIGNode::AIGNode() {
     id = -1;
@@ -33,6 +25,16 @@ void AIGNode::setId(const unsigned id){
 
 unsigned int AIGNode::getId()const{
 	return this->id;
+}
+
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
 }
 
 AigNodeType InputNode::getNodeType(){
@@ -109,7 +111,6 @@ AIGNode* AndNode::getInput(const int input0or1){
 	}
 }
 
-
 InputNode::InputNode(const int id){
 	this->setId(id);
 }
@@ -128,3 +129,4 @@ AndNode::AndNode(const int id){
 	input0Inverted = false;
 	input1Inverted = false;
 }
+

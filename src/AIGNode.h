@@ -12,6 +12,8 @@
 #include<string>
 #include<string.h>
 #include<sstream>
+#include<vector>
+
 using namespace std;
 
 typedef enum {
@@ -20,6 +22,7 @@ typedef enum {
     OUTPUT_NODE     // 2: Ouput object
 } AigNodeType;
 
+// --- AIG Node
 
 class AIGNode {
 private:
@@ -31,13 +34,10 @@ public:
 	virtual ~AIGNode();
 
 	void setId(const unsigned id);
-
 	unsigned int getId() const;
-
 	void setName(const string name){
 		this->name = name;
 	}
-
 	string getName()const{
 		return this->name;
 	}
@@ -46,21 +46,21 @@ public:
 
 };
 
-
+// --- Input Node
 
 class InputNode: public AIGNode{
 public:
 
+	InputNode(const int id);
+
 	AigNodeType getNodeType();
-
-    InputNode(const int id);
-
 	AIGNode* getInput(const int input0or1){
 		cout << "Tried to get input from an input node.\n";
 		return NULL;
 	}
 };
 
+// --- Output Node
 
 class OutputNode: public AIGNode{
 private:
@@ -69,7 +69,6 @@ private:
 
 public:
 	OutputNode(const int id);
-
 	~OutputNode(){
 		delete input0;
 	}
@@ -85,7 +84,7 @@ public:
 	void setInputInverted(const bool inputInverted);
 };
 
-
+// --- And Node
 
 class AndNode: public AIGNode{
 private:
@@ -111,6 +110,30 @@ public:
 	AIGNode* getInput(const int input0or1);
 
 	void setInputInverted(const bool inputInverted, const int input0or1);
+};
+
+class AIGNodeB: public AIGNode {
+private:
+	vector<AIGNode*> outputs;
+	vector<bool> outputsInverted;
+public:
+	vector<AIGNode*> * getOutputs(){
+		return &(this->outputs);
+	}
+	void setOutput(AIGNode* node){
+		outputs.push_back(node);
+	}
+	vector<bool> * getOutputsInverted(){
+		return &(this->outputsInverted);
+	}
+
+
+};
+
+class InputNodeB: public InputNode, AIGNodeB{
+};
+
+class AndNodeB: public AndNode, AIGNodeB{
 };
 
 #endif /* AIGNODE_H_ */
