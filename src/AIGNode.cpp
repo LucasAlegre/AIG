@@ -11,9 +11,21 @@
 
 using namespace std;
 
-AIGNode::AIGNode() {
-    id = -1;
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
 }
+
+
+/*  AIG Node
+ *
+ */
+
 
 AIGNode::~AIGNode() {
 	// TODO Auto-generated destructor stub
@@ -27,23 +39,58 @@ unsigned int AIGNode::getId()const{
 	return this->id;
 }
 
-namespace patch
-{
-    template < typename T > std::string to_string( const T& n )
-    {
-        ostringstream stm ;
-        stm << n ;
-        return stm.str() ;
-    }
-}
+
+/*
+ *  Input Node
+ */
 
 AigNodeType InputNode::getNodeType(){
 	return INPUT_NODE;
 }
 
+InputNode::InputNode(const unsigned id):AIGNode(id){
+
+	this->setId(id);
+}
+
+
+/*
+ *  Output Node
+ */
+
+OutputNode::OutputNode(const int id){
+	this->setId(id);
+	input0 = NULL;
+	input0Inverted = false;
+}
+
 AigNodeType OutputNode::getNodeType(){
 	return OUTPUT_NODE;
 }
+
+
+void OutputNode::setInputInverted(const bool inputInverted){
+	this->input0Inverted = inputInverted;
+}
+
+bool OutputNode::isInputInverted()const{
+	return this->input0Inverted;
+}
+
+void OutputNode::setInput(AIGNode* node){
+
+	this->input0 = node;
+}
+
+AIGNode* OutputNode::getInput(){
+
+	return this->input0;
+}
+
+
+/*
+ *   AND Node
+ */
 
 AigNodeType AndNode::getNodeType(){
 	return AND_NODE;
@@ -74,24 +121,6 @@ void AndNode::setInputInverted(const bool inputInverted, const int input0or1){
     }
 }
 
-void OutputNode::setInputInverted(const bool inputInverted){
-	this->input0Inverted = inputInverted;
-}
-
-bool OutputNode::isInputInverted()const{
-	return this->input0Inverted;
-}
-
-
-void OutputNode::setInput(AIGNode* node){
-
-	this->input0 = node;
-}
-
-AIGNode* OutputNode::getInput(){
-
-	return this->input0;
-}
 
 void AndNode::setInput(AIGNode* in0, AIGNode *in1){
 
@@ -109,16 +138,6 @@ AIGNode* AndNode::getInput(const int input0or1){
 		cout << "Invalid parameter \n";
 		return NULL;
 	}
-}
-
-InputNode::InputNode(const int id){
-	this->setId(id);
-}
-
-OutputNode::OutputNode(const int id){
-	this->setId(id);
-	input0 = NULL;
-	input0Inverted = false;
 }
 
 AndNode::AndNode(const int id){

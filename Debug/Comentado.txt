@@ -1,737 +1,564 @@
-aig 181 7 0 26 174
+aag 271 11 0 7 260
 The file header is ok!
 
 read the input 0 Id: 2 from the file
+   create in0 and add it to an input list and the all nodes list
 read the input 1 Id: 4 from the file
+   create in1 and add it to an input list and the all nodes list
 read the input 2 Id: 6 from the file
+   create in2 and add it to an input list and the all nodes list
 read the input 3 Id: 8 from the file
+   create in3 and add it to an input list and the all nodes list
 read the input 4 Id: 10 from the file
+   create in4 and add it to an input list and the all nodes list
 read the input 5 Id: 12 from the file
+   create in5 and add it to an input list and the all nodes list
 read the input 6 Id: 14 from the file
+   create in6 and add it to an input list and the all nodes list
+read the input 7 Id: 16 from the file
+   create in7 and add it to an input list and the all nodes list
+read the input 8 Id: 18 from the file
+   create in8 and add it to an input list and the all nodes list
+read the input 9 Id: 20 from the file
+   create in9 and add it to an input list and the all nodes list
+read the input 10 Id: 22 from the file
+   create in10 and add it to an input list and the all nodes list
 
-read the output 0 Id: 45 from the file
-read the output 1 Id: 70 from the file
-read the output 2 Id: 86 from the file
-read the output 3 Id: 104 from the file
-read the output 4 Id: 142 from the file
-read the output 5 Id: 156 from the file
-read the output 6 Id: 179 from the file
-read the output 7 Id: 191 from the file
-read the output 8 Id: 207 from the file
-read the output 9 Id: 212 from the file
-read the output 10 Id: 222 from the file
-read the output 11 Id: 234 from the file
-read the output 12 Id: 251 from the file
-read the output 13 Id: 256 from the file
-read the output 14 Id: 260 from the file
-read the output 15 Id: 272 from the file
-read the output 16 Id: 282 from the file
-read the output 17 Id: 290 from the file
-read the output 18 Id: 298 from the file
-read the output 19 Id: 302 from the file
-read the output 20 Id: 320 from the file
-read the output 21 Id: 338 from the file
-read the output 22 Id: 344 from the file
-read the output 23 Id: 1 from the file
-read the output 24 Id: 354 from the file
-read the output 25 Id: 362 from the file
+read the output 0 Id: 143 from the file
+   create out0 and add it to an output list and the all nodes list
+read the output 1 Id: 278 from the file
+   create out1 and add it to an output list and the all nodes list
+read the output 2 Id: 405 from the file
+   create out2 and add it to an output list and the all nodes list
+read the output 3 Id: 425 from the file
+   create out3 and add it to an output list and the all nodes list
+read the output 4 Id: 489 from the file
+   create out4 and add it to an output list and the all nodes list
+read the output 5 Id: 533 from the file
+   create out5 and add it to an output list and the all nodes list
+read the output 6 Id: 543 from the file
+   create out6 and add it to an output list and the all nodes list
 
-delta0: 11  delta1: 3
-rhs0: 5  rhs1: 2
-read the and 0 Id: 16 from the file
+read the and 0 Id: 24 from the file
    connect the and0 and set the inversion of this pins
-delta0: 8  delta1: 2
-rhs0: 10  rhs1: 8
-read the and 1 Id: 18 from the file
+read the and 1 Id: 26 from the file
    connect the and1 and set the inversion of this pins
-delta0: 2  delta1: 2
-rhs0: 18  rhs1: 16
-read the and 2 Id: 20 from the file
+read the and 2 Id: 28 from the file
    connect the and2 and set the inversion of this pins
-delta0: 14  delta1: 4
-rhs0: 8  rhs1: 4
-read the and 3 Id: 22 from the file
+read the and 3 Id: 30 from the file
    connect the and3 and set the inversion of this pins
-delta0: 2  delta1: 12
-rhs0: 22  rhs1: 10
-read the and 4 Id: 24 from the file
+read the and 4 Id: 32 from the file
    connect the and4 and set the inversion of this pins
-delta0: 1  delta1: 4
-rhs0: 25  rhs1: 21
-read the and 5 Id: 26 from the file
+read the and 5 Id: 34 from the file
    connect the and5 and set the inversion of this pins
-delta0: 1  delta1: 20
-rhs0: 27  rhs1: 7
-read the and 6 Id: 28 from the file
+read the and 6 Id: 36 from the file
    connect the and6 and set the inversion of this pins
-delta0: 22  delta1: 3
-rhs0: 8  rhs1: 5
-read the and 7 Id: 30 from the file
+read the and 7 Id: 38 from the file
    connect the and7 and set the inversion of this pins
-delta0: 2  delta1: 20
-rhs0: 30  rhs1: 10
-read the and 8 Id: 32 from the file
+read the and 8 Id: 40 from the file
    connect the and8 and set the inversion of this pins
-delta0: 23  delta1: 2
-rhs0: 11  rhs1: 9
-read the and 9 Id: 34 from the file
+read the and 9 Id: 42 from the file
    connect the and9 and set the inversion of this pins
-delta0: 1  delta1: 16
-rhs0: 35  rhs1: 19
-read the and 10 Id: 36 from the file
+read the and 10 Id: 44 from the file
    connect the and10 and set the inversion of this pins
-delta0: 1  delta1: 33
-rhs0: 37  rhs1: 4
-read the and 11 Id: 38 from the file
+read the and 11 Id: 46 from the file
    connect the and11 and set the inversion of this pins
-delta0: 1  delta1: 6
-rhs0: 39  rhs1: 33
-read the and 12 Id: 40 from the file
+read the and 12 Id: 48 from the file
    connect the and12 and set the inversion of this pins
-delta0: 1  delta1: 35
-rhs0: 41  rhs1: 6
-read the and 13 Id: 42 from the file
+read the and 13 Id: 50 from the file
    connect the and13 and set the inversion of this pins
-delta0: 1  delta1: 14
-rhs0: 43  rhs1: 29
-read the and 14 Id: 44 from the file
+read the and 14 Id: 52 from the file
    connect the and14 and set the inversion of this pins
-delta0: 27  delta1: 16
-rhs0: 19  rhs1: 3
-read the and 15 Id: 46 from the file
+read the and 15 Id: 54 from the file
    connect the and15 and set the inversion of this pins
-delta0: 1  delta1: 44
-rhs0: 47  rhs1: 3
-read the and 16 Id: 48 from the file
+read the and 16 Id: 56 from the file
    connect the and16 and set the inversion of this pins
-delta0: 1  delta1: 44
-rhs0: 49  rhs1: 5
-read the and 17 Id: 50 from the file
+read the and 17 Id: 58 from the file
    connect the and17 and set the inversion of this pins
-delta0: 17  delta1: 26
-rhs0: 35  rhs1: 9
-read the and 18 Id: 52 from the file
+read the and 18 Id: 60 from the file
    connect the and18 and set the inversion of this pins
-delta0: 1  delta1: 49
-rhs0: 53  rhs1: 4
-read the and 19 Id: 54 from the file
+read the and 19 Id: 62 from the file
    connect the and19 and set the inversion of this pins
-delta0: 1  delta1: 4
-rhs0: 55  rhs1: 51
-read the and 20 Id: 56 from the file
+read the and 20 Id: 64 from the file
    connect the and20 and set the inversion of this pins
-delta0: 1  delta1: 50
-rhs0: 57  rhs1: 7
-read the and 21 Id: 58 from the file
+read the and 21 Id: 66 from the file
    connect the and21 and set the inversion of this pins
-delta0: 50  delta1: 1
-rhs0: 10  rhs1: 9
-read the and 22 Id: 60 from the file
+read the and 22 Id: 68 from the file
    connect the and22 and set the inversion of this pins
-delta0: 1  delta1: 52
-rhs0: 61  rhs1: 9
-read the and 23 Id: 62 from the file
+read the and 23 Id: 70 from the file
    connect the and23 and set the inversion of this pins
-delta0: 1  delta1: 59
-rhs0: 63  rhs1: 4
-read the and 24 Id: 64 from the file
+read the and 24 Id: 72 from the file
    connect the and24 and set the inversion of this pins
-delta0: 1  delta1: 61
-rhs0: 65  rhs1: 4
-read the and 25 Id: 66 from the file
+read the and 25 Id: 74 from the file
    connect the and25 and set the inversion of this pins
-delta0: 1  delta1: 61
-rhs0: 67  rhs1: 6
-read the and 26 Id: 68 from the file
+read the and 26 Id: 76 from the file
    connect the and26 and set the inversion of this pins
-delta0: 1  delta1: 10
-rhs0: 69  rhs1: 59
-read the and 27 Id: 70 from the file
+read the and 27 Id: 78 from the file
    connect the and27 and set the inversion of this pins
-delta0: 35  delta1: 34
-rhs0: 37  rhs1: 3
-read the and 28 Id: 72 from the file
+read the and 28 Id: 80 from the file
    connect the and28 and set the inversion of this pins
-delta0: 55  delta1: 11
-rhs0: 19  rhs1: 8
-read the and 29 Id: 74 from the file
+read the and 29 Id: 82 from the file
    connect the and29 and set the inversion of this pins
-delta0: 1  delta1: 73
-rhs0: 75  rhs1: 2
-read the and 30 Id: 76 from the file
+read the and 30 Id: 84 from the file
    connect the and30 and set the inversion of this pins
-delta0: 1  delta1: 4
-rhs0: 77  rhs1: 73
-read the and 31 Id: 78 from the file
+read the and 31 Id: 86 from the file
    connect the and31 and set the inversion of this pins
-delta0: 1  delta1: 75
-rhs0: 79  rhs1: 4
-read the and 32 Id: 80 from the file
+read the and 32 Id: 88 from the file
    connect the and32 and set the inversion of this pins
-delta0: 1  delta1: 30
-rhs0: 81  rhs1: 51
-read the and 33 Id: 82 from the file
+read the and 33 Id: 90 from the file
    connect the and33 and set the inversion of this pins
-delta0: 1  delta1: 76
-rhs0: 83  rhs1: 7
-read the and 34 Id: 84 from the file
+read the and 34 Id: 92 from the file
    connect the and34 and set the inversion of this pins
-delta0: 1  delta1: 78
-rhs0: 85  rhs1: 7
-read the and 35 Id: 86 from the file
+read the and 35 Id: 94 from the file
    connect the and35 and set the inversion of this pins
-delta0: 79  delta1: 6
-rhs0: 9  rhs1: 3
-read the and 36 Id: 88 from the file
+read the and 36 Id: 96 from the file
    connect the and36 and set the inversion of this pins
-delta0: 2  delta1: 27
-rhs0: 88  rhs1: 61
-read the and 37 Id: 90 from the file
+read the and 37 Id: 98 from the file
    connect the and37 and set the inversion of this pins
-delta0: 55  delta1: 35
-rhs0: 37  rhs1: 2
-read the and 38 Id: 92 from the file
+read the and 38 Id: 100 from the file
    connect the and38 and set the inversion of this pins
-delta0: 1  delta1: 2
-rhs0: 93  rhs1: 91
-read the and 39 Id: 94 from the file
+read the and 39 Id: 102 from the file
    connect the and39 and set the inversion of this pins
-delta0: 1  delta1: 90
-rhs0: 95  rhs1: 5
-read the and 40 Id: 96 from the file
+read the and 40 Id: 104 from the file
    connect the and40 and set the inversion of this pins
-delta0: 1  delta1: 42
-rhs0: 97  rhs1: 55
-read the and 41 Id: 98 from the file
+read the and 41 Id: 106 from the file
    connect the and41 and set the inversion of this pins
-delta0: 1  delta1: 92
-rhs0: 99  rhs1: 7
-read the and 42 Id: 100 from the file
+read the and 42 Id: 108 from the file
    connect the and42 and set the inversion of this pins
-delta0: 49  delta1: 47
-rhs0: 53  rhs1: 6
-read the and 43 Id: 102 from the file
+read the and 43 Id: 110 from the file
    connect the and43 and set the inversion of this pins
-delta0: 1  delta1: 2
-rhs0: 103  rhs1: 101
-read the and 44 Id: 104 from the file
+read the and 44 Id: 112 from the file
    connect the and44 and set the inversion of this pins
-delta0: 98  delta1: 5
-rhs0: 8  rhs1: 3
-read the and 45 Id: 106 from the file
+read the and 45 Id: 114 from the file
    connect the and45 and set the inversion of this pins
-delta0: 96  delta1: 2
-rhs0: 12  rhs1: 10
-read the and 46 Id: 108 from the file
+read the and 46 Id: 116 from the file
    connect the and46 and set the inversion of this pins
-delta0: 2  delta1: 2
-rhs0: 108  rhs1: 106
-read the and 47 Id: 110 from the file
+read the and 47 Id: 118 from the file
    connect the and47 and set the inversion of this pins
-delta0: 97  delta1: 7
-rhs0: 15  rhs1: 8
-read the and 48 Id: 112 from the file
+read the and 48 Id: 120 from the file
    connect the and48 and set the inversion of this pins
-delta0: 2  delta1: 93
-rhs0: 112  rhs1: 19
-read the and 49 Id: 114 from the file
+read the and 49 Id: 122 from the file
    connect the and49 and set the inversion of this pins
-delta0: 103  delta1: 5
-rhs0: 13  rhs1: 8
-read the and 50 Id: 116 from the file
+read the and 50 Id: 124 from the file
    connect the and50 and set the inversion of this pins
-delta0: 2  delta1: 97
-rhs0: 116  rhs1: 19
-read the and 51 Id: 118 from the file
+read the and 51 Id: 126 from the file
    connect the and51 and set the inversion of this pins
-delta0: 108  delta1: 4
-rhs0: 12  rhs1: 8
-read the and 52 Id: 120 from the file
+read the and 52 Id: 128 from the file
    connect the and52 and set the inversion of this pins
-delta0: 1  delta1: 2
-rhs0: 121  rhs1: 119
-read the and 53 Id: 122 from the file
+read the and 53 Id: 130 from the file
    connect the and53 and set the inversion of this pins
-delta0: 1  delta1: 109
-rhs0: 123  rhs1: 14
-read the and 54 Id: 124 from the file
+read the and 54 Id: 132 from the file
    connect the and54 and set the inversion of this pins
-delta0: 1  delta1: 10
-rhs0: 125  rhs1: 115
-read the and 55 Id: 126 from the file
+read the and 55 Id: 134 from the file
    connect the and55 and set the inversion of this pins
-delta0: 1  delta1: 125
-rhs0: 127  rhs1: 2
-read the and 56 Id: 128 from the file
+read the and 56 Id: 136 from the file
    connect the and56 and set the inversion of this pins
-delta0: 1  delta1: 18
-rhs0: 129  rhs1: 111
-read the and 57 Id: 130 from the file
+read the and 57 Id: 138 from the file
    connect the and57 and set the inversion of this pins
-delta0: 1  delta1: 127
-rhs0: 131  rhs1: 4
-read the and 58 Id: 132 from the file
+read the and 58 Id: 140 from the file
    connect the and58 and set the inversion of this pins
-delta0: 1  delta1: 126
-rhs0: 133  rhs1: 7
-read the and 59 Id: 134 from the file
+read the and 59 Id: 142 from the file
    connect the and59 and set the inversion of this pins
-delta0: 83  delta1: 51
-rhs0: 53  rhs1: 2
-read the and 60 Id: 136 from the file
+read the and 60 Id: 144 from the file
    connect the and60 and set the inversion of this pins
-delta0: 1  delta1: 135
-rhs0: 137  rhs1: 2
-read the and 61 Id: 138 from the file
+read the and 61 Id: 146 from the file
    connect the and61 and set the inversion of this pins
-delta0: 1  delta1: 133
-rhs0: 139  rhs1: 6
-read the and 62 Id: 140 from the file
+read the and 62 Id: 148 from the file
    connect the and62 and set the inversion of this pins
-delta0: 1  delta1: 6
-rhs0: 141  rhs1: 135
-read the and 63 Id: 142 from the file
+read the and 63 Id: 150 from the file
    connect the and63 and set the inversion of this pins
-delta0: 130  delta1: 6
-rhs0: 14  rhs1: 8
-read the and 64 Id: 144 from the file
+read the and 64 Id: 152 from the file
    connect the and64 and set the inversion of this pins
-delta0: 1  delta1: 30
-rhs0: 145  rhs1: 115
-read the and 65 Id: 146 from the file
+read the and 65 Id: 154 from the file
    connect the and65 and set the inversion of this pins
-delta0: 1  delta1: 143
-rhs0: 147  rhs1: 4
-read the and 66 Id: 148 from the file
+read the and 66 Id: 156 from the file
    connect the and66 and set the inversion of this pins
-delta0: 1  delta1: 142
-rhs0: 149  rhs1: 7
-read the and 67 Id: 150 from the file
+read the and 67 Id: 158 from the file
    connect the and67 and set the inversion of this pins
-delta0: 97  delta1: 51
-rhs0: 55  rhs1: 4
-read the and 68 Id: 152 from the file
+read the and 68 Id: 160 from the file
    connect the and68 and set the inversion of this pins
-delta0: 1  delta1: 147
-rhs0: 153  rhs1: 6
-read the and 69 Id: 154 from the file
+read the and 69 Id: 162 from the file
    connect the and69 and set the inversion of this pins
-delta0: 1  delta1: 4
-rhs0: 155  rhs1: 151
-read the and 70 Id: 156 from the file
+read the and 70 Id: 164 from the file
    connect the and70 and set the inversion of this pins
-delta0: 139  delta1: 14
-rhs0: 19  rhs1: 5
-read the and 71 Id: 158 from the file
+read the and 71 Id: 166 from the file
    connect the and71 and set the inversion of this pins
-delta0: 2  delta1: 123
-rhs0: 158  rhs1: 35
-read the and 72 Id: 160 from the file
+read the and 72 Id: 168 from the file
    connect the and72 and set the inversion of this pins
-delta0: 116  delta1: 11
-rhs0: 46  rhs1: 35
-read the and 73 Id: 162 from the file
+read the and 73 Id: 170 from the file
    connect the and73 and set the inversion of this pins
-delta0: 101  delta1: 61
-rhs0: 63  rhs1: 2
-read the and 74 Id: 164 from the file
+read the and 74 Id: 172 from the file
    connect the and74 and set the inversion of this pins
-delta0: 1  delta1: 2
-rhs0: 165  rhs1: 163
-read the and 75 Id: 166 from the file
+read the and 75 Id: 174 from the file
    connect the and75 and set the inversion of this pins
-delta0: 1  delta1: 163
-rhs0: 167  rhs1: 4
-read the and 76 Id: 168 from the file
+read the and 76 Id: 176 from the file
    connect the and76 and set the inversion of this pins
-delta0: 1  delta1: 8
-rhs0: 169  rhs1: 161
-read the and 77 Id: 170 from the file
+read the and 77 Id: 178 from the file
    connect the and77 and set the inversion of this pins
-delta0: 1  delta1: 164
-rhs0: 171  rhs1: 7
-read the and 78 Id: 172 from the file
+read the and 78 Id: 180 from the file
    connect the and78 and set the inversion of this pins
-delta0: 166  delta1: 2
-rhs0: 8  rhs1: 6
-read the and 79 Id: 174 from the file
+read the and 79 Id: 182 from the file
    connect the and79 and set the inversion of this pins
-delta0: 2  delta1: 164
-rhs0: 174  rhs1: 10
-read the and 80 Id: 176 from the file
+read the and 80 Id: 184 from the file
    connect the and80 and set the inversion of this pins
-delta0: 1  delta1: 4
-rhs0: 177  rhs1: 173
-read the and 81 Id: 178 from the file
+read the and 81 Id: 186 from the file
    connect the and81 and set the inversion of this pins
-delta0: 173  delta1: 2
-rhs0: 7  rhs1: 5
-read the and 82 Id: 180 from the file
+read the and 82 Id: 188 from the file
    connect the and82 and set the inversion of this pins
-delta0: 2  delta1: 129
-rhs0: 180  rhs1: 51
-read the and 83 Id: 182 from the file
+read the and 83 Id: 190 from the file
    connect the and83 and set the inversion of this pins
-delta0: 89  delta1: 91
-rhs0: 95  rhs1: 4
-read the and 84 Id: 184 from the file
+read the and 84 Id: 192 from the file
    connect the and84 and set the inversion of this pins
-delta0: 1  delta1: 164
-rhs0: 185  rhs1: 21
-read the and 85 Id: 186 from the file
+read the and 85 Id: 194 from the file
    connect the and85 and set the inversion of this pins
-delta0: 1  delta1: 181
-rhs0: 187  rhs1: 6
-read the and 86 Id: 188 from the file
+read the and 86 Id: 196 from the file
    connect the and86 and set the inversion of this pins
-delta0: 1  delta1: 6
-rhs0: 189  rhs1: 183
-read the and 87 Id: 190 from the file
+read the and 87 Id: 198 from the file
    connect the and87 and set the inversion of this pins
-delta0: 139  delta1: 50
-rhs0: 53  rhs1: 3
-read the and 88 Id: 192 from the file
+read the and 88 Id: 200 from the file
    connect the and88 and set the inversion of this pins
-delta0: 1  delta1: 190
-rhs0: 193  rhs1: 3
-read the and 89 Id: 194 from the file
+read the and 89 Id: 202 from the file
    connect the and89 and set the inversion of this pins
-delta0: 1  delta1: 191
-rhs0: 195  rhs1: 4
-read the and 90 Id: 196 from the file
+read the and 90 Id: 204 from the file
    connect the and90 and set the inversion of this pins
-delta0: 191  delta1: 3
-rhs0: 7  rhs1: 4
-read the and 91 Id: 198 from the file
+read the and 91 Id: 206 from the file
    connect the and91 and set the inversion of this pins
-delta0: 2  delta1: 1
-rhs0: 198  rhs1: 197
-read the and 92 Id: 200 from the file
+read the and 92 Id: 208 from the file
    connect the and92 and set the inversion of this pins
-delta0: 196  delta1: 2
-rhs0: 6  rhs1: 4
-read the and 93 Id: 202 from the file
+read the and 93 Id: 210 from the file
    connect the and93 and set the inversion of this pins
-delta0: 2  delta1: 165
-rhs0: 202  rhs1: 37
-read the and 94 Id: 204 from the file
+read the and 94 Id: 212 from the file
    connect the and94 and set the inversion of this pins
-delta0: 1  delta1: 4
-rhs0: 205  rhs1: 201
-read the and 95 Id: 206 from the file
+read the and 95 Id: 214 from the file
    connect the and95 and set the inversion of this pins
-delta0: 11  delta1: 38
-rhs0: 197  rhs1: 159
-read the and 96 Id: 208 from the file
+read the and 96 Id: 216 from the file
    connect the and96 and set the inversion of this pins
-delta0: 1  delta1: 202
-rhs0: 209  rhs1: 7
-read the and 97 Id: 210 from the file
+read the and 97 Id: 218 from the file
    connect the and97 and set the inversion of this pins
-delta0: 1  delta1: 142
-rhs0: 211  rhs1: 69
-read the and 98 Id: 212 from the file
+read the and 98 Id: 220 from the file
    connect the and98 and set the inversion of this pins
-delta0: 49  delta1: 58
-rhs0: 165  rhs1: 107
-read the and 99 Id: 214 from the file
+read the and 99 Id: 222 from the file
    connect the and99 and set the inversion of this pins
-delta0: 1  delta1: 211
-rhs0: 215  rhs1: 4
-read the and 100 Id: 216 from the file
+read the and 100 Id: 224 from the file
    connect the and100 and set the inversion of this pins
-delta0: 57  delta1: 154
-rhs0: 161  rhs1: 7
-read the and 101 Id: 218 from the file
+read the and 101 Id: 226 from the file
    connect the and101 and set the inversion of this pins
-delta0: 2  delta1: 1
-rhs0: 218  rhs1: 217
-read the and 102 Id: 220 from the file
+read the and 102 Id: 228 from the file
    connect the and102 and set the inversion of this pins
-delta0: 1  delta1: 118
-rhs0: 221  rhs1: 103
-read the and 103 Id: 222 from the file
+read the and 103 Id: 230 from the file
    connect the and103 and set the inversion of this pins
-delta0: 161  delta1: 60
-rhs0: 63  rhs1: 3
-read the and 104 Id: 224 from the file
+read the and 104 Id: 232 from the file
    connect the and104 and set the inversion of this pins
-delta0: 1  delta1: 222
-rhs0: 225  rhs1: 3
-read the and 105 Id: 226 from the file
+read the and 105 Id: 234 from the file
    connect the and105 and set the inversion of this pins
-delta0: 1  delta1: 222
-rhs0: 227  rhs1: 5
-read the and 106 Id: 228 from the file
+read the and 106 Id: 236 from the file
    connect the and106 and set the inversion of this pins
-delta0: 1  delta1: 224
-rhs0: 229  rhs1: 5
-read the and 107 Id: 230 from the file
+read the and 107 Id: 238 from the file
    connect the and107 and set the inversion of this pins
-delta0: 1  delta1: 224
-rhs0: 231  rhs1: 7
-read the and 108 Id: 232 from the file
+read the and 108 Id: 240 from the file
    connect the and108 and set the inversion of this pins
-delta0: 1  delta1: 226
-rhs0: 233  rhs1: 7
-read the and 109 Id: 234 from the file
+read the and 109 Id: 242 from the file
    connect the and109 and set the inversion of this pins
-delta0: 21  delta1: 210
-rhs0: 215  rhs1: 5
-read the and 110 Id: 236 from the file
+read the and 110 Id: 244 from the file
    connect the and110 and set the inversion of this pins
-delta0: 1  delta1: 172
-rhs0: 237  rhs1: 65
-read the and 111 Id: 238 from the file
+read the and 111 Id: 246 from the file
    connect the and111 and set the inversion of this pins
-delta0: 1  delta1: 232
-rhs0: 239  rhs1: 7
-read the and 112 Id: 240 from the file
+read the and 112 Id: 248 from the file
    connect the and112 and set the inversion of this pins
-delta0: 232  delta1: 5
-rhs0: 10  rhs1: 5
-read the and 113 Id: 242 from the file
+read the and 113 Id: 250 from the file
    connect the and113 and set the inversion of this pins
-delta0: 169  delta1: 71
-rhs0: 75  rhs1: 4
-read the and 114 Id: 244 from the file
+read the and 114 Id: 252 from the file
    connect the and114 and set the inversion of this pins
-delta0: 1  delta1: 2
-rhs0: 245  rhs1: 243
-read the and 115 Id: 246 from the file
+read the and 115 Id: 254 from the file
    connect the and115 and set the inversion of this pins
-delta0: 1  delta1: 241
-rhs0: 247  rhs1: 6
-read the and 116 Id: 248 from the file
+read the and 116 Id: 256 from the file
    connect the and116 and set the inversion of this pins
-delta0: 1  delta1: 8
-rhs0: 249  rhs1: 241
-read the and 117 Id: 250 from the file
+read the and 117 Id: 258 from the file
    connect the and117 and set the inversion of this pins
-delta0: 87  delta1: 163
-rhs0: 165  rhs1: 2
-read the and 118 Id: 252 from the file
+read the and 118 Id: 260 from the file
    connect the and118 and set the inversion of this pins
-delta0: 1  delta1: 247
-rhs0: 253  rhs1: 6
-read the and 119 Id: 254 from the file
+read the and 119 Id: 262 from the file
    connect the and119 and set the inversion of this pins
-delta0: 1  delta1: 249
-rhs0: 255  rhs1: 6
-read the and 120 Id: 256 from the file
+read the and 120 Id: 264 from the file
    connect the and120 and set the inversion of this pins
-delta0: 31  delta1: 221
-rhs0: 227  rhs1: 6
-read the and 121 Id: 258 from the file
+read the and 121 Id: 266 from the file
    connect the and121 and set the inversion of this pins
-delta0: 1  delta1: 253
-rhs0: 259  rhs1: 6
-read the and 122 Id: 260 from the file
+read the and 122 Id: 268 from the file
    connect the and122 and set the inversion of this pins
-delta0: 187  delta1: 72
-rhs0: 75  rhs1: 3
-read the and 123 Id: 262 from the file
+read the and 123 Id: 270 from the file
    connect the and123 and set the inversion of this pins
-delta0: 1  delta1: 260
-rhs0: 263  rhs1: 3
-read the and 124 Id: 264 from the file
+read the and 124 Id: 272 from the file
    connect the and124 and set the inversion of this pins
-delta0: 1  delta1: 260
-rhs0: 265  rhs1: 5
-read the and 125 Id: 266 from the file
+read the and 125 Id: 274 from the file
    connect the and125 and set the inversion of this pins
-delta0: 1  delta1: 262
-rhs0: 267  rhs1: 5
-read the and 126 Id: 268 from the file
+read the and 126 Id: 276 from the file
    connect the and126 and set the inversion of this pins
-delta0: 1  delta1: 263
-rhs0: 269  rhs1: 6
-read the and 127 Id: 270 from the file
+read the and 127 Id: 278 from the file
    connect the and127 and set the inversion of this pins
-delta0: 1  delta1: 265
-rhs0: 271  rhs1: 6
-read the and 128 Id: 272 from the file
+read the and 128 Id: 280 from the file
    connect the and128 and set the inversion of this pins
-delta0: 197  delta1: 75
-rhs0: 77  rhs1: 2
-read the and 129 Id: 274 from the file
+read the and 129 Id: 282 from the file
    connect the and129 and set the inversion of this pins
-delta0: 1  delta1: 270
-rhs0: 275  rhs1: 5
-read the and 130 Id: 276 from the file
+read the and 130 Id: 284 from the file
    connect the and130 and set the inversion of this pins
-delta0: 1  delta1: 272
-rhs0: 277  rhs1: 5
-read the and 131 Id: 278 from the file
+read the and 131 Id: 286 from the file
    connect the and131 and set the inversion of this pins
-delta0: 1  delta1: 273
-rhs0: 279  rhs1: 6
-read the and 132 Id: 280 from the file
+read the and 132 Id: 288 from the file
    connect the and132 and set the inversion of this pins
-delta0: 1  delta1: 275
-rhs0: 281  rhs1: 6
-read the and 133 Id: 282 from the file
+read the and 133 Id: 290 from the file
    connect the and133 and set the inversion of this pins
-delta0: 9  delta1: 271
-rhs0: 275  rhs1: 4
-read the and 134 Id: 284 from the file
+read the and 134 Id: 292 from the file
    connect the and134 and set the inversion of this pins
-delta0: 1  delta1: 281
-rhs0: 285  rhs1: 4
-read the and 135 Id: 286 from the file
+read the and 135 Id: 294 from the file
    connect the and135 and set the inversion of this pins
-delta0: 1  delta1: 281
-rhs0: 287  rhs1: 6
-read the and 136 Id: 288 from the file
+read the and 136 Id: 296 from the file
    connect the and136 and set the inversion of this pins
-delta0: 1  delta1: 283
-rhs0: 289  rhs1: 6
-read the and 137 Id: 290 from the file
+read the and 137 Id: 298 from the file
    connect the and137 and set the inversion of this pins
-delta0: 27  delta1: 261
-rhs0: 265  rhs1: 4
-read the and 138 Id: 292 from the file
+read the and 138 Id: 300 from the file
    connect the and138 and set the inversion of this pins
-delta0: 1  delta1: 289
-rhs0: 293  rhs1: 4
-read the and 139 Id: 294 from the file
+read the and 139 Id: 302 from the file
    connect the and139 and set the inversion of this pins
-delta0: 1  delta1: 289
-rhs0: 295  rhs1: 6
-read the and 140 Id: 296 from the file
+read the and 140 Id: 304 from the file
    connect the and140 and set the inversion of this pins
-delta0: 1  delta1: 291
-rhs0: 297  rhs1: 6
-read the and 141 Id: 298 from the file
+read the and 141 Id: 306 from the file
    connect the and141 and set the inversion of this pins
-delta0: 237  delta1: 57
-rhs0: 63  rhs1: 6
-read the and 142 Id: 300 from the file
+read the and 142 Id: 308 from the file
    connect the and142 and set the inversion of this pins
-delta0: 1  delta1: 295
-rhs0: 301  rhs1: 6
-read the and 143 Id: 302 from the file
+read the and 143 Id: 310 from the file
    connect the and143 and set the inversion of this pins
-delta0: 300  delta1: 2
-rhs0: 4  rhs1: 2
-read the and 144 Id: 304 from the file
+read the and 144 Id: 312 from the file
    connect the and144 and set the inversion of this pins
-delta0: 2  delta1: 181
-rhs0: 304  rhs1: 123
-read the and 145 Id: 306 from the file
+read the and 145 Id: 314 from the file
    connect the and145 and set the inversion of this pins
-delta0: 231  delta1: 61
-rhs0: 77  rhs1: 16
-read the and 146 Id: 308 from the file
+read the and 146 Id: 316 from the file
    connect the and146 and set the inversion of this pins
-delta0: 1  delta1: 302
-rhs0: 309  rhs1: 7
-read the and 147 Id: 310 from the file
+read the and 147 Id: 318 from the file
    connect the and147 and set the inversion of this pins
-delta0: 2  delta1: 3
-rhs0: 310  rhs1: 307
-read the and 148 Id: 312 from the file
+read the and 148 Id: 320 from the file
    connect the and148 and set the inversion of this pins
-delta0: 265  delta1: 45
-rhs0: 49  rhs1: 4
-read the and 149 Id: 314 from the file
+read the and 149 Id: 322 from the file
    connect the and149 and set the inversion of this pins
-delta0: 1  delta1: 156
-rhs0: 315  rhs1: 159
-read the and 150 Id: 316 from the file
+read the and 150 Id: 324 from the file
    connect the and150 and set the inversion of this pins
-delta0: 1  delta1: 311
-rhs0: 317  rhs1: 6
-read the and 151 Id: 318 from the file
+read the and 151 Id: 326 from the file
    connect the and151 and set the inversion of this pins
-delta0: 1  delta1: 6
-rhs0: 319  rhs1: 313
-read the and 152 Id: 320 from the file
+read the and 152 Id: 328 from the file
    connect the and152 and set the inversion of this pins
-delta0: 304  delta1: 6
-rhs0: 18  rhs1: 12
-read the and 153 Id: 322 from the file
+read the and 153 Id: 330 from the file
    connect the and153 and set the inversion of this pins
-delta0: 1  delta1: 308
-rhs0: 323  rhs1: 15
-read the and 154 Id: 324 from the file
+read the and 154 Id: 332 from the file
    connect the and154 and set the inversion of this pins
-delta0: 1  delta1: 310
-rhs0: 325  rhs1: 15
-read the and 155 Id: 326 from the file
+read the and 155 Id: 334 from the file
    connect the and155 and set the inversion of this pins
-delta0: 1  delta1: 325
-rhs0: 327  rhs1: 2
-read the and 156 Id: 328 from the file
+read the and 156 Id: 336 from the file
    connect the and156 and set the inversion of this pins
-delta0: 1  delta1: 327
-rhs0: 329  rhs1: 2
-read the and 157 Id: 330 from the file
+read the and 157 Id: 338 from the file
    connect the and157 and set the inversion of this pins
-delta0: 1  delta1: 327
-rhs0: 331  rhs1: 4
-read the and 158 Id: 332 from the file
+read the and 158 Id: 340 from the file
    connect the and158 and set the inversion of this pins
-delta0: 1  delta1: 56
-rhs0: 333  rhs1: 277
-read the and 159 Id: 334 from the file
+read the and 159 Id: 342 from the file
    connect the and159 and set the inversion of this pins
-delta0: 1  delta1: 328
-rhs0: 335  rhs1: 7
-read the and 160 Id: 336 from the file
+read the and 160 Id: 344 from the file
    connect the and160 and set the inversion of this pins
-delta0: 1  delta1: 330
-rhs0: 337  rhs1: 7
-read the and 161 Id: 338 from the file
+read the and 161 Id: 346 from the file
    connect the and161 and set the inversion of this pins
-delta0: 36  delta1: 177
-rhs0: 304  rhs1: 127
-read the and 162 Id: 340 from the file
+read the and 162 Id: 348 from the file
    connect the and162 and set the inversion of this pins
-delta0: 1  delta1: 334
-rhs0: 341  rhs1: 7
-read the and 163 Id: 342 from the file
+read the and 163 Id: 350 from the file
    connect the and163 and set the inversion of this pins
-delta0: 1  delta1: 24
-rhs0: 343  rhs1: 319
-read the and 164 Id: 344 from the file
+read the and 164 Id: 352 from the file
    connect the and164 and set the inversion of this pins
-delta0: 151  delta1: 190
-rhs0: 195  rhs1: 5
-read the and 165 Id: 346 from the file
+read the and 165 Id: 354 from the file
    connect the and165 and set the inversion of this pins
-delta0: 209  delta1: 135
-rhs0: 139  rhs1: 4
-read the and 166 Id: 348 from the file
+read the and 166 Id: 356 from the file
    connect the and166 and set the inversion of this pins
-delta0: 1  delta1: 2
-rhs0: 349  rhs1: 347
-read the and 167 Id: 350 from the file
+read the and 167 Id: 358 from the file
    connect the and167 and set the inversion of this pins
-delta0: 1  delta1: 344
-rhs0: 351  rhs1: 7
-read the and 168 Id: 352 from the file
+read the and 168 Id: 360 from the file
    connect the and168 and set the inversion of this pins
-delta0: 1  delta1: 346
-rhs0: 353  rhs1: 7
-read the and 169 Id: 354 from the file
+read the and 169 Id: 362 from the file
    connect the and169 and set the inversion of this pins
-delta0: 217  delta1: 134
-rhs0: 139  rhs1: 5
-read the and 170 Id: 356 from the file
+read the and 170 Id: 364 from the file
    connect the and170 and set the inversion of this pins
-delta0: 1  delta1: 352
-rhs0: 357  rhs1: 5
-read the and 171 Id: 358 from the file
+read the and 171 Id: 366 from the file
    connect the and171 and set the inversion of this pins
-delta0: 1  delta1: 352
-rhs0: 359  rhs1: 7
-read the and 172 Id: 360 from the file
+read the and 172 Id: 368 from the file
    connect the and172 and set the inversion of this pins
-delta0: 1  delta1: 354
-rhs0: 361  rhs1: 7
-read the and 173 Id: 362 from the file
+read the and 173 Id: 370 from the file
    connect the and173 and set the inversion of this pins
+read the and 174 Id: 372 from the file
+   connect the and174 and set the inversion of this pins
+read the and 175 Id: 374 from the file
+   connect the and175 and set the inversion of this pins
+read the and 176 Id: 376 from the file
+   connect the and176 and set the inversion of this pins
+read the and 177 Id: 378 from the file
+   connect the and177 and set the inversion of this pins
+read the and 178 Id: 380 from the file
+   connect the and178 and set the inversion of this pins
+read the and 179 Id: 382 from the file
+   connect the and179 and set the inversion of this pins
+read the and 180 Id: 384 from the file
+   connect the and180 and set the inversion of this pins
+read the and 181 Id: 386 from the file
+   connect the and181 and set the inversion of this pins
+read the and 182 Id: 388 from the file
+   connect the and182 and set the inversion of this pins
+read the and 183 Id: 390 from the file
+   connect the and183 and set the inversion of this pins
+read the and 184 Id: 392 from the file
+   connect the and184 and set the inversion of this pins
+read the and 185 Id: 394 from the file
+   connect the and185 and set the inversion of this pins
+read the and 186 Id: 396 from the file
+   connect the and186 and set the inversion of this pins
+read the and 187 Id: 398 from the file
+   connect the and187 and set the inversion of this pins
+read the and 188 Id: 400 from the file
+   connect the and188 and set the inversion of this pins
+read the and 189 Id: 402 from the file
+   connect the and189 and set the inversion of this pins
+read the and 190 Id: 404 from the file
+   connect the and190 and set the inversion of this pins
+read the and 191 Id: 406 from the file
+   connect the and191 and set the inversion of this pins
+read the and 192 Id: 408 from the file
+   connect the and192 and set the inversion of this pins
+read the and 193 Id: 410 from the file
+   connect the and193 and set the inversion of this pins
+read the and 194 Id: 412 from the file
+   connect the and194 and set the inversion of this pins
+read the and 195 Id: 414 from the file
+   connect the and195 and set the inversion of this pins
+read the and 196 Id: 416 from the file
+   connect the and196 and set the inversion of this pins
+read the and 197 Id: 418 from the file
+   connect the and197 and set the inversion of this pins
+read the and 198 Id: 420 from the file
+   connect the and198 and set the inversion of this pins
+read the and 199 Id: 422 from the file
+   connect the and199 and set the inversion of this pins
+read the and 200 Id: 424 from the file
+   connect the and200 and set the inversion of this pins
+read the and 201 Id: 426 from the file
+   connect the and201 and set the inversion of this pins
+read the and 202 Id: 428 from the file
+   connect the and202 and set the inversion of this pins
+read the and 203 Id: 430 from the file
+   connect the and203 and set the inversion of this pins
+read the and 204 Id: 432 from the file
+   connect the and204 and set the inversion of this pins
+read the and 205 Id: 434 from the file
+   connect the and205 and set the inversion of this pins
+read the and 206 Id: 436 from the file
+   connect the and206 and set the inversion of this pins
+read the and 207 Id: 438 from the file
+   connect the and207 and set the inversion of this pins
+read the and 208 Id: 440 from the file
+   connect the and208 and set the inversion of this pins
+read the and 209 Id: 442 from the file
+   connect the and209 and set the inversion of this pins
+read the and 210 Id: 444 from the file
+   connect the and210 and set the inversion of this pins
+read the and 211 Id: 446 from the file
+   connect the and211 and set the inversion of this pins
+read the and 212 Id: 448 from the file
+   connect the and212 and set the inversion of this pins
+read the and 213 Id: 450 from the file
+   connect the and213 and set the inversion of this pins
+read the and 214 Id: 452 from the file
+   connect the and214 and set the inversion of this pins
+read the and 215 Id: 454 from the file
+   connect the and215 and set the inversion of this pins
+read the and 216 Id: 456 from the file
+   connect the and216 and set the inversion of this pins
+read the and 217 Id: 458 from the file
+   connect the and217 and set the inversion of this pins
+read the and 218 Id: 460 from the file
+   connect the and218 and set the inversion of this pins
+read the and 219 Id: 462 from the file
+   connect the and219 and set the inversion of this pins
+read the and 220 Id: 464 from the file
+   connect the and220 and set the inversion of this pins
+read the and 221 Id: 466 from the file
+   connect the and221 and set the inversion of this pins
+read the and 222 Id: 468 from the file
+   connect the and222 and set the inversion of this pins
+read the and 223 Id: 470 from the file
+   connect the and223 and set the inversion of this pins
+read the and 224 Id: 472 from the file
+   connect the and224 and set the inversion of this pins
+read the and 225 Id: 474 from the file
+   connect the and225 and set the inversion of this pins
+read the and 226 Id: 476 from the file
+   connect the and226 and set the inversion of this pins
+read the and 227 Id: 478 from the file
+   connect the and227 and set the inversion of this pins
+read the and 228 Id: 480 from the file
+   connect the and228 and set the inversion of this pins
+read the and 229 Id: 482 from the file
+   connect the and229 and set the inversion of this pins
+read the and 230 Id: 484 from the file
+   connect the and230 and set the inversion of this pins
+read the and 231 Id: 486 from the file
+   connect the and231 and set the inversion of this pins
+read the and 232 Id: 488 from the file
+   connect the and232 and set the inversion of this pins
+read the and 233 Id: 490 from the file
+   connect the and233 and set the inversion of this pins
+read the and 234 Id: 492 from the file
+   connect the and234 and set the inversion of this pins
+read the and 235 Id: 494 from the file
+   connect the and235 and set the inversion of this pins
+read the and 236 Id: 496 from the file
+   connect the and236 and set the inversion of this pins
+read the and 237 Id: 498 from the file
+   connect the and237 and set the inversion of this pins
+read the and 238 Id: 500 from the file
+   connect the and238 and set the inversion of this pins
+read the and 239 Id: 502 from the file
+   connect the and239 and set the inversion of this pins
+read the and 240 Id: 504 from the file
+   connect the and240 and set the inversion of this pins
+read the and 241 Id: 506 from the file
+   connect the and241 and set the inversion of this pins
+read the and 242 Id: 508 from the file
+   connect the and242 and set the inversion of this pins
+read the and 243 Id: 510 from the file
+   connect the and243 and set the inversion of this pins
+read the and 244 Id: 512 from the file
+   connect the and244 and set the inversion of this pins
+read the and 245 Id: 514 from the file
+   connect the and245 and set the inversion of this pins
+read the and 246 Id: 516 from the file
+   connect the and246 and set the inversion of this pins
+read the and 247 Id: 518 from the file
+   connect the and247 and set the inversion of this pins
+read the and 248 Id: 520 from the file
+   connect the and248 and set the inversion of this pins
+read the and 249 Id: 522 from the file
+   connect the and249 and set the inversion of this pins
+read the and 250 Id: 524 from the file
+   connect the and250 and set the inversion of this pins
+read the and 251 Id: 526 from the file
+   connect the and251 and set the inversion of this pins
+read the and 252 Id: 528 from the file
+   connect the and252 and set the inversion of this pins
+read the and 253 Id: 530 from the file
+   connect the and253 and set the inversion of this pins
+read the and 254 Id: 532 from the file
+   connect the and254 and set the inversion of this pins
+read the and 255 Id: 534 from the file
+   connect the and255 and set the inversion of this pins
+read the and 256 Id: 536 from the file
+   connect the and256 and set the inversion of this pins
+read the and 257 Id: 538 from the file
+   connect the and257 and set the inversion of this pins
+read the and 258 Id: 540 from the file
+   connect the and258 and set the inversion of this pins
+read the and 259 Id: 542 from the file
+   connect the and259 and set the inversion of this pins
 connect the outputs' inputs
 i0
 i1
@@ -740,6 +567,10 @@ i3
 i4
 i5
 i6
+i7
+i8
+i9
+i10
 o0
 o1
 o2
@@ -747,28 +578,10 @@ o3
 o4
 o5
 o6
-o7
-o8
-o9
-o10
-o11
-o12
-o13
-o14
-o15
-o16
-o17
-o18
-o19
-o20
-o21
-o22
-o23
-o24
-o25
 c
 the comments began. Ignore the file from here!
 
 create the AIG and add all nodes
-return the AIGgenerating dotfile...
+return the AIG
+generating dotfile...
 dotfile generated

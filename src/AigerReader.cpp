@@ -7,6 +7,8 @@
 
 #include "Graph.h"
 #include "AIGNode.h"
+#include "BAIGNode.h"
+#include "BGraph.h"
 #include "Graph.h"
 #include <string.h>
 #include <iostream>
@@ -14,9 +16,13 @@
 #include <sstream>
 #include "AigerReader.h"
 
-AigerReader::AigerReader(string sourcePath)
+AigerReader::AigerReader(string sourcePath, const int bidirectionOption)
 {
-	aig = new Graph;
+    if(bidirectionOption == 1){
+    	aig = new Graph;
+    }
+    else
+    	aig = new BGraph;
 
 	nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
 
@@ -30,7 +36,7 @@ AigerReader::AigerReader(string sourcePath)
 
 }
 
-Graph* AigerReader::readAIGFile(){
+GRAPH* AigerReader::readAIGFile(){
 
     if(!readHeader()){
     	cout << "Header not correct" << endl;
@@ -126,7 +132,7 @@ void AigerReader::readAIGOutputs(){
     }
 }
 
-Graph* AigerReader::readAAGFile()
+GRAPH* AigerReader::readAAGFile()
 {
 
     if(!readHeader()){
@@ -317,7 +323,7 @@ void AigerReader::readAAGNames(){
 
 }
 
-void AigerReader::generateDot(Graph* aig, string filename){
+void AigerReader::generateDot(GRAPH* aig, string filename){
 
 	if(aig == NULL){
 		cout << "Tryed to generate dotfile from an empty aig" << endl;

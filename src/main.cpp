@@ -10,6 +10,7 @@
 #include "Graph.h"
 #include "AigerReader.h"
 #include <iostream>
+#include "BAIGNode.h"
 
 using namespace std;
 
@@ -25,18 +26,14 @@ int main(int argc, char* arv[]){
 	string filePathAAG = "aags/";
 	string filePathAIG = "aigs/";
 
-	if(fileName.substr(fileName.find_last_of(".") + 1) == "aag"){
-		AigerReader reader(filePathAAG + fileName);
-	    Graph* aig = reader.readAAGFile();
-		reader.generateDot(aig, fileName + ".dot");
+	AigerReader reader(filePathAAG + fileName + ".aag", 2);
+    GRAPH* aig = reader.readAAGFile();
+	reader.generateDot(aig, fileName + ".dot");
+
+	vector<InputNode*> *nodes = aig->getInputNodes();
+	for(auto it = nodes->begin(); it < nodes->end(); it++){
+		cout << (*it)->getOutputs()->at(0)->getId();
 	}
-	else if(fileName.substr(fileName.find_last_of(".") + 1) == "aig"){
-		AigerReader reader(filePathAIG + fileName);
-		Graph* aig = reader.readAIGFile();
-		reader.generateDot(aig, fileName + ".dot");
-	}
-	else
-		cout << "File must be .aag or .aig\n";
 
 	return 0;
 

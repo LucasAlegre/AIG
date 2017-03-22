@@ -6,18 +6,24 @@
 CPP_SRCS += \
 ../src/AIGNode.cpp \
 ../src/AigerReader.cpp \
+../src/BAIGNode.cpp \
+../src/BGraph.cpp \
 ../src/Graph.cpp \
 ../src/main.cpp 
 
 OBJS += \
 ./src/AIGNode.o \
 ./src/AigerReader.o \
+./src/BAIGNode.o \
+./src/BGraph.o \
 ./src/Graph.o \
 ./src/main.o 
 
 CPP_DEPS += \
 ./src/AIGNode.d \
 ./src/AigerReader.d \
+./src/BAIGNode.d \
+./src/BGraph.d \
 ./src/Graph.d \
 ./src/main.d 
 

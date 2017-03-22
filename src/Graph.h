@@ -14,12 +14,26 @@
 
 using namespace std;
 
-
 /* Graph with Pointers
 *
 */
 
-class Graph {
+class GRAPH{
+public:
+	virtual void insertInputNode(const unsigned int id) = 0;
+	virtual void insertOutputNode(const unsigned int id) = 0;
+	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;
+	virtual void addOutputToNodes() = 0;  // Insert the outputs vector at the end of the nodes vector
+
+	virtual AIGNode* findNodeById(const unsigned int id) = 0;
+
+	virtual vector<AIGNode*> * getNodes() = 0;
+	virtual vector<InputNode*> * getInputNodes() = 0;
+	virtual vector<AndNode*> * getAndNodes() = 0;
+	virtual vector<OutputNode*> * getOutputNodes() = 0;
+};
+
+class Graph: public GRAPH{
 private:
     vector<AIGNode*> nodes;
     vector<InputNode*> inputs;

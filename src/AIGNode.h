@@ -30,7 +30,12 @@ private:
 	string name;
 
 public:
-	AIGNode();
+	AIGNode(){
+		id=-1;
+	}
+	AIGNode(const unsigned id){
+		this->id = id;
+	}
 	virtual ~AIGNode();
 
 	void setId(const unsigned id);
@@ -41,18 +46,23 @@ public:
 	string getName()const{
 		return this->name;
 	}
-
 	virtual AigNodeType getNodeType() = 0;
+	virtual vector<AIGNode*> * getOutputs(){return NULL;}
+	virtual void setOutput(AIGNode* node){
 
+	}
+	vector<bool> * getOutputsInverted(){
+		return NULL;
+	}
 };
 
 // --- Input Node
 
 class InputNode: public AIGNode{
 public:
+	virtual void setOutput(AIGNode* node){}
 
-	InputNode(const int id);
-
+	InputNode(const unsigned id);
 	AigNodeType getNodeType();
 	AIGNode* getInput(const int input0or1){
 		cout << "Tried to get input from an input node.\n";
@@ -68,19 +78,17 @@ private:
 	bool input0Inverted;
 
 public:
+	virtual void setOutput(AIGNode* node){}
+
 	OutputNode(const int id);
 	~OutputNode(){
 		delete input0;
 	}
 
 	AigNodeType getNodeType();
-
 	void setInput(AIGNode* node);
-
 	AIGNode* getInput();
-
 	bool isInputInverted() const;
-
 	void setInputInverted(const bool inputInverted);
 };
 
@@ -94,6 +102,8 @@ private:
     bool input1Inverted;
 
 public:
+	virtual void setOutput(AIGNode* node){}
+
     AndNode(const int id);
 
     ~AndNode(){
@@ -102,38 +112,11 @@ public:
     }
 
 	AigNodeType getNodeType();
-
 	void setInput(AIGNode* inp0, AIGNode* in1);
-
 	bool isInputInverted(const int input0or1) const;
-
 	AIGNode* getInput(const int input0or1);
-
 	void setInputInverted(const bool inputInverted, const int input0or1);
 };
 
-class AIGNodeB: public AIGNode {
-private:
-	vector<AIGNode*> outputs;
-	vector<bool> outputsInverted;
-public:
-	vector<AIGNode*> * getOutputs(){
-		return &(this->outputs);
-	}
-	void setOutput(AIGNode* node){
-		outputs.push_back(node);
-	}
-	vector<bool> * getOutputsInverted(){
-		return &(this->outputsInverted);
-	}
-
-
-};
-
-class InputNodeB: public InputNode, AIGNodeB{
-};
-
-class AndNodeB: public AndNode, AIGNodeB{
-};
 
 #endif /* AIGNODE_H_ */

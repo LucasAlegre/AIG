@@ -16,6 +16,19 @@
 #include "Graph.h"
 using namespace std;
 
+typedef struct AND{
+	int id;
+	int i0;
+	int i1;
+	string name;
+}AND;
+
+typedef struct node{
+	vector<int> inputs;
+	vector<int> outputs;
+	vector<AND> ands;
+}NODE;
+
 class AigerReader
 {
 private:
@@ -24,12 +37,12 @@ private:
     string word;
     char buf[250];
 
-    Graph* aig;
+    GRAPH *aig;
 
 	int nNodes, nInputs, nFFs, nOutputs, nAnds;
 
 public:
-    AigerReader(string sourcePath);
+    AigerReader(string sourcePath, const int bidirectionOption);
 
     ~AigerReader(){
     	source.close();
@@ -44,17 +57,17 @@ public:
     void readAAGAnds();
     void connectAAGOutputs();
     void readAAGNames();
-    Graph* readAAGFile();
+    GRAPH* readAAGFile();
 
     //AIG FILE
     void readAIGInputs();
     void readAIGOutputs();
     unsigned int decode();
     void readAIGAnds();
-    Graph* readAIGFile();
+    GRAPH* readAIGFile();
 
 
-    void generateDot(Graph* aig, string filename);
+    void generateDot(GRAPH* aig, string filename);
 };
 
 #endif /* AIGERREADER_H_ */
