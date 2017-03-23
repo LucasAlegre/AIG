@@ -16,24 +16,15 @@
 #include "Graph.h"
 using namespace std;
 
-typedef struct AND{
-	int id;
-	int i0;
-	int i1;
-	string name;
-}AND;
-
-typedef struct node{
-	vector<int> inputs;
-	vector<int> outputs;
-	vector<AND> ands;
-}NODE;
-
+/*
+ *  Class that implements a file reader for AIG
+ *
+ */
 class AigerReader
 {
 private:
-    ifstream source;
-    ofstream debug;
+    ifstream source;  // .aag or .aig file
+    ofstream debug;   //  debug file
     string word;
     char buf[250];
 
@@ -42,6 +33,12 @@ private:
 	int nNodes, nInputs, nFFs, nOutputs, nAnds;
 
 public:
+	/*
+	 *   Constructor
+	 *
+	 *   @param sourcePath File to be open
+	 *   @param bidirectionOption 1 - Unidirected Graph 2 - Bidirected Graph
+	 */
     AigerReader(string sourcePath, const int bidirectionOption);
 
     ~AigerReader(){
@@ -49,6 +46,11 @@ public:
     	debug.close();
     }
 
+    /*
+     *   Read the header of the file
+     *
+     *   @return true if read succesfully, false if not
+     */
     bool readHeader();
 
     //AAG FILE
@@ -65,7 +67,12 @@ public:
     void readAIGAnds();
     GRAPH* readAIGFile();
 
-
+    /*
+     *   Generate a .dot file from the given AIG
+     *
+     *   @param aig Unidirected or Bidirected Graph
+     *   @param filename Name of the file that will be created
+     */
     void generateDot(GRAPH* aig, string filename);
 };
 

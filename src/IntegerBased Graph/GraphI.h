@@ -8,10 +8,15 @@
 #ifndef GRAPHI_H_
 #define GRAPHI_H_
 
+#include "AIGNodeI.h"
+
 class GraphI {
 public:
 	GraphI();
 	virtual ~GraphI();
+
+private:
+	AIGNodeI nodes[];
 };
 
 #endif /* GRAPHI_H_ */
