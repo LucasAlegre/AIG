@@ -14,10 +14,10 @@
 
 using namespace std;
 
-/* Graph with Pointers
+/* 
+* Class that implements an AIG Graph with Pointers
 *
 */
-
 class GRAPH{
 public:
 	virtual void insertInputNode(const unsigned int id) = 0;
