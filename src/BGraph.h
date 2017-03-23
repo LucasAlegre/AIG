@@ -31,6 +31,8 @@ public:
 
 	AIGNode* findNodeById(const unsigned int id);
 
+	void connectOutputs();
+
 	vector<AIGNode*> * getNodes();
 	vector<InputNode*> * getInputNodes();
 	vector<AndNode*> * getAndNodes();

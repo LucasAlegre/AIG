@@ -14,26 +14,38 @@
 
 using namespace std;
 
+/*
+ *   Main file
+ *
+ *   @param arv[1] Filename without extension
+ *   @param arv[2] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph
+ *
+ */
+
 int main(int argc, char* arv[]){
 
-	if(argc == 1){
-		cout << "Must inform the aag file" << endl;
+	if(argc != 3){
+		cout << "Must inform the file and the bidirectionOption" << endl;
 		exit(-1);
 	}
 
 	string fileName(arv[1]);
-
+    int bidirectionOption = atoi(arv[2]);
 	string filePathAAG = "aags/";
 	string filePathAIG = "aigs/";
 
-	AigerReader reader(filePathAAG + fileName + ".aag", 2);
+	AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
     GRAPH* aig = reader.readAAGFile();
 	reader.generateDot(aig, fileName + ".dot");
 
-	vector<InputNode*> *nodes = aig->getInputNodes();
+	vector<AIGNode*> *nodes = aig->getNodes();
 	for(auto it = nodes->begin(); it < nodes->end(); it++){
-		cout << (*it)->getOutputs()->at(0)->getId();
+		vector<AIGNode*> *outputs =  (*it)->getOutputs();
+		if(outputs != NULL)
+			for(auto it2 = outputs->begin(); it2 < outputs->end(); it2++)
+				cout << (*it2)->getId() << endl;
 	}
+
 
 	return 0;
 

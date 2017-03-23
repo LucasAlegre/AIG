@@ -21,8 +21,12 @@ AigerReader::AigerReader(string sourcePath, const int bidirectionOption)
     if(bidirectionOption == 1){
     	aig = new Graph;
     }
-    else
+    else if(bidirectionOption == 2)
     	aig = new BGraph;
+    else{
+    	cout << "Incorrect parameters, 1 - Unidirected Graph  2 - Bidirected Graph\n";
+    	exit(-2);
+    }
 
 	nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
 
@@ -51,7 +55,7 @@ GRAPH* AigerReader::readAIGFile(){
     readAIGOutputs();
     readAIGAnds();
 
-    connectAAGOutputs();
+    aig->connectOutputs();
 
     readAAGNames();
 
@@ -148,7 +152,7 @@ GRAPH* AigerReader::readAAGFile()
     readAAGOutputs();
     readAAGAnds();
 
-    connectAAGOutputs();
+    aig->connectOutputs();
 
     readAAGNames();
 
@@ -260,23 +264,6 @@ bool AigerReader::readHeader()
 	return true;
 }
 
-//Connect the outputs to its inputs
-void AigerReader::connectAAGOutputs(){
-
-    debug << "connect the outputs' inputs" << endl;
-    vector<OutputNode*>::iterator it;
-    vector<OutputNode*> *outputs = aig->getOutputNodes();
-	for(it = outputs->begin(); it < outputs->end(); it++){
-		int idinp = (*it)->getId();
-		if(idinp % 2 != 0){
-			(*it)->setInputInverted(true);
-			idinp--;
-		}
-		AIGNode* node = aig->findNodeById(idinp);
-		(*it)->setInput(node);
-	}
-	aig->addOutputToNodes();
-}
 
 void AigerReader::readAAGNames(){
 

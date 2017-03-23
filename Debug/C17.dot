@@ -1,0 +1,32 @@
+digraph aig {
+"A" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"B" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"C" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"D" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"E" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ff8080", fontsize=20]
+"12" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"14" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"16" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"18" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"20" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"22" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#ffffff", fontsize=20]
+"S0" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#008080", fontsize=20]
+"S1" [shape=circle, height=1, width=1, penwidth=5 style=filled, fillcolor="#008080", fontsize=20]
+"C" -> "12" [penwidth = 3, color=blue]
+"A" -> "12" [penwidth = 3, color=blue]
+"D" -> "14" [penwidth = 3, color=blue]
+"C" -> "14" [penwidth = 3, color=blue]
+"14" -> "16" [penwidth = 3, color=red, style=dashed]
+"B" -> "16" [penwidth = 3, color=blue]
+"16" -> "18" [penwidth = 3, color=red, style=dashed]
+"12" -> "18" [penwidth = 3, color=red, style=dashed]
+"14" -> "20" [penwidth = 3, color=red, style=dashed]
+"E" -> "20" [penwidth = 3, color=blue]
+"20" -> "22" [penwidth = 3, color=red, style=dashed]
+"16" -> "22" [penwidth = 3, color=red, style=dashed]
+"18" -> "S0" [penwidth = 3, color=red, style=dashed]
+"22" -> "S1" [penwidth = 3, color=red, style=dashed]
+{ rank=source; "A" "B" "C" "D" "E" }
+{ rank=since; "S0" "S1" }
+rankdir="BT"
+}

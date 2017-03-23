@@ -77,6 +77,23 @@ void Graph::insertAndNode(const unsigned id, unsigned rhs0, unsigned rhs1){
 	this->nodes.push_back(andnode);
 }
 
+//Connect the outputs to its inputs
+void Graph::connectOutputs(){
+
+    vector<OutputNode*>::iterator it;
+    vector<OutputNode*> *outputs = this->getOutputNodes();
+	for(it = outputs->begin(); it < outputs->end(); it++){
+		int idinp = (*it)->getId();
+		if(idinp % 2 != 0){
+			(*it)->setInputInverted(true);
+			idinp--;
+		}
+		AIGNode* node = this->findNodeById(idinp);
+		(*it)->setInput(node);
+	}
+	this->addOutputToNodes();
+}
+
 //it only works for And and Input Nodes
 AIGNode* Graph::findNodeById(const unsigned int id){
 

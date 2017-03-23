@@ -35,7 +35,7 @@ AIGNode::AIGNode(const unsigned id){
 }
 
 //Default destructor
-virtual ~AIGNode(){}
+AIGNode::~AIGNode(){}
 
 // Getters and Setters
 void AIGNode::setId(const unsigned id){
@@ -51,11 +51,11 @@ string AIGNode::getName()const{
 	return this->name;
 }
 
-virtual AIGNode::vector<AIGNode*> * getOutputs(){
+vector<AIGNode*> * AIGNode::getOutputs(){
 	cout << "Tried to get ouput from an unidirected node\n";
 	return NULL;
 }
-virtual void AIGNode::setOutput(AIGNode* node){
+void AIGNode::setOutput(AIGNode* node){
         cout << "Tried to set ouput to an unidirected node\n";
 }
 vector<bool> * AIGNode::getOutputsInverted(){

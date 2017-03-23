@@ -33,11 +33,9 @@ public:
 		return INPUT_NODE;
 	}
 	vector<AIGNode*> * getOutputs(){
-		cout << "aqui";
 		return &(this->outputs);
 	}
 	void setOutput(AIGNode* node){
-        cout << "KKK";
 		outputs.push_back(node);
 	}
 	vector<bool> * getOutputsInverted(){

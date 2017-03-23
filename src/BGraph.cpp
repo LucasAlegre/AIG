@@ -75,6 +75,24 @@
 		return nodes[id/2];
 	}
 
+	//Connect the outputs to its inputs
+	void BGraph::connectOutputs(){
+
+	    vector<OutputNode*>::iterator it;
+	    vector<OutputNode*> *outputs = this->getOutputNodes();
+		for(it = outputs->begin(); it < outputs->end(); it++){
+			int idinp = (*it)->getId();
+			if(idinp % 2 != 0){
+				(*it)->setInputInverted(true);
+				idinp--;
+			}
+			AIGNode* node = this->findNodeById(idinp);
+			(*it)->setInput(node);
+			node->setOutput((*it));
+		}
+		this->addOutputToNodes();
+	}
+
 	vector<AIGNode*> * BGraph::getNodes(){
 		return &(this->nodes);
 	}

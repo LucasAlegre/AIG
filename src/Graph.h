@@ -15,7 +15,7 @@
 using namespace std;
 
 /* 
-* Class that implements an AIG Graph with Pointers
+* Abstract Class for AIG Graph with Pointers
 *
 */
 class GRAPH{
@@ -27,12 +27,18 @@ public:
 
 	virtual AIGNode* findNodeById(const unsigned int id) = 0;
 
+	virtual void connectOutputs() = 0;
+
 	virtual vector<AIGNode*> * getNodes() = 0;
 	virtual vector<InputNode*> * getInputNodes() = 0;
 	virtual vector<AndNode*> * getAndNodes() = 0;
 	virtual vector<OutputNode*> * getOutputNodes() = 0;
 };
 
+/*
+* Class that implements an AIG Graph with Pointers
+*
+*/
 class Graph: public GRAPH{
 private:
     vector<AIGNode*> nodes;
@@ -50,6 +56,8 @@ public:
 	void addOutputToNodes();  // Insert the outputs vector at the end of the nodes vector
 
 	AIGNode* findNodeById(const unsigned int id);
+
+	void connectOutputs();
 
 	vector<AIGNode*> * getNodes();
 	vector<InputNode*> * getInputNodes();

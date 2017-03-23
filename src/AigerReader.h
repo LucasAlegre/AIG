@@ -55,7 +55,6 @@ public:
     void readAAGInputs();
     void readAAGOutputs();
     void readAAGAnds();
-    void connectAAGOutputs();
     void readAAGNames();
     GRAPH* readAAGFile();
 
