@@ -10,13 +10,57 @@
 
 #include "AIGNodeI.h"
 
-class GraphI {
+/*
+* Interface Class for AIG Graph with Integers
+*
+*/
+class GRAPHI{
 public:
-	GraphI();
+	virtual void insertInputNode(const unsigned int id) = 0;
+	virtual void insertOutputNode(const unsigned int id) = 0;
+	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;
+	virtual void addOutputToNodes() = 0;  // Insert the outputs vector at the end of the nodes vector
+
+	virtual int getLastFreeIndex() = 0;
+
+	virtual AIGNodeI* findNodeById(const unsigned int id) = 0;
+
+	virtual void connectOutputs() = 0;
+
+	virtual AIGNodeI* getNodes() = 0;
+
+};
+
+
+/*
+* Class that implements an AIG Graph with Integers
+*
+*/
+class GraphI: public GRAPHI{
+private:
+    AIGNodeI nodes[];
+    int numNodes;
+
+public:
+	GraphI(int numNodes);
 	virtual ~GraphI();
 
-private:
-	AIGNodeI nodes[];
+	/*
+	 *  Returns the index of the last free available position of the array
+	 */
+	int getLastFreeIndex();
+
+	void insertInputNode(const unsigned int id);
+	void insertOutputNode(const unsigned int id);
+	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
+	void addOutputToNodes();  // Insert the outputs vector at the end of the nodes vector
+
+	AIGNode* findNodeById(const unsigned int id);
+
+	void connectOutputs();
+
+	AIGNodeI* getNodes();
+
 };
 
 #endif /* GRAPHI_H_ */

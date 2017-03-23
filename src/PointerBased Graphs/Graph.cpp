@@ -97,14 +97,6 @@ void Graph::connectOutputs(){
 //it only works for And and Input Nodes
 AIGNode* Graph::findNodeById(const unsigned int id){
 
-	/*vector<AIGNode*>::iterator it;
-
-	for(it = nodes.begin(); it < nodes.end(); it++){
-		if((*it)->getId() == id){
-			return *it;
-		}
-	}*/
-
 	if(id == 0)
 		return nodes[0];
 

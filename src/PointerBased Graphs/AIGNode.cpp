@@ -114,7 +114,7 @@ AIGNode* OutputNode::getInput(){
 	return this->input0;
 }
 
-// ----------------- AND Node -------------------------------------
+// ------------------------ AND Node ------------------------------
 
 AndNode::AndNode(const int id){
 	this->setId(id);
