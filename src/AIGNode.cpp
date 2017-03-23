@@ -1,6 +1,8 @@
 /*
  * AIGNode.cpp
  *
+ *  AIG Nodes functions implementations
+ *
  *  Created on: Mar 9, 2017
  *      Author: lucas
  */
@@ -21,48 +23,73 @@ namespace patch
     }
 }
 
+// --------------------- AIG Node ------------------------------
 
-/*  AIG Node
- *
- */
-
-
-AIGNode::~AIGNode() {
-	// TODO Auto-generated destructor stub
+//Default constructor
+AIGNode::AIGNode(){
+	id=-1;
 }
-
-void AIGNode::setId(const unsigned id){
+//Constructor
+AIGNode::AIGNode(const unsigned id){
 	this->id = id;
 }
 
-unsigned int AIGNode::getId()const{
+//Default destructor
+virtual ~AIGNode(){}
+
+// Getters and Setters
+void AIGNode::setId(const unsigned id){
+	this->id = id;
+}
+unsigned int AIGNode::getId() const{
 	return this->id;
+}	
+void AIGNode::setName(const string name){
+	this->name = name;
+}
+string AIGNode::getName()const{
+	return this->name;
 }
 
+virtual AIGNode::vector<AIGNode*> * getOutputs(){
+	cout << "Tried to get ouput from an unidirected node\n";
+	return NULL;
+}
+virtual void AIGNode::setOutput(AIGNode* node){
+        cout << "Tried to set ouput to an unidirected node\n";
+}
+vector<bool> * AIGNode::getOutputsInverted(){
+	cout << "Tried to get ouputs inverted from an unidirected node\n";
+	return NULL;
+}
 
-/*
- *  Input Node
- */
+// --------------------- InputNode-------------------------------
 
 AigNodeType InputNode::getNodeType(){
 	return INPUT_NODE;
 }
 
 InputNode::InputNode(const unsigned id):AIGNode(id){
-
 	this->setId(id);
 }
 
+AIGNode* InputNode::getInput(const int input0or1){
+	cout << "Tried to get input from an input node.\n";
+	return NULL;
+}
 
-/*
- *  Output Node
- */
+// ----------------------- Output Node --------------------------
 
 OutputNode::OutputNode(const int id){
 	this->setId(id);
 	input0 = NULL;
 	input0Inverted = false;
 }
+
+OutputNode::~OutputNode(){
+	delete input0;
+}
+
 
 AigNodeType OutputNode::getNodeType(){
 	return OUTPUT_NODE;
@@ -87,10 +114,16 @@ AIGNode* OutputNode::getInput(){
 	return this->input0;
 }
 
+// ----------------- AND Node -------------------------------------
 
-/*
- *   AND Node
- */
+AndNode::AndNode(const int id){
+	this->setId(id);
+	this->setName(patch::to_string(id));
+	input0 = NULL;
+	input1 = NULL;
+	input0Inverted = false;
+	input1Inverted = false;
+}
 
 AigNodeType AndNode::getNodeType(){
 	return AND_NODE;
@@ -123,7 +156,6 @@ void AndNode::setInputInverted(const bool inputInverted, const int input0or1){
 
 
 void AndNode::setInput(AIGNode* in0, AIGNode *in1){
-
 	this->input0 = in0;
 	this->input1 = in1;
 }
@@ -139,13 +171,3 @@ AIGNode* AndNode::getInput(const int input0or1){
 		return NULL;
 	}
 }
-
-AndNode::AndNode(const int id){
-	this->setId(id);
-	this->setName(patch::to_string(id));
-	input0 = NULL;
-	input1 = NULL;
-	input0Inverted = false;
-	input1Inverted = false;
-}
-
