@@ -1,6 +1,8 @@
 /*
  * AIGNode.h
  *
+ *   AIG Nodes Classes
+ *
  *  Created on: Mar 9, 2017
  *      Author: lucas
  */
@@ -22,70 +24,103 @@ typedef enum {
     OUTPUT_NODE     // 2: Ouput object
 } AigNodeType;
 
-// --- AIG Node
-
+/**
+    Class that implements a generic node,
+    all kinds of nodes inherit from this class
+    
+*/
 class AIGNode {
 private:
-	unsigned id;
-	string name;
+	unsigned id;   // Literal read on the .aag or .aig file 
+	string name;  // Name of the node
 
 public:
-	AIGNode(){
-		id=-1;
-	}
-	AIGNode(const unsigned id){
-		this->id = id;
-	}
+	//Default constructor
+	AIGNode();
+	
+	/**
+	*   Constructor
+	*
+	*   @param id Id of the node
+	*/
+	AIGNode(const unsigned id);
+	
+	//Default destructor
 	virtual ~AIGNode();
 
+	// Getters and Setters
 	void setId(const unsigned id);
 	unsigned int getId() const;
-	void setName(const string name){
-		this->name = name;
-	}
-	string getName()const{
-		return this->name;
-	}
+	void setName(const string name);
+	string getName()const;
+	
+	/*
+	*   Returns the enum representing the type of the node
+	*/
 	virtual AigNodeType getNodeType() = 0;
-	virtual vector<AIGNode*> * getOutputs(){return NULL;}
-	virtual void setOutput(AIGNode* node){
-
-	}
-	vector<bool> * getOutputsInverted(){
-		return NULL;
-	}
+	
+	/*
+	*   Virtual functions that only Bidirectioned Nodes implement
+	*   Unidirected nodes will report an warning
+	*/
+	virtual vector<AIGNode*> * getOutputs();
+	virtual void setOutput(AIGNode* node);
+	virtual vector<bool> * getOutputsInverted();
 };
 
-// --- Input Node
-
+/*
+*   Class that implements an Input Node
+*
+*/
 class InputNode: public AIGNode{
 public:
-	virtual void setOutput(AIGNode* node){}
-
+	/*
+	*  Constructor
+	*  @param id Id of the node
+	*/
 	InputNode(const unsigned id);
+	
+	/*
+	*   Returns the enum representing the type of the node
+	*/
 	AigNodeType getNodeType();
-	AIGNode* getInput(const int input0or1){
-		cout << "Tried to get input from an input node.\n";
-		return NULL;
-	}
+	
+	/*
+	*  Get one of the inputs
+	*
+	* @param input0or1 Whether should return the input0 or input1
+	* @return The wanted input of the node
+	*/
+	AIGNode* getInput(const int input0or1);
 };
 
-// --- Output Node
-
+/*
+*   Class that implements an Output Node
+*
+*/
 class OutputNode: public AIGNode{
 private:
-	AIGNode* input0;
-	bool input0Inverted;
+	AIGNode* input0;   // Output node only has one input
+	bool input0Inverted;  // Whether the input is inverted
 
 public:
-	virtual void setOutput(AIGNode* node){}
-
+	/*
+	*  Constructor
+	*  @param id Id of the node
+	*/
 	OutputNode(const int id);
-	~OutputNode(){
-		delete input0;
-	}
+	~OutputNode();
 
+	/*
+	*   Returns the enum representing the type of the node
+	*/
 	AigNodeType getNodeType();
+	
+	/*
+	*  Set pointer to the input node
+	*  
+	*  @param node Pointer to the input
+	*/
 	void setInput(AIGNode* node);
 	AIGNode* getInput();
 	bool isInputInverted() const;
@@ -96,14 +131,12 @@ public:
 
 class AndNode: public AIGNode{
 private:
-	AIGNode* input0;
-	AIGNode* input1;
+    AIGNode* input0;
+    AIGNode* input1;
     bool input0Inverted;
     bool input1Inverted;
 
 public:
-	virtual void setOutput(AIGNode* node){}
-
     AndNode(const int id);
 
     ~AndNode(){
