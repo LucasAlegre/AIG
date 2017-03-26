@@ -13,7 +13,8 @@
 #include<string.h>
 #include<sstream>
 #include<vector>
-#include"AIGNode.h"
+
+#include "../../PointerBased Graph/Graph/AIGNode.h"
 
 /*
  *  Bidirected Input Node

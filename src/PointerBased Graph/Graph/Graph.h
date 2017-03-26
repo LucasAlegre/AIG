@@ -9,8 +9,8 @@
 #define GRAPH_H_
 
 #include <vector>
-#include "AIGNode.h"
 #include <iostream>
+#include "../../PointerBased Graph/Graph/AIGNode.h"
 
 using namespace std;
 

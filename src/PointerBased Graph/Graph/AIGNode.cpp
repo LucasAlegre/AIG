@@ -7,9 +7,10 @@
  *      Author: lucas
  */
 
-#include "AIGNode.h"
-#include "Graph.h"
+#include "../../PointerBased Graph/Graph/AIGNode.h"
+
 #include <iostream>
+#include "../../PointerBased Graph/Graph/Graph.h"
 
 using namespace std;
 

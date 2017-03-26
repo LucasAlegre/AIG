@@ -4,33 +4,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/AIGNode.cpp \
-../src/AIGNodeI.cpp \
-../src/AigerReader.cpp \
-../src/BAIGNode.cpp \
-../src/BGraph.cpp \
-../src/Graph.cpp \
-../src/GraphI.cpp \
 ../src/main.cpp 
 
 OBJS += \
-./src/AIGNode.o \
-./src/AIGNodeI.o \
-./src/AigerReader.o \
-./src/BAIGNode.o \
-./src/BGraph.o \
-./src/Graph.o \
-./src/GraphI.o \
 ./src/main.o 
 
 CPP_DEPS += \
-./src/AIGNode.d \
-./src/AIGNodeI.d \
-./src/AigerReader.d \
-./src/BAIGNode.d \
-./src/BGraph.d \
-./src/Graph.d \
-./src/GraphI.d \
 ./src/main.d 
 
 

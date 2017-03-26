@@ -13,7 +13,8 @@
 #include <fstream>
 #include <sstream>
 #include <list>
-#include "Graph.h"
+
+#include "../../PointerBased Graph/Graph/Graph.h"
 using namespace std;
 
 /*

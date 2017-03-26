@@ -9,9 +9,10 @@
 #define BGRAPH_H_
 
 #include <vector>
-#include "AIGNode.h"
 #include <iostream>
-#include "Graph.h"
+
+#include "../../PointerBased Graph/Graph/AIGNode.h"
+#include "../../PointerBased Graph/Graph/Graph.h"
 
 class BGraph:public GRAPH {
 private:

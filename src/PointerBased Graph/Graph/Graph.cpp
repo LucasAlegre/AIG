@@ -5,7 +5,8 @@
  *      Author: lucas
  */
 
-#include "Graph.h"
+#include "../../PointerBased Graph/Graph/Graph.h"
+
 #include <vector>
 #include <iostream>
 
