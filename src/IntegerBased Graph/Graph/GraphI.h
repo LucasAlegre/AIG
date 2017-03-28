@@ -21,6 +21,8 @@ public:
 	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;
 	virtual void addOutputToNodes() = 0;  // Insert the outputs vector at the end of the nodes vector
 
+	virtual void iniatializeNodes(const int nNodes) = 0;
+
 	virtual int getLastFreeIndex() = 0;
 
 	virtual int findNodeIndexById(const unsigned int id) = 0;
@@ -43,13 +45,15 @@ private:
     int lastFreeIndex;
 
 public:
-	GraphI(int numNodes);
+	GraphI();
 	virtual ~GraphI();
 
 	/*
 	 *  Returns the index of the last free available position of the array
 	 */
 	int getLastFreeIndex();
+
+	void iniatializeNodes(const int nNodes);
 
 	void insertInputNode(const unsigned int id);
 	void insertOutputNode(const unsigned int id);

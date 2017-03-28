@@ -5,12 +5,11 @@
  *      Author: lucas
  */
 
-#include "Graph.h"
-#include "AIGNode.h"
-#include "Graph.h"
-#include "AigerReader.h"
+#include "PointerBased Graph/Graph/AIGNode.h"
+#include "PointerBased Graph/Graph/Graph.h"
+#include "PointerBased Graph/Reader/AigerReader.h"
 #include <iostream>
-#include "BAIGNode.h"
+#include "PointerBased Graph/Bidirected Graph/BAIGNode.h"
 
 using namespace std;
 
@@ -18,34 +17,30 @@ using namespace std;
  *   Main file
  *
  *   @param arv[1] Filename without extension
- *   @param arv[2] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph
+ *   @param arv[2] Pointer or Integer based 1 - Pointer 2 - Integer
+ *   @param arv[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph
  *
  */
 
 int main(int argc, char* arv[]){
 
-	if(argc != 3){
-		cout << "Must inform the file and the bidirectionOption" << endl;
+	if(argc != 4){
+		cout <<  "*   @param arv[1] Filename without extension" << endl
+			 <<	 "*   @param arv[2] Pointer or Integer based 1 - Pointer 2 - Integer" << endl
+			 <<	 "*   @param arv[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph" << endl;
 		exit(-1);
 	}
 
 	string fileName(arv[1]);
-    int bidirectionOption = atoi(arv[2]);
+	int pointerOrInteger = atoi(arv[2]);
+    int bidirectionOption = atoi(arv[3]);
+
 	string filePathAAG = "aags/";
 	string filePathAIG = "aigs/";
 
 	AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
     GRAPH* aig = reader.readAAGFile();
 	reader.generateDot(aig, fileName + ".dot");
-
-	vector<AIGNode*> *nodes = aig->getNodes();
-	for(auto it = nodes->begin(); it < nodes->end(); it++){
-		vector<AIGNode*> *outputs =  (*it)->getOutputs();
-		if(outputs != NULL)
-			for(auto it2 = outputs->begin(); it2 < outputs->end(); it2++)
-				cout << (*it2)->getId() << endl;
-	}
-
 
 	return 0;
 

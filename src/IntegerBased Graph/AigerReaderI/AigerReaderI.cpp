@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <sstream>
 
 
@@ -19,18 +20,18 @@
 
 AigerReaderI::AigerReaderI(string sourcePath, const int bidirectionOption)
 {
+    nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
+
     if(bidirectionOption == 1){
     	aig = new GraphI;
     }
     else if(bidirectionOption == 2)
     	//TODO
     	aig = new GraphI;
-    else
+    else{
     	cout << "Incorrect parameters, 1 - Unidirected Graph  2 - Bidirected Graph\n";
     	exit(-2);
     }
-
-	nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
 
 	try{
 		source.open(sourcePath.c_str());
@@ -42,16 +43,15 @@ AigerReaderI::AigerReaderI(string sourcePath, const int bidirectionOption)
 
 }
 
-GRAPH* AigerReader::readAIGFile(){
+GRAPHI* AigerReaderI::readAIGFile(){
 
     if(!readHeader()){
     	cout << "Header not correct" << endl;
     	exit(-1);
     }
 
-	InputNode* constant = new InputNode(0);
-	constant->setName("constant");
-	aig->getNodes()->push_back(constant);
+    // Insert VDD to the Nodes
+    aig->insertInputNode(0);
 
     readAIGInputs();
     readAIGOutputs();
@@ -68,7 +68,7 @@ GRAPH* AigerReader::readAIGFile(){
 }
 
 //based on http://fmv.jku.at/aiger/FORMAT-20070427.pdf
-unsigned AigerReader::decode(){
+unsigned AigerReaderI::decode(){
 
 	unsigned x = 0, i = 0;
 	unsigned char ch = source.get();
@@ -83,7 +83,7 @@ unsigned AigerReader::decode(){
 }
 
 //based on http://fmv.jku.at/aiger/FORMAT-20070427.pdf
-void AigerReader::readAIGAnds(){
+void AigerReaderI::readAIGAnds(){
 
 	unsigned delta0, delta1, lhs, rhs0, rhs1;
 
@@ -110,7 +110,7 @@ void AigerReader::readAIGAnds(){
 
 }
 
-void AigerReader::readAIGInputs(){
+void AigerReaderI::readAIGInputs(){
     //treating inputs
     for (int i = 0; i < nInputs; i++) {
 
@@ -121,7 +121,7 @@ void AigerReader::readAIGInputs(){
 
 }
 
-void AigerReader::readAIGOutputs(){
+void AigerReaderI::readAIGOutputs(){
 
     //treating outputs
     debug << "\n";
@@ -138,7 +138,7 @@ void AigerReader::readAIGOutputs(){
     }
 }
 
-GRAPH* AigerReader::readAAGFile()
+GRAPHI* AigerReaderI::readAAGFile()
 {
 
     if(!readHeader()){
@@ -146,9 +146,8 @@ GRAPH* AigerReader::readAAGFile()
     	exit(-1);
     }
 
-	InputNode* constant = new InputNode(0);
-	constant->setName("constant");
-	aig->getNodes()->push_back(constant);
+    // Insert VDD to the Nodes
+    aig->insertInputNode(0);
 
     readAAGInputs();
     readAAGOutputs();
@@ -164,7 +163,7 @@ GRAPH* AigerReader::readAAGFile()
     return aig;
 }
 
-void AigerReader::readAAGInputs(){
+void AigerReaderI::readAAGInputs(){
 
     //treating inputs
     for (int i = 0; i < nInputs; i++) {
@@ -182,7 +181,7 @@ void AigerReader::readAAGInputs(){
 
 }
 
-void AigerReader::readAAGOutputs(){
+void AigerReaderI::readAAGOutputs(){
 
     //treating outputs
     debug << "\n";
@@ -200,7 +199,7 @@ void AigerReader::readAAGOutputs(){
     }
 }
 
-void AigerReader::readAAGAnds(){
+void AigerReaderI::readAAGAnds(){
     //connecting ands
     debug << "\n";
     for (int i = 0; i < nAnds; i++) {
@@ -226,7 +225,7 @@ void AigerReader::readAAGAnds(){
 
 }
 
-bool AigerReader::readHeader()
+bool AigerReaderI::readHeader()
 {
 	//treating header
 	source.getline(buf, 250);
@@ -262,15 +261,16 @@ bool AigerReader::readHeader()
 		return false;
 	}
 
+	aig->iniatializeNodes(nNodes);
+
 	debug << s << "\nThe file header is ok!\n\n";
 	return true;
 }
 
+/*
+void AigerReaderI::readAAGNames(){
 
-void AigerReader::readAAGNames(){
-
-    vector<OutputNode*> *outputs = aig->getOutputNodes();
-    vector<InputNode*> *inputs = aig->getInputNodes();
+    AIGNodeI* nodes = aig->getNodes();
 
     int counter = 0;
 
@@ -310,9 +310,10 @@ void AigerReader::readAAGNames(){
         }
     }
 
-}
+}*/
 
-void AigerReader::generateDot(GRAPH* aig, string filename){
+/*
+void AigerReaderI::generateDot(GRAPHI* aig, string filename){
 
 	if(aig == NULL){
 		cout << "Tryed to generate dotfile from an empty aig" << endl;
@@ -387,4 +388,4 @@ void AigerReader::generateDot(GRAPH* aig, string filename){
 
     debug << "dotfile generated\n";
 
-}
+}*/

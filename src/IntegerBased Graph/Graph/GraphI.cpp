@@ -11,10 +11,10 @@
 #include "AndNodeI.h"
 
 
-GraphI::GraphI(int nNodes) {
+GraphI::GraphI() {
 
-	nodes = new AIGNodeI[nNodes];
-	numNodes = nNodes;
+	nodes = NULL;
+	numNodes = -1;
 	lastFreeIndex = 0;
 }
 
@@ -26,6 +26,12 @@ int GraphI::getLastFreeIndex(){
 	return this->lastFreeIndex;
 }
 
+void GraphI::iniatializeNodes(const int nNodes){
+
+	numNodes = nNodes;
+	nodes = new AIGNodeI[nNodes];
+
+}
 
 int GraphI::findNodeIndexById(const unsigned int id){
 
@@ -73,3 +79,6 @@ void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned in
 	lastFreeIndex++;
 }
 
+AIGNodeI* GraphI::getNodes(){
+	return nodes;
+}
