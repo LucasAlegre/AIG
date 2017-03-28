@@ -8,6 +8,8 @@
 #ifndef INTEGERBASED_GRAPH_GRAPH_ANDNODEI_H_
 #define INTEGERBASED_GRAPH_GRAPH_ANDNODEI_H_
 
+#include "AIGNodeI.h"
+
 class AndNodeI: public AIGNodeI{
 private:
     int indexInput0;
@@ -22,7 +24,7 @@ public:
 
     }
 
-	void setInput(const int index0, const int index1);
+	void setInputIndex(const int index, const int input0or1);
 	bool isInputInverted(const int input0or1) const;
 	int getInputIndex(const int input0or1);
 	void setInputInverted(const bool inputInverted, const int input0or1);

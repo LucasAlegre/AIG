@@ -18,6 +18,12 @@ private:
 
 public:
 	AIGNodeI();
+	/**
+	*   Constructor
+	*
+	*   @param id Id of the node
+	*/
+	AIGNodeI(unsigned id);
 	virtual ~AIGNodeI();
 
 	/*
@@ -27,6 +33,11 @@ public:
 	void setName(std::string name);
 	unsigned getId() const;
 	void setId(unsigned id);
+
+	virtual void setInputIndex(const int index, const int input0or1);
+	virtual bool isInputInverted(const int input0or1) const;
+	virtual int getInputIndex(const int input0or1);
+	virtual void setInputInverted(const bool inputInverted, const int input0or1);
 
 	/*
 	*   Virtual functions that only Bidirectioned Nodes implement

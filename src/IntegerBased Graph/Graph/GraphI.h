@@ -38,7 +38,7 @@ public:
 */
 class GraphI: public GRAPHI{
 private:
-    AIGNodeI nodes[];
+    AIGNodeI *nodes;
     int numNodes;
     int lastFreeIndex;
 

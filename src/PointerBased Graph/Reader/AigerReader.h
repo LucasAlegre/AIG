@@ -8,7 +8,7 @@
 #ifndef AIGERREADER_H_
 #define AIGERREADER_H_
 
-#include <cstdlib>
+#include <string>
 #include <iostream>
 #include <fstream>
 #include <sstream>

@@ -6,16 +6,20 @@
  */
 
 #include "GraphI.h"
+#include "InputNodeI.h"
+#include "OutputNodeI.h"
+#include "AndNodeI.h"
+
 
 GraphI::GraphI(int nNodes) {
 
-	this->nodes = new AIGNodeI[nNodes];
+	nodes = new AIGNodeI[nNodes];
 	numNodes = nNodes;
 	lastFreeIndex = 0;
 }
 
 GraphI::~GraphI() {
-	// TODO Auto-generated destructor stub
+	delete[] nodes;
 }
 
 int GraphI::getLastFreeIndex(){
@@ -32,37 +36,39 @@ int GraphI::findNodeIndexById(const unsigned int id){
 }
 
 void GraphI::insertInputNode(const unsigned int id){
-	nodes[lastFreeIndex] = new AIGNodeI(id);
+	new (&nodes[lastFreeIndex]) InputNodeI(id);
 	lastFreeIndex++;
 }
 
 void GraphI::insertOutputNode(const unsigned int id){
-	nodes[lastFreeIndex] = new AIGNodeI(id);
+    new (&nodes[lastFreeIndex]) OutputNodeI(id);
 	lastFreeIndex++;
 }
+
 void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1){
 
 	int index = lastFreeIndex;
 
-	nodes[index] = new AndNodeI(id);
+	new (&nodes[index]) AndNodeI(id);
 
 	if(rhs0 % 2 == 0){
-		((AndNodeI)nodes[index]).setInputInverted(false, 0);
+		nodes[index].setInputInverted(false, 0);
 	}
 	else{
-		((AndNodeI)nodes[index]).setInputInverted(true, 0);
+		nodes[index].setInputInverted(true, 0);
 		rhs0--;
 	}
 
 	if(rhs1 % 2 == 0){
-		((AndNodeI)nodes[index]).setInputInverted(false, 1);
+		nodes[index].setInputInverted(false, 1);
 	}
 	else{
-		((AndNodeI)nodes[index]).setInputInverted(true, 1);
+		nodes[index].setInputInverted(true, 1);
 		rhs1--;
 	}
 
-	((AndNodeI)nodes[index]).setInput(findNodeIndexById(rhs0), findNodeIndexById(rhs1));
+	nodes[index].setInputIndex(findNodeIndexById(rhs0), 0);
+	nodes[index].setInputIndex(findNodeIndexById(rhs1), 1);
 
 	lastFreeIndex++;
 }

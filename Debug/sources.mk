@@ -23,7 +23,11 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-src/IntegerBased\ Graph \
-src/PointerBased\ Graphs \
+.metadata/.plugins/org.eclipse.cdt.make.core \
+src/IntegerBased\ Graph/AigerReaderI \
+src/IntegerBased\ Graph/Graph \
+src/PointerBased\ Graph/Bidirected\ Graph \
+src/PointerBased\ Graph/Graph \
+src/PointerBased\ Graph/Reader \
 src \
 

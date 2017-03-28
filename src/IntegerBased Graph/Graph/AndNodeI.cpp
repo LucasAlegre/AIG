@@ -5,11 +5,24 @@
  *      Author: lucas
  */
 
-#include "AndNodeI.h"
+#include"AndNodeI.h"
+#include<iostream>
+#include<string>
+#include<sstream>
+#include<vector>
 
-AndNodeI::~AndNodeI() {
-	// TODO Auto-generated destructor stub
+using namespace std;
+
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        ostringstream stm;
+        stm << n ;
+        return stm.str() ;
+    }
 }
+
 
 AndNodeI::AndNodeI(const int id){
 	this->setId(id);
@@ -47,9 +60,22 @@ void AndNodeI::setInputInverted(const bool inputInverted, const int input0or1){
 }
 
 
-void AndNodeI::setInputIndex(const int index0, const int index1){
-	this->indexInput0 = index0;
-	this->indexInput1 = index1;
+void AndNodeI::setInputIndex(const int index, const int input0or1){
+
+	if(index < 0){
+		std::cout << "Negative index!" << endl;
+        exit(-1);
+	}
+
+	if(input0or1 == 0)
+	   	 this->indexInput0 = index;
+
+    else if(input0or1 == 1)
+	   	 this->indexInput1 = index;
+
+	else
+	   	 std::cout << "Invalid input number" << "\n";
+
 }
 
 int AndNodeI::getInputIndex(const int input0or1){
@@ -59,7 +85,7 @@ int AndNodeI::getInputIndex(const int input0or1){
 	else if(input0or1 == 1)
 		return this->indexInput1;
 	else{
-		cout << "Invalid parameter \n";
+		std::cout << "Invalid parameter \n";
 		return -1;
 	}
 }

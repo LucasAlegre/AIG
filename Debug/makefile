@@ -8,9 +8,13 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include src/PointerBased\ Graphs/subdir.mk
--include src/IntegerBased\ Graph/subdir.mk
+-include src/PointerBased\ Graph/Reader/subdir.mk
+-include src/PointerBased\ Graph/Graph/subdir.mk
+-include src/PointerBased\ Graph/Bidirected\ Graph/subdir.mk
+-include src/IntegerBased\ Graph/Graph/subdir.mk
+-include src/IntegerBased\ Graph/AigerReaderI/subdir.mk
 -include src/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 

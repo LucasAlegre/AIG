@@ -5,17 +5,14 @@
  *      Author: lucas
  */
 
-#include "../../PointerBased Graph/Reader/AigerReader.h"
-
-#include <string.h>
 #include <iostream>
 #include <string>
 #include <sstream>
 
+#include "AigerReader.h"
 #include "../../PointerBased Graph/Bidirected Graph/BAIGNode.h"
 #include "../../PointerBased Graph/Bidirected Graph/BGraph.h"
 #include "../../PointerBased Graph/Graph/AIGNode.h"
-#include "../../PointerBased Graph/Graph/Graph.h"
 #include "../../PointerBased Graph/Graph/Graph.h"
 
 AigerReader::AigerReader(string sourcePath, const int bidirectionOption)

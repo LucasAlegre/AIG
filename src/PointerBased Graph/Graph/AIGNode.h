@@ -12,7 +12,6 @@
 
 #include<iostream>
 #include<string>
-#include<string.h>
 #include<sstream>
 #include<vector>
 
@@ -43,7 +42,7 @@ public:
 	*
 	*   @param id Id of the node
 	*/
-	AIGNode(const unsigned id);
+	AIGNode(unsigned id);
 	
 	//Default destructor
 	virtual ~AIGNode();
@@ -51,7 +50,7 @@ public:
 	// Getters and Setters
 	void setId(const unsigned id);
 	unsigned int getId() const;
-	void setName(const string name);
+	void setName(string name);
 	string getName()const;
 	
 	/*

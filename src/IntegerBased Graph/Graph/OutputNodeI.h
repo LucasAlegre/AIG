@@ -8,6 +8,8 @@
 #ifndef INTEGERBASED_GRAPH_GRAPH_OUTPUTNODEI_H_
 #define INTEGERBASED_GRAPH_GRAPH_OUTPUTNODEI_H_
 
+#include "AIGNodeI.h"
+
 /*
 *   Class that implements an Output Node
 *
@@ -18,6 +20,7 @@ private:
 	bool input0Inverted;  // Whether the input is inverted
 
 public:
+
 	/*
 	*  Constructor
 	*  @param id Id of the node
@@ -25,14 +28,13 @@ public:
 	OutputNodeI(const int id);
 	~OutputNodeI();
 
-
 	/*
 	*  Set pointer to the input node
 	*
 	*  @param node Pointer to the input
 	*/
 	void setInputIndex(int index);
-	AIGNodeI getInputIndex();
+	int getInputIndex(const int input0or1);
 	bool isInputInverted() const;
 	void setInputInverted(const bool inputInverted);
 };

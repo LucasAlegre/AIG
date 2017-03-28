@@ -7,10 +7,9 @@
  *      Author: lucas
  */
 
-#include "../../PointerBased Graph/Graph/AIGNode.h"
-
+#include "AIGNode.h"
 #include <iostream>
-#include "../../PointerBased Graph/Graph/Graph.h"
+#include "Graph.h"
 
 using namespace std;
 
@@ -45,7 +44,7 @@ void AIGNode::setId(const unsigned id){
 unsigned int AIGNode::getId() const{
 	return this->id;
 }	
-void AIGNode::setName(const string name){
+void AIGNode::setName(string name){
 	this->name = name;
 }
 string AIGNode::getName()const{
@@ -117,7 +116,7 @@ AIGNode* OutputNode::getInput(){
 
 // ------------------------ AND Node ------------------------------
 
-AndNode::AndNode(const int id){
+AndNode::AndNode(int id){
 	this->setId(id);
 	this->setName(patch::to_string(id));
 	input0 = NULL;

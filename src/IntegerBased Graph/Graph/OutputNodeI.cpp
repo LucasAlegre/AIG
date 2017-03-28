@@ -5,12 +5,9 @@
  *      Author: lucas
  */
 
+#include <iostream>
 #include "OutputNodeI.h"
 
-OutputNodeI::OutputNodeI() {
-	// TODO Auto-generated constructor stub
-
-}
 
 OutputNodeI::~OutputNodeI() {
 	// TODO Auto-generated destructor stub
@@ -22,9 +19,6 @@ OutputNodeI::OutputNodeI(const int id){
 	input0Inverted = false;
 }
 
-OutputNodeI::~OutputNodeI(){
-
-}
 
 void OutputNodeI::setInputInverted(const bool inputInverted){
 	this->input0Inverted = inputInverted;
@@ -39,9 +33,15 @@ void OutputNodeI::setInputIndex(const int index){
 	this->indexInput0 = index;
 }
 
-int OutputNodeI::getInputIndex(){
+int OutputNodeI::getInputIndex(const int input0or1){
 
-	return this->indexInput0;
+	if(input0or1 != 0){
+		std::cout << "Output only has input0\n";
+		return -1;
+	}
+
+	else
+		return this->indexInput0;
 }
 
 
