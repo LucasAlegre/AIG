@@ -28,15 +28,10 @@ public:
 	OutputNodeI(const int id);
 	~OutputNodeI();
 
-	/*
-	*  Set pointer to the input node
-	*
-	*  @param node Pointer to the input
-	*/
-	void setInputIndex(int index);
+	void setInputIndex(const int index, const int input0or1);
+    bool isInputInverted(const int input0or1) const;
 	int getInputIndex(const int input0or1);
-	bool isInputInverted() const;
-	void setInputInverted(const bool inputInverted);
+	void setInputInverted(const bool inputInverted, const int input0or1);
 };
 
 #endif /* INTEGERBASED_GRAPH_GRAPH_OUTPUTNODEI_H_ */

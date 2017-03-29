@@ -15,15 +15,24 @@
 *
 */
 class GRAPHI{
+protected:
+    int numNodes;
+    int nInputs, nOutputs, nAnds, nFFs;
+    int lastFreeIndex;
+
 public:
+	virtual ~GRAPHI(){};
+
+	/*
+	 *  Returns the index of the last free available position of the array
+	 */
+	int getLastFreeIndex();
+
 	virtual void insertInputNode(const unsigned int id) = 0;
 	virtual void insertOutputNode(const unsigned int id) = 0;
 	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;
-	virtual void addOutputToNodes() = 0;  // Insert the outputs vector at the end of the nodes vector
 
 	virtual void iniatializeNodes(const int nNodes) = 0;
-
-	virtual int getLastFreeIndex() = 0;
 
 	virtual int findNodeIndexById(const unsigned int id) = 0;
 
@@ -31,6 +40,43 @@ public:
 
 	virtual AIGNodeI* getNodes() = 0;
 
+    int getNumNodes();
+
+	int getNumAnds() const {
+		return nAnds;
+	}
+
+	void setNumAnds(int ands) {
+		nAnds = ands;
+	}
+
+	int getNumFFs() const {
+		return nFFs;
+	}
+
+	void setNumFFs(int fFs) {
+		nFFs = fFs;
+	}
+
+	int getNumInputs() const {
+		return nInputs;
+	}
+
+	void setNumInputs(int inputs) {
+		nInputs = inputs;
+	}
+
+	int getNumOutputs() const {
+		return nOutputs;
+	}
+
+	void setNumOutputs(int outputs) {
+		nOutputs = outputs;
+	}
+
+	void setNumNodes(int numNodes) {
+		this->numNodes = numNodes;
+	}
 };
 
 
@@ -41,24 +87,16 @@ public:
 class GraphI: public GRAPHI{
 private:
     AIGNodeI *nodes;
-    int numNodes;
-    int lastFreeIndex;
 
 public:
 	GraphI();
 	virtual ~GraphI();
-
-	/*
-	 *  Returns the index of the last free available position of the array
-	 */
-	int getLastFreeIndex();
 
 	void iniatializeNodes(const int nNodes);
 
 	void insertInputNode(const unsigned int id);
 	void insertOutputNode(const unsigned int id);
 	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
-	void addOutputToNodes();  // Insert the outputs vector at the end of the nodes vector
 
 	int findNodeIndexById(const unsigned int id);
 

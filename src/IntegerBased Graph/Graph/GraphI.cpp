@@ -22,14 +22,14 @@ GraphI::~GraphI() {
 	delete[] nodes;
 }
 
-int GraphI::getLastFreeIndex(){
+int GRAPHI::getLastFreeIndex(){
 	return this->lastFreeIndex;
 }
 
-void GraphI::iniatializeNodes(const int nNodes){
+void GraphI::iniatializeNodes(const int nTotalNodes){
 
-	numNodes = nNodes;
-	nodes = new AIGNodeI[nNodes];
+	numNodes = nTotalNodes;
+	nodes = new AIGNodeI[nTotalNodes];
 
 }
 
@@ -79,6 +79,27 @@ void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned in
 	lastFreeIndex++;
 }
 
+void GraphI::connectOutputs(){
+
+    AIGNodeI* nodes = getNodes();
+	for(int i = nInputs + 1; i < nInputs + nOutputs; i++){
+//TODO
+		int idinp = nodes[i].getId();
+
+		if(idinp % 2 != 0){
+			nodes[i].setInputInverted(true, 0);
+			idinp--;
+		}
+
+		nodes[findNodeIndexById(idinp)].setInputIndex(i, 0);
+
+	}
+}
+
 AIGNodeI* GraphI::getNodes(){
 	return nodes;
+}
+
+int GRAPHI::getNumNodes(){
+	return this->numNodes;
 }

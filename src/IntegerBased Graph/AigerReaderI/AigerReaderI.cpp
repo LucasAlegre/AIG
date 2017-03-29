@@ -49,9 +49,14 @@ GRAPHI* AigerReaderI::readAIGFile(){
     	cout << "Header not correct" << endl;
     	exit(-1);
     }
+	aig->iniatializeNodes(nNodes);
 
     // Insert VDD to the Nodes
     aig->insertInputNode(0);
+
+    aig->setNumInputs(nInputs);
+    aig->setNumOutputs(nOutputs);
+    aig->setNumAnds(nAnds);
 
     readAIGInputs();
     readAIGOutputs();
@@ -146,8 +151,15 @@ GRAPHI* AigerReaderI::readAAGFile()
     	exit(-1);
     }
 
+    //nNodes == nAnds + nOutputs + nFFs   and   + 1 for constant node
+	aig->iniatializeNodes(nNodes + nOutputs + 1);
+
     // Insert VDD to the Nodes
     aig->insertInputNode(0);
+
+    aig->setNumInputs(nInputs);
+    aig->setNumOutputs(nOutputs);
+    aig->setNumAnds(nAnds);
 
     readAAGInputs();
     readAAGOutputs();
@@ -155,7 +167,7 @@ GRAPHI* AigerReaderI::readAAGFile()
 
     aig->connectOutputs();
 
-    readAAGNames();
+ //   readAAGNames();
 
     debug << "\ncreate the AIG and add all nodes\n";
     debug << "return the AIG\n";
@@ -261,18 +273,18 @@ bool AigerReaderI::readHeader()
 		return false;
 	}
 
-	aig->iniatializeNodes(nNodes);
-
 	debug << s << "\nThe file header is ok!\n\n";
 	return true;
 }
 
-/*
+
 void AigerReaderI::readAAGNames(){
 
     AIGNodeI* nodes = aig->getNodes();
 
-    int counter = 0;
+    nodes[0].setName("Constant");
+
+    int counter = 1;
 
     while(source)
     {
@@ -291,17 +303,17 @@ void AigerReaderI::readAAGNames(){
         else if(strcmp(word.substr(0,1).c_str(),"i")==0){
         	line >> word;
 
-        	inputs->at(counter)->setName(word);
-        	if(counter == nInputs - 1)
-        		counter = 0;
+        	nodes[counter].setName(word);
+        	if(counter == nInputs)
+        		counter = 1;
         	else
         		counter++;
         }
         else if(strcmp(word.substr(0,1).c_str(),"o")==0){
         	line >> word;
-        	outputs->at(counter)->setName(word);
-        	if(counter == nOutputs - 1)
-        		counter = 0;
+        	nodes[counter + nInputs].setName(word);
+        	if(counter == nOutputs)
+        		counter = 1;
         	else
         		counter++;
         }
@@ -310,7 +322,7 @@ void AigerReaderI::readAAGNames(){
         }
     }
 
-}*/
+}
 
 /*
 void AigerReaderI::generateDot(GRAPHI* aig, string filename){

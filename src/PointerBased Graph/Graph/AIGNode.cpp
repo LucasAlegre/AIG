@@ -15,7 +15,7 @@ using namespace std;
 
 namespace patch
 {
-    template < typename T > std::string to_string( const T& n )
+    template < typename T > string to_string( const T& n )
     {
         ostringstream stm ;
         stm << n ;

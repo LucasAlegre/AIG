@@ -20,15 +20,20 @@ OutputNodeI::OutputNodeI(const int id){
 }
 
 
-void OutputNodeI::setInputInverted(const bool inputInverted){
+void OutputNodeI::setInputInverted(const bool inputInverted, const int input0or1){
+	if(input0or1 != 0)
+		std::cout << "Output node only has input 0\n";
+
 	this->input0Inverted = inputInverted;
 }
 
-bool OutputNodeI::isInputInverted()const{
+bool OutputNodeI::isInputInverted(const int input0or1)const{
 	return this->input0Inverted;
 }
 
-void OutputNodeI::setInputIndex(const int index){
+void OutputNodeI::setInputIndex(const int index, const int input0or1){
+    if(input0or1 != 0)
+    	std::cout << "Output node only has input 0\n";
 
 	this->indexInput0 = index;
 }

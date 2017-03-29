@@ -1,0 +1,34 @@
+aag 11 5 0 2 6
+The file header is ok!
+
+read the input 0 Id: 2 from the file
+   create in0 and add it to an input list and the all nodes list
+read the input 1 Id: 4 from the file
+   create in1 and add it to an input list and the all nodes list
+read the input 2 Id: 6 from the file
+   create in2 and add it to an input list and the all nodes list
+read the input 3 Id: 8 from the file
+   create in3 and add it to an input list and the all nodes list
+read the input 4 Id: 10 from the file
+   create in4 and add it to an input list and the all nodes list
+
+read the output 0 Id: 19 from the file
+   create out0 and add it to an output list and the all nodes list
+read the output 1 Id: 23 from the file
+   create out1 and add it to an output list and the all nodes list
+
+read the and 0 Id: 12 from the file
+   connect the and0 and set the inversion of this pins
+read the and 1 Id: 14 from the file
+   connect the and1 and set the inversion of this pins
+read the and 2 Id: 16 from the file
+   connect the and2 and set the inversion of this pins
+read the and 3 Id: 18 from the file
+   connect the and3 and set the inversion of this pins
+read the and 4 Id: 20 from the file
+   connect the and4 and set the inversion of this pins
+read the and 5 Id: 22 from the file
+   connect the and5 and set the inversion of this pins
+
+create the AIG and add all nodes
+return the AIG

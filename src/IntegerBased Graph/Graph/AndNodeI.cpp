@@ -15,7 +15,7 @@ using namespace std;
 
 namespace patch
 {
-    template < typename T > std::string to_string( const T& n )
+    template < typename T > string to_string( const T& n )
     {
         ostringstream stm;
         stm << n ;
@@ -26,7 +26,7 @@ namespace patch
 
 AndNodeI::AndNodeI(const int id){
 	this->setId(id);
-	this->setName(patch::to_string(id));
+///	this->setName(patch::to_string(id));
 	indexInput0 = -1;
 	indexInput1 = -1;
 	input0Inverted = false;

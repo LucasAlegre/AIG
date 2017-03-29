@@ -51,4 +51,20 @@ bool * AIGNodeI::getOutputsInverted(){
 	return NULL;
 }
 
+void AIGNodeI::setInputIndex(const int index, const int input0or1){
+	std::cout << "Tried to set input to a generic node\n";
+}
+bool AIGNodeI::isInputInverted(const int input0or1) const{
+	std::cout << "Tried to get inputInverted from a generic node\n";
+	return false;
+}
+int AIGNodeI::getInputIndex(const int input0or1){
+	std::cout << "Tried to get inputIndex of a generic node\n";
+    return -1;
+
+}
+void AIGNodeI::setInputInverted(const bool inputInverted, const int input0or1){
+	std::cout << "Tried to set input inverted to a generic node\n";
+
+}
 
