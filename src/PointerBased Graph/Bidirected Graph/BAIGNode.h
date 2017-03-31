@@ -19,16 +19,12 @@
 /*
  *  Bidirected Input Node
  */
-
 class BInputNode: public InputNode {
 private:
 	vector<AIGNode*> outputs;
 	vector<bool> outputsInverted;
 public:
-	BInputNode(const unsigned id): InputNode(id)
-	{
-
-	}
+	BInputNode(const unsigned id): InputNode(id){}
 
 	AigNodeType getNodeType(){
 		return INPUT_NODE;
@@ -46,10 +42,8 @@ public:
 
 class BOutputNode: public OutputNode {
 public:
-	BOutputNode(const unsigned id): OutputNode(id)
-	{
-
-	}
+	BOutputNode(const unsigned id): OutputNode(id)	{}
+	
 	AigNodeType getNodeType(){
 		return OUTPUT_NODE;
 	}
@@ -67,27 +61,27 @@ public:
 };
 
 /*
- * Bidirected And Node
+ * Bidirected AND Node
  */
-
 class BAndNode: public AndNode{
 private:
 	vector<AIGNode*> outputs;
 	vector<bool> outputsInverted;
 public:
-	BAndNode(const unsigned id): AndNode(id)
-	{
-
-	}
+	BAndNode(const unsigned id): AndNode(id){}
+	
 	AigNodeType getNodeType(){
 		return AND_NODE;
 	}
+	
 	vector<AIGNode*> * getOutputs(){
 		return &(this->outputs);
 	}
+	
 	void setOutput(AIGNode* node){
 		outputs.push_back(node);
 	}
+	
 	vector<bool> * getOutputsInverted(){
 		return &(this->outputsInverted);
 	}
