@@ -5,41 +5,44 @@
  *      Author: lucas
  */
 
-#include "../../PointerBased Graph/Graph/Graph.h"
+#include "Graph.h"
+#include "AIGNode.h"
+#include <iterator>
 
-#include <vector>
-#include <iostream>
 
 Graph::Graph() {
 	// TODO Auto-generated constructor stub
 }
 
 Graph::~Graph() {
+	for(auto it = nodes.begin(); it < nodes.end(); it++){
+		delete *it;
+	}
 }
 
 void Graph::addOutputToNodes(){
 	this->nodes.insert(nodes.end(), outputs.begin(), outputs.end());
 }
 
-vector<AIGNode*> * Graph::getNodes(){
+vector<AIGNode_ptr> * Graph::getNodes(){
 	return &(this->nodes);
 }
 
-vector<InputNode*> * Graph::getInputNodes(){
+vector<InputNode_ptr> * Graph::getInputNodes(){
 	return &(this->inputs);
 }
 
-vector<OutputNode*> * Graph::getOutputNodes(){
+vector<OutputNode_ptr> * Graph::getOutputNodes(){
 	return &(this->outputs);
 }
 
-vector<AndNode*> * Graph::getAndNodes(){
+vector<AndNode_ptr> * Graph::getAndNodes(){
 	return &(this->andNodes);
 }
 
 void Graph::insertInputNode(const unsigned id){
 
-	InputNode* input = new InputNode(id);
+    InputNode_ptr input(new InputNode(id));
 
 	this->inputs.push_back(input);
 	this->nodes.push_back(input);
@@ -47,14 +50,14 @@ void Graph::insertInputNode(const unsigned id){
 
 void Graph::insertOutputNode(const unsigned id){
 
-	OutputNode* output = new OutputNode(id);
+	OutputNode_ptr output(new OutputNode(id));
 
 	this->outputs.push_back(output);
 }
 
 void Graph::insertAndNode(const unsigned id, unsigned rhs0, unsigned rhs1){
 
-	AndNode* andnode = new AndNode(id);
+	AndNode_ptr andnode = make_shared<AndNode>(id);
 
 	if(rhs0 % 2 == 0){
 		andnode->setInputInverted(false, 0);
@@ -86,7 +89,7 @@ void Graph::connectOutputs(){
 	for(it = outputs->begin(); it < outputs->end(); it++){
 		int idinp = (*it)->getId();
 		if(idinp % 2 != 0){
-			(*it)->setInputInverted(true);
+			(*it)->setInputInverted(true, 0);
 			idinp--;
 		}
 		AIGNode* node = this->findNodeById(idinp);

@@ -34,10 +34,10 @@ public:
 
 	void connectOutputs();
 
-	vector<AIGNode*> * getNodes();
-	vector<InputNode*> * getInputNodes();
-	vector<AndNode*> * getAndNodes();
-	vector<OutputNode*> * getOutputNodes();
+	vector<AIGNode_ptr> * getNodes();
+	vector<InputNode_ptr> * getInputNodes();
+	vector<AndNode_ptr> * getAndNodes();
+	vector<OutputNode_ptr> * getOutputNodes();
 };
 
 

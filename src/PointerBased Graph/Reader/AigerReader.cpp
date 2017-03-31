@@ -46,7 +46,7 @@ GRAPH* AigerReader::readAIGFile(){
     	exit(-1);
     }
 
-	InputNode* constant = new InputNode(0);
+	InputNode_ptr constant(new InputNode(0));
 	constant->setName("constant");
 	aig->getNodes()->push_back(constant);
 
@@ -143,7 +143,7 @@ GRAPH* AigerReader::readAAGFile()
     	exit(-1);
     }
 
-	InputNode* constant = new InputNode(0);
+	InputNode_ptr constant(new InputNode(0));
 	constant->setName("constant");
 	aig->getNodes()->push_back(constant);
 
@@ -266,8 +266,8 @@ bool AigerReader::readHeader()
 
 void AigerReader::readAAGNames(){
 
-    vector<OutputNode*> *outputs = aig->getOutputNodes();
-    vector<InputNode*> *inputs = aig->getInputNodes();
+    vector<OutputNode_ptr> *outputs = aig->getOutputNodes();
+    vector<InputNode_ptr> *inputs = aig->getInputNodes();
 
     int counter = 0;
 
@@ -331,20 +331,20 @@ void AigerReader::generateDot(GRAPH* aig, string filename){
 	dotfile << "digraph aig {" << endl;
 
 	//write the input nodes on the dot file
-    vector<InputNode*> *inputs = aig->getInputNodes();
+    vector<InputNode_ptr> *inputs = aig->getInputNodes();
 	for(auto it = inputs->begin(); it < inputs->end(); it++){
 		dotfile << "\"" << (*it)->getName() << "\"" << inputDetails << endl;
 		inputsIds += "\"" +  (*it)->getName() + "\" ";
 	}
 
 	//write the and nodes on the dot file
-    vector<AndNode*> *ands = aig->getAndNodes();
+    vector<AndNode_ptr> *ands = aig->getAndNodes();
 	for(auto it = ands->begin(); it < ands->end(); it++){
 		dotfile << "\"" << (*it)->getName() << "\"" << andDetails << endl;
 	}
 
 	//write the output nodes on the dot file
-    vector<OutputNode*> *outputs = aig->getOutputNodes();
+    vector<OutputNode_ptr> *outputs = aig->getOutputNodes();
 	for(auto it = outputs->begin(); it < outputs->end(); it++){
 		dotfile << "\"" << (*it)->getName() << "\"" << outputDetails << endl;
 		outputsIds += "\"" + (*it)->getName() + "\" ";

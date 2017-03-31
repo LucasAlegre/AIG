@@ -17,7 +17,7 @@ CPP_DEPS += \
 src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.o: ../src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/IntegerBased Graph/AigerReaderI/AigerReaderI.d" -MT"src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.d" -o "$@" "$<"
+	g++ -std=c++0x -D__GXX_EXPERIMENTAL_CXX0X__ -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -std=c++0x -MMD -MP -MF"src/IntegerBased Graph/AigerReaderI/AigerReaderI.d" -MT"src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -96,7 +96,9 @@ AigNodeType OutputNode::getNodeType(){
 }
 
 
-void OutputNode::setInputInverted(const bool inputInverted){
+void OutputNode::setInputInverted(const bool inputInverted, const int input0or1){
+	if(input0or1 != 0)
+		cout << "Output only has input 0\n";
 	this->input0Inverted = inputInverted;
 }
 

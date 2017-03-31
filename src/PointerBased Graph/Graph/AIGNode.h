@@ -67,7 +67,8 @@ public:
 	virtual vector<bool> * getOutputsInverted();
 };
 
-/*
+/*e);
+	}
 *   Class that implements an Input Node
 *
 */
@@ -92,6 +93,42 @@ public:
 	*/
 	AIGNode* getInput(const int input0or1);
 };
+
+// --- And Node
+
+class AndNode: public AIGNode{
+private:
+   	 AIGNode* input0;
+         AIGNode* input1;
+         bool input0Inverted;
+         bool input1Inverted;
+
+public:
+       /*
+        *  Constructor
+        *  @param id Id of the node
+        */
+        AndNode(const int id);
+
+        /*
+         *  Default destructor
+         */
+        ~AndNode(){}
+
+	/*
+	*   Returns the enum representing the type of the node
+	*/
+	AigNodeType getNodeType();
+
+	/*
+	*  Getters and Setters
+	*/
+	void setInput(AIGNode* inp0, AIGNode* in1);
+	bool isInputInverted(const int input0or1) const;
+	AIGNode* getInput(const int input0or1);
+	void setInputInverted(const bool inputInverted, const int input0or1);
+};
+
 
 /*
 *   Class that implements an Output Node
@@ -138,44 +175,11 @@ public:
 	/*
 	*  Set whether the input is inverted or not
 	*  @param inputInverted true if is inverted, false if not
+	*  @param input0or1
 	*/
-	void setInputInverted(const bool inputInverted);
-};
-
-// --- And Node
-
-class AndNode: public AIGNode{
-private:
-   	 AIGNode* input0;
-         AIGNode* input1;
-         bool input0Inverted;
-         bool input1Inverted;
-
-public:
-       /*
-        *  Constructor
-        *  @param id Id of the node
-        */
-        AndNode(const int id);
-
-        /*
-         *  Default destructor
-         */
-        ~AndNode(){}
-
-	/*
-	*   Returns the enum representing the type of the node
-	*/
-	AigNodeType getNodeType();
-	
-	/*
-	*  Getters and Setters
-	*/
-	void setInput(AIGNode* inp0, AIGNode* in1);
-	bool isInputInverted(const int input0or1) const;
-	AIGNode* getInput(const int input0or1);
 	void setInputInverted(const bool inputInverted, const int input0or1);
 };
+
 
 
 #endif /* AIGNODE_H_ */
