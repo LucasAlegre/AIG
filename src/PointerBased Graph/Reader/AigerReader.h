@@ -29,19 +29,23 @@ private:
     string word;
     char buf[250];
 
-    GRAPH *aig;
+    GRAPH *aig; // Unidirected or Bidirected AIG read
 
-	int nNodes, nInputs, nFFs, nOutputs, nAnds;
+    int nNodes, nInputs, nFFs, nOutputs, nAnds;
 
 public:
-	/*
-	 *   Constructor
-	 *
-	 *   @param sourcePath File to be open
-	 *   @param bidirectionOption 1 - Unidirected Graph 2 - Bidirected Graph
-	 */
+   /*
+    *   Constructor 
+    *
+    *   @param sourcePath File to be open 
+    *   @param bidirectionOption 1 - Unidirected Graph 2 - Bidirected Graph
+    */
     AigerReader(string sourcePath, const int bidirectionOption);
 
+   /*
+   *  Destructor
+   *  Closes the source and debug files
+   */
     ~AigerReader(){
     	source.close();
     	debug.close();
