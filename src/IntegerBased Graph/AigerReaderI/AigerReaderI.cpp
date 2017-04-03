@@ -49,7 +49,7 @@ GRAPHI* AigerReaderI::readAIGFile(){
     	cout << "Header not correct" << endl;
     	exit(-1);
     }
-//	aig->iniatializeNodes(nNodes);
+	aig->iniatializeArray(nNodes + nOutputs + 1);
 
     // Insert VDD to the Nodes
     aig->insertInputNode(0);
@@ -152,9 +152,9 @@ GRAPHI* AigerReaderI::readAAGFile()
     }
 
     //nNodes == nAnds + nOutputs + nFFs   and   + 1 for constant node
-//	aig->iniatializeNodes(nNodes + nOutputs + 1);
+	aig->iniatializeArray(nNodes + nOutputs + 1);
 
-    // Insert VDD to the Nodes
+    // Insert VDD to Nodes
     aig->insertInputNode(0);
 
     aig->setNumInputs(nInputs);
@@ -167,7 +167,7 @@ GRAPHI* AigerReaderI::readAAGFile()
 
     aig->connectOutputs();
 
- //   readAAGNames();
+ // readAAGNames();
 
     debug << "\ncreate the AIG and add all nodes\n";
     debug << "return the AIG\n";

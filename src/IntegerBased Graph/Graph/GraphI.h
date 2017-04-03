@@ -9,9 +9,6 @@
 #define GRAPHI_H_
 
 #include "AIGNodeI.h"
-#include "InputNodeI.h"
-#include "OutputNodeI.h"
-#include "AndNodeI.h"
 
 /*
 * Interface Class for AIG Graph with Integers
@@ -35,7 +32,7 @@ public:
 	virtual void insertOutputNode(const unsigned int id) = 0;
 	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;
 
-	//virtual void iniatializeNodes(const int nNodes) = 0;
+	virtual void iniatializeArray(const int nNodes) = 0;
 
 	virtual int findNodeIndexById(const unsigned int id) = 0;
 
@@ -89,17 +86,13 @@ public:
 */
 class GraphI: public GRAPHI{
 private:
-    InputNodeI *inputs;
-    OutputNodeI *outputs;
-    AndNodeI *andNodes;
-
     AIGNodeI *nodes;
 
 public:
 	GraphI();
-	virtual ~GraphI();
+	~GraphI();
 
-	void iniatializeArrays(const int nInputs, const int nOutputs, const int nAnds);
+	void iniatializeArray(const int nNodes);
 
 	void insertInputNode(const unsigned int id);
 	void insertOutputNode(const unsigned int id);

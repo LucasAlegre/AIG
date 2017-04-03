@@ -6,16 +6,9 @@
  */
 
 #include "GraphI.h"
-#include "InputNodeI.h"
-#include "OutputNodeI.h"
-#include "AndNodeI.h"
-
+#include "AIGNodeI.h"
 
 GraphI::GraphI() {
-
-	andNodes = NULL;
-	outputs = NULL;
-	inputs = NULL;
 	nodes = NULL;
 	numNodes = -1;
 	lastFreeIndex = 0;
@@ -30,8 +23,9 @@ int GRAPHI::getLastFreeIndex(){
 }
 
 
-void iniatializeArrays(const int nInputs, const int nOutputs, const int nAnds){
-
+void GraphI::iniatializeArray(const int nNodes){
+     nodes = new AIGNodeI[nNodes];
+     this->numNodes = nNodes;
 }
 
 int GraphI::findNodeIndexById(const unsigned int id){
@@ -43,20 +37,20 @@ int GraphI::findNodeIndexById(const unsigned int id){
 }
 
 void GraphI::insertInputNode(const unsigned int id){
-	new (&nodes[lastFreeIndex]) InputNodeI(id);
+	new (&nodes[lastFreeIndex]) AIGNodeI(id, INPUT_NODE);
 	lastFreeIndex++;
 }
 
 void GraphI::insertOutputNode(const unsigned int id){
-    new (&nodes[lastFreeIndex]) OutputNodeI(id);
+	new (&nodes[lastFreeIndex + nAnds]) AIGNodeI(id, OUTPUT_NODE);
 	lastFreeIndex++;
 }
 
 void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1){
 
-	int index = lastFreeIndex;
+	int index = lastFreeIndex - nOutputs;
 
-	new (&nodes[index]) AndNodeI(id);
+	new (&nodes[index]) AIGNodeI(id, AND_NODE);
 
 	if(rhs0 % 2 == 0){
 		nodes[index].setInputInverted(false, 0);
@@ -82,9 +76,8 @@ void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned in
 
 void GraphI::connectOutputs(){
 
-    AIGNodeI* nodes = getNodes();
-	for(int i = nInputs + 1; i < nInputs + nOutputs; i++){
-//TODO
+	for(int i = nInputs + nAnds + 1; i <= nInputs + nOutputs + nAnds; i++){
+
 		int idinp = nodes[i].getId();
 
 		if(idinp % 2 != 0){
@@ -92,7 +85,7 @@ void GraphI::connectOutputs(){
 			idinp--;
 		}
 
-		nodes[findNodeIndexById(idinp)].setInputIndex(i, 0);
+		nodes[i].setInputIndex(findNodeIndexById(idinp), 0);
 
 	}
 }

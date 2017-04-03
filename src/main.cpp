@@ -23,7 +23,6 @@ using namespace std;
  *   @param arv[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph
  *
  */
-
 int main(int argc, char* arv[]){
 
 	if(argc != 4){
@@ -41,13 +40,13 @@ int main(int argc, char* arv[]){
 	string filePathAIG = "aigs/";
 
 	if(pointerOrInteger == 1){  // Pointer Based Graph
-		AigerReader reader(filePathAIG + fileName + ".aig", bidirectionOption);
-	    GRAPH* aig = reader.readAIGFile();
+		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
+	    GRAPH* aig = reader.readAAGFile();
 		reader.generateDot(aig, fileName + ".dot");
 
 		vector<AIGNode*> *v = aig->getNodes();
-		for(auto i = v->begin(); i < v->end(); v++)
-			cout << (*i)->getId() << endl;
+		for(auto i = v->begin(); i < v->end(); i++)
+			cout << (*i)->getName() << endl;
 
         delete aig;
 	}
@@ -60,7 +59,7 @@ int main(int argc, char* arv[]){
 
 	    AIGNodeI *test = aig->getNodes();
 	    for(int i = 0; i < aig->getNumNodes(); i++){
-	    	cout << i << " " << test[i].getId() << endl;
+	    	cout << i << " " << test[i].getId() <<" "<< test[i].getInputIndex(0) <<" "<<test[i].getInputIndex(1) << endl;
 	    }
 
 	}
