@@ -10,15 +10,19 @@
 #include <vector>
 #include <iostream>
 
-#include "../../PointerBased Graph/Bidirected Graph/BAIGNode.h"
 #include "../../PointerBased Graph/Graph/AIGNode.h"
 #include "../../PointerBased Graph/Graph/Graph.h"
+#include "BInputNode.h"
+#include "BOutputNode.h"
+#include "BAndNode.h"
 
 	BGraph::BGraph(){
 
 	}
 	BGraph::~BGraph(){
-
+         for(auto it = nodes.begin(); it < nodes.end(); it++){
+        	 delete *it;
+         }
 	}
 
 	void BGraph::insertInputNode(const unsigned id){

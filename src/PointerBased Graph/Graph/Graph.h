@@ -11,6 +11,9 @@
 #include <vector>
 #include <iostream>
 #include "../../PointerBased Graph/Graph/AIGNode.h"
+#include "InputNode.h"
+#include "OutputNode.h"
+#include "AndNode.h"
 
 using namespace std;
 
@@ -20,6 +23,7 @@ using namespace std;
 */
 class GRAPH{
 public:
+	virtual ~GRAPH(){};
 	virtual void insertInputNode(const unsigned int id) = 0;
 	virtual void insertOutputNode(const unsigned int id) = 0;
 	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;

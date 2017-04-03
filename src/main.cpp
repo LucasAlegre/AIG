@@ -10,8 +10,6 @@
 #include "PointerBased Graph/Graph/AIGNode.h"
 #include "PointerBased Graph/Graph/Graph.h"
 #include "PointerBased Graph/Reader/AigerReader.h"
-#include "PointerBased Graph/Bidirected Graph/BAIGNode.h"
-
 #include "IntegerBased Graph/Graph/GraphI.h"
 #include "IntegerBased Graph/AigerReaderI/AigerReaderI.h"
 
@@ -42,12 +40,19 @@ int main(int argc, char* arv[]){
 	string filePathAAG = "aags/";
 	string filePathAIG = "aigs/";
 
-	if(pointerOrInteger == 1){
-		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
-	    GRAPH* aig = reader.readAAGFile();
-	//	reader.generateDot(aig, fileName + ".dot");
+	if(pointerOrInteger == 1){  // Pointer Based Graph
+		AigerReader reader(filePathAIG + fileName + ".aig", bidirectionOption);
+	    GRAPH* aig = reader.readAIGFile();
+		reader.generateDot(aig, fileName + ".dot");
+
+		vector<AIGNode*> *v = aig->getNodes();
+		for(auto i = v->begin(); i < v->end(); v++)
+			cout << (*i)->getId() << endl;
+
+        delete aig;
 	}
-	else if(pointerOrInteger == 2){
+
+	else if(pointerOrInteger == 2){ // Integer Based Graph
 		AigerReaderI reader(filePathAAG + fileName + ".aag", bidirectionOption);
 	    GRAPHI* aig = reader.readAAGFile();
 	//	reader.generateDot(aig, fileName + ".dot");
@@ -57,8 +62,6 @@ int main(int argc, char* arv[]){
 	    for(int i = 0; i < aig->getNumNodes(); i++){
 	    	cout << i << " " << test[i].getId() << endl;
 	    }
-
-	    test[7].setInputInverted(true, 0);
 
 	}
 	else

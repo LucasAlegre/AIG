@@ -15,6 +15,9 @@ Graph::Graph() {
 }
 
 Graph::~Graph() {
+    for(auto it = nodes.begin(); it < nodes.end(); it++){
+ 	  delete *it;
+    }
 }
 
 void Graph::addOutputToNodes(){

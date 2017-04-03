@@ -3,6 +3,9 @@ src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.d: \
  ../src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.h \
  ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/GraphI.h \
  ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/AIGNodeI.h \
+ ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/InputNodeI.h \
+ ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/OutputNodeI.h \
+ ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/AndNodeI.h \
  ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/AIGNodeI.h
 
 ../src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.h:
@@ -10,5 +13,11 @@ src/IntegerBased\ Graph/AigerReaderI/AigerReaderI.d: \
 ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/GraphI.h:
 
 ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/AIGNodeI.h:
+
+../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/InputNodeI.h:
+
+../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/OutputNodeI.h:
+
+../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/AndNodeI.h:
 
 ../src/IntegerBased\ Graph/AigerReaderI/../../IntegerBased\ Graph/Graph/AIGNodeI.h:

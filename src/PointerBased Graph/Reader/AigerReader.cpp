@@ -8,9 +8,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <string.h>
 
 #include "AigerReader.h"
-#include "../../PointerBased Graph/Bidirected Graph/BAIGNode.h"
 #include "../../PointerBased Graph/Bidirected Graph/BGraph.h"
 #include "../../PointerBased Graph/Graph/AIGNode.h"
 #include "../../PointerBased Graph/Graph/Graph.h"
@@ -370,7 +370,7 @@ void AigerReader::generateDot(GRAPH* aig, string filename){
 	//write the outputs connections on the dot file
 	for(auto it = outputs->begin(); it < outputs->end(); it++){
 		dotfile << "\"" << (*it)->getInput()->getName() << "\"" << " -> " << "\"" << (*it)->getName() << "\"";
-		if( (*it)->isInputInverted() )
+		if( (*it)->isInputInverted(0) )
 			dotfile << negativeEdgeDetails << endl;
 		else
 			dotfile << positiveEdgeDetails << endl;

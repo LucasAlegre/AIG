@@ -13,23 +13,24 @@
 
 GraphI::GraphI() {
 
+	andNodes = NULL;
+	outputs = NULL;
+	inputs = NULL;
 	nodes = NULL;
 	numNodes = -1;
 	lastFreeIndex = 0;
 }
 
 GraphI::~GraphI() {
-	delete[] nodes;
+
 }
 
 int GRAPHI::getLastFreeIndex(){
 	return this->lastFreeIndex;
 }
 
-void GraphI::iniatializeNodes(const int nTotalNodes){
 
-	numNodes = nTotalNodes;
-	nodes = new AIGNodeI[nTotalNodes];
+void iniatializeArrays(const int nInputs, const int nOutputs, const int nAnds){
 
 }
 
