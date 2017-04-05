@@ -85,7 +85,12 @@ int AIGNodeI::getInputIndex(const int input0or1){
 	if(input0or1 == 0)
 		return indexInput0;
 	else if(input0or1 == 1)
-		return indexInput1;
+		if(nodeType == OUTPUT_NODE){
+			std::cout << "Output node only has input0\n";
+			return -1;
+		}
+		else
+			return indexInput1;
 	else{
 		std::cout << "invalid parameter to get input index\n";
 		return -1;

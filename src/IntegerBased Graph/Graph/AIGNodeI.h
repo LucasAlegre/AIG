@@ -25,29 +25,83 @@ private:
 	bool input1Inverted;
 
 public:
+	/*
+	 * Default Constructor
+	 */
 	AIGNodeI();
+
 	/**
 	*   Constructor
 	*
 	*   @param id Id of the node
 	*/
 	AIGNodeI(unsigned id, AigNodeType);
+
+	/*
+	 *  Default Destructor
+	 */
 	~AIGNodeI();
 
 	/*
 	 *  Getters and Setters
 	 */
 	std::string getName() const;
+
+	/*
+	 *  Sets the name of the node
+	 *  @param name Name the node will have
+	 */
 	void setName(std::string name);
+
+	/*
+	 * Returns the literal of the node on the AIG file
+	 * @return id
+	 */
 	unsigned getId() const;
+
+	/*
+	 * Sets the id of the node
+	 * @param id
+	 */
 	void setId(unsigned id);
+
+	/*
+	 * @return The enum representing the type of the node
+	 */
 	AigNodeType getNodeType() const;
+
+	/*
+	 * @param nodeType the enum representing the type of the node
+	 */
 	void setNodeType(AigNodeType nodeType);
 
+    /*
+     *  Sets the index of the input of the node in the array of nodes
+     *  @param index The index of the node's input
+     *  @param input0or1 whether it's the input0 or the input1
+     */
 	void setInputIndex(const int index, const int input0or1);
+
+	/*
+	 *  Checks if the input is inverted
+	 *  @param input0or1 Whether it is the input0 or input1
+	 *  @return True if it is inverted, else return false
+	 */
 	bool isInputInverted(const int input0or1) const;
-	int getInputIndex(const int input0or1);
+
+	/*
+	 *  Sets whether the input is inverted
+	 *  @param inputInverted True if its inverted, false if not
+	 *  @param input0or1 Whether it is the input0 or input1
+	 */
 	void setInputInverted(const bool inputInverted, const int input0or1);
+
+	/*
+	 *  Gets the index of the node's input
+	 *  @param input0or1 Whether it is the input0 or input1
+	 *  @return the input's index
+	 */
+	int getInputIndex(const int input0or1);
 
 
 };

@@ -48,7 +48,8 @@ public:
 	AIGNode* getInput();
 
 	/*
-	*  @return true if the input is inverted, else return false
+	*  @param input0or1 0 if it's the input0, 1 if it's the input1
+	*  @return true if the input is inverted, if not return false
 	*/
 	bool isInputInverted(const int input0or1) const;
 	/*

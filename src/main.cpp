@@ -54,12 +54,10 @@ int main(int argc, char* arv[]){
 	else if(pointerOrInteger == 2){ // Integer Based Graph
 		AigerReaderI reader(filePathAAG + fileName + ".aag", bidirectionOption);
 	    GRAPHI* aig = reader.readAAGFile();
-	//	reader.generateDot(aig, fileName + ".dot");
-
 
 	    AIGNodeI *test = aig->getNodes();
 	    for(int i = 0; i < aig->getNumNodes(); i++){
-	    	cout << i << " " << test[i].getId() <<" "<< test[i].getInputIndex(0) <<" "<<test[i].getInputIndex(1) << endl;
+	    	cout << i << " " << test[i].getId() <<" "<< test[test[i].getInputIndex(0)].getId() <<" "<<test[test[i].getInputIndex(1)].getId() << endl;
 	    }
 
 	}

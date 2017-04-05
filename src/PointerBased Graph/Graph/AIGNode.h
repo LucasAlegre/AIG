@@ -46,17 +46,20 @@ private:
 	string name;  // Name of the node
 
 public:
-	//Default constructor
+	/*
+	 *  Default constructor
+	 */
 	AIGNode();
 	
 	/**
 	*   Constructor
-	*
 	*   @param id Id of the node
 	*/
 	AIGNode(unsigned id);
 	
-	//Default destructor
+	/*
+	 * Default destructor
+	 */
 	virtual ~AIGNode();
 
 	// Getters and Setters
@@ -66,7 +69,7 @@ public:
 	string getName()const;
 	
 	/*
-	*   Returns the enum representing the type of the node
+	*   @return the enum representing the type of the node
 	*/
 	virtual AigNodeType getNodeType() = 0;
 	

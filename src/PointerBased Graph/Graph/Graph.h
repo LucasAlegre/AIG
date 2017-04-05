@@ -54,13 +54,41 @@ public:
 	Graph();
 	virtual ~Graph();
 
+	/*
+	 *  Insert an InputNode to vectors "nodes" and "inputs"
+	 *  @param id Id of the input
+	 */
 	void insertInputNode(const unsigned int id);
-	void insertOutputNode(const unsigned int id);
-	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
-	void addOutputToNodes();  // Insert the outputs vector at the end of the nodes vector
 
+	/*
+	 *  Insert an OutputNode to vector "outputs"
+	 *  @param id Id of the output
+	 */
+	void insertOutputNode(const unsigned int id);
+
+	/*
+	 *  Insert an ANDNode to vectors "nodes" and "andNodes"
+	 *  @param id Id of the AND
+	 *  @param rhs0 Literal of the first input
+	 *  @param rhs1 Literal of the second input
+	 */
+	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
+
+	/*
+	 * Insert the outputs vector at the end of the nodes vector
+	 */
+	void addOutputToNodes();
+
+	/*
+	 *   Find a node given his id
+	 *   @param id Id of the wanted node
+	 *   @return pointer to wanted node
+	 */
 	AIGNode* findNodeById(const unsigned int id);
 
+	/*
+	 *  Sets the input pointer to all of the Ouput Nodes of the Graph
+	 */
 	void connectOutputs();
 
 	vector<AIGNode*> * getNodes();
