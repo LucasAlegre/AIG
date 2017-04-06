@@ -10,8 +10,8 @@
 #include "PointerBased Graph/Graph/AIGNode.h"
 #include "PointerBased Graph/Graph/Graph.h"
 #include "PointerBased Graph/Reader/AigerReader.h"
-#include "IntegerBased Graph/Graph/GraphI.h"
 #include "IntegerBased Graph/AigerReaderI/AigerReaderI.h"
+#include "IntegerBased Graph/GraphI/GraphI.h"
 
 using namespace std;
 

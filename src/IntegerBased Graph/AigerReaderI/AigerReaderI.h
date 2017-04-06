@@ -14,7 +14,7 @@
 #include <sstream>
 #include <list>
 
-#include "../../IntegerBased Graph/Graph/GraphI.h"
+#include "../../IntegerBased Graph/GraphI/GraphI.h"
 using namespace std;
 
 /*

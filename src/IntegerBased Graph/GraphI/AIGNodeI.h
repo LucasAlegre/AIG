@@ -34,8 +34,9 @@ public:
 	*   Constructor
 	*
 	*   @param id Id of the node
+	*   @param nodeType Enum representing the type of the node
 	*/
-	AIGNodeI(unsigned id, AigNodeType);
+	AIGNodeI(unsigned id, AigNodeType nodeType);
 
 	/*
 	 *  Default Destructor

@@ -10,13 +10,12 @@
 #include <string.h>
 #include <sstream>
 
-
 #include "AigerReaderI.h"
 
 //#include "../../IntegerBased Graph/Bidirected Graph/BAIGNodeI.h"
 //#include "../../IntegerBased Graph/Bidirected Graph/BGraphI.h"
-#include "../../IntegerBased Graph/Graph/AIGNodeI.h"
-#include "../../IntegerBased Graph/Graph/GraphI.h"
+#include "../../IntegerBased Graph/GraphI/AIGNodeI.h"
+#include "../../IntegerBased Graph/GraphI/GraphI.h"
 
 AigerReaderI::AigerReaderI(string sourcePath, const int bidirectionOption)
 {

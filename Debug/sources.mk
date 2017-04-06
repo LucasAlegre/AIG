@@ -25,7 +25,8 @@ C_DEPS :=
 SUBDIRS := \
 .metadata/.plugins/org.eclipse.cdt.make.core \
 src/IntegerBased\ Graph/AigerReaderI \
-src/IntegerBased\ Graph/Graph \
+src/IntegerBased\ Graph/Bidirected\ GraphI \
+src/IntegerBased\ Graph/GraphI \
 src/PointerBased\ Graph/Bidirected\ Graph \
 src/PointerBased\ Graph/Graph \
 src/PointerBased\ Graph/Reader \

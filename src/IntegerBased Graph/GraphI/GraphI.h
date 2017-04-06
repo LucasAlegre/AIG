@@ -8,7 +8,7 @@
 #ifndef GRAPHI_H_
 #define GRAPHI_H_
 
-#include "AIGNodeI.h"
+#include "../GraphI/AIGNodeI.h"
 
 /*
 * Interface Class for AIG Graph with Integers

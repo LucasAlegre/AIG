@@ -5,7 +5,8 @@
  *      Author: lucas
  */
 
-#include "AIGNodeI.h"
+#include "../GraphI/AIGNodeI.h"
+
 #include <iostream>
 
 AIGNodeI::AIGNodeI(){

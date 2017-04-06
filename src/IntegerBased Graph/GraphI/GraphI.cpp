@@ -5,8 +5,9 @@
  *      Author: lucas
  */
 
-#include "GraphI.h"
-#include "AIGNodeI.h"
+#include "../GraphI/GraphI.h"
+
+#include "../GraphI/AIGNodeI.h"
 
 GraphI::GraphI() {
 	nodes = NULL;
