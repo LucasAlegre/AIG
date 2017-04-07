@@ -1,3 +1,9 @@
 # AIG
-AIG Implementation
+AIG Implementation with 4 different Data Structures:
+
+Graph - Unidirected Pointer Based Graph
+BGraph - Bidirected Pointer Based Graph
+GraphI - Unidirected Integer Based Graph
+BGraphI - Bidirected Pointer Based Graph
+
 By Lucas Alegre
