@@ -7,6 +7,6 @@ BGraph - Bidirected Pointer Based Graph
 
 GraphI - Unidirected Integer Based Graph
 
-BGraphI - Bidirected Pointer Based Graph
+BGraphI - Bidirected Integer Based Graph
 
 By Lucas Alegre
