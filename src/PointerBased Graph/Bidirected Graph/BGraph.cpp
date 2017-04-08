@@ -120,3 +120,29 @@
 		return &(this->outputs);
 	}
 
+	void BGraph::print(){
+		for(auto it = inputs.begin(); it < inputs.end(); it++){
+			std::cout << "Id: " << (*it)->getId() << endl;
+			std::cout << " name: " << (*it)->getName() << endl;
+
+			for(unsigned i = 0; i < (*it)->getOutputs()->size(); i++){
+				std::cout << " out"<<i<<": "<<(*it)->getOutput(i)->getId() << " inv? :" << (*it)->getOutputInverted(i) << endl;
+			}
+		}
+
+		for(auto it = andNodes.begin(); it < andNodes.end(); it++){
+			std::cout << "Id: " << (*it)->getId() << endl;
+			std::cout << " name: " << (*it)->getName() << endl;
+			for(unsigned i = 0; i < (*it)->getOutputs()->size(); i++){
+				std::cout << " out"<<i<<": "<<(*it)->getOutput(i)->getId() << " inv? :" << (*it)->getOutputInverted(i) << endl;
+			}
+		}
+
+		for(auto it = outputs.begin(); it < outputs.end(); it++){
+			std::cout << "Id: " << (*it)->getId() << endl;
+			std::cout << " name: " << (*it)->getName() << endl;
+			std::cout << " in0: " << (*it)->getInput()->getId() << " inv? :" << (*it)->isInputInverted(0) << endl;
+
+	    }
+	}
+

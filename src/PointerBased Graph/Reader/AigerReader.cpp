@@ -22,6 +22,7 @@ AigerReader::AigerReader(string sourcePath, const int bidirectionOption)
     }
     else if(bidirectionOption == 2)
     	aig = new BGraph;
+
     else{
     	cout << "Incorrect parameters, 1 - Unidirected Graph  2 - Bidirected Graph\n";
     	exit(-2);

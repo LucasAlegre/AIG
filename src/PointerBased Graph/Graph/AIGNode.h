@@ -77,6 +77,8 @@ public:
 	*   Virtual functions that only Bidirectioned Nodes implement
 	*   Unidirected nodes will report a warning
 	*/
+	virtual AIGNode* getOutput(int x);
+	virtual bool getOutputInverted(int x);
 	virtual vector<AIGNode*> * getOutputs();
 	virtual void setOutput(AIGNode* node, bool inverted);
 	virtual vector<bool> * getOutputsInverted();

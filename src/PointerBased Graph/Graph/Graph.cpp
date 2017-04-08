@@ -106,3 +106,27 @@ AIGNode* Graph::findNodeById(const unsigned int id){
 
 	return nodes[id/2];
 }
+
+
+void Graph::print(){
+
+	for(auto it = inputs.begin(); it < inputs.end(); it++){
+		std::cout << "Id: " << (*it)->getId() << endl;
+		std::cout << " name: " << (*it)->getName() << endl;
+	}
+
+	for(auto it = andNodes.begin(); it < andNodes.end(); it++){
+		std::cout << "Id: " << (*it)->getId() << endl;
+		std::cout << " name: " << (*it)->getName() << endl;
+		std::cout << " in0: " << (*it)->getInput(0)->getId() << " inv? :" << (*it)->isInputInverted(0) << endl;
+		std::cout << " in1: " << (*it)->getInput(1)->getId() << " inv? :" << (*it)->isInputInverted(1) << endl;
+	}
+
+	for(auto it = outputs.begin(); it < outputs.end(); it++){
+		std::cout << "Id: " << (*it)->getId() << endl;
+		std::cout << " name: " << (*it)->getName() << endl;
+		std::cout << " in0: " << (*it)->getInput()->getId() << " inv? :" << (*it)->isInputInverted(0) << endl;
+	}
+
+}
+

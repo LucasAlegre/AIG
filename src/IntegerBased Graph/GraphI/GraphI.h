@@ -40,6 +40,7 @@ public:
 
 	virtual void connectOutputs() = 0;
 
+	virtual void print() = 0;
 
     int getNumNodes();
 
@@ -105,6 +106,8 @@ public:
 	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
 
 	void connectOutputs();
+
+	void print();
 
 };
 

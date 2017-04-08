@@ -53,3 +53,12 @@ vector<bool> * AIGNode::getOutputsInverted(){
 	return NULL;
 }
 
+AIGNode* AIGNode::getOutput(int x){
+	cout << "Tried to get ouput from an unidirected node\n";
+	return NULL;
+}
+bool AIGNode::getOutputInverted(int x){
+	cout << "Tried to get ouput inverted from an unidirected node\n";
+	return false;
+}
+

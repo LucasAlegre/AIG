@@ -38,6 +38,8 @@ public:
 	vector<InputNode*> * getInputNodes();
 	vector<AndNode*> * getAndNodes();
 	vector<OutputNode*> * getOutputNodes();
+
+	void print();
 };
 
 

@@ -22,23 +22,23 @@ using namespace std;
 /*
  *   Main file
  *
- *   @param arv[1] Filename without extension
- *   @param arv[2] Pointer or Integer based 1 - Pointer 2 - Integer
- *   @param arv[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph
+ *   @param arg[1] Filename without extension
+ *   @param arg[2] Pointer or Integer based 1 - Pointer 2 - Integer
+ *   @param arg[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph
  *
  */
-int main(int argc, char* arv[]){
+int main(int argc, char* arg[]){
 
 	if(argc != 4){
-		cout <<  "*   @param arv[1] Filename without extension" << endl
-			 <<	 "*   @param arv[2] Pointer or Integer based 1 - Pointer 2 - Integer" << endl
-			 <<	 "*   @param arv[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph" << endl;
+		cout <<  "*   @param arg[1] Filename without extension" << endl
+			 <<	 "*   @param arg[2] Pointer or Integer based 1 - Pointer 2 - Integer" << endl
+			 <<	 "*   @param arg[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph" << endl;
 		exit(-1);
 	}
 
-	string fileName(arv[1]);
-	int pointerOrInteger = atoi(arv[2]);
-    int bidirectionOption = atoi(arv[3]);
+	string fileName(arg[1]);
+	int pointerOrInteger = atoi(arg[2]);
+    int bidirectionOption = atoi(arg[3]);
 
 	string filePathAAG = "aags/";
 	string filePathAIG = "aigs/";
@@ -48,9 +48,7 @@ int main(int argc, char* arv[]){
 	    GRAPH* aig = reader.readAAGFile();
 		reader.generateDot(aig, fileName + ".dot");
 
-		vector<AIGNode*> *v = aig->getNodes();
-		for(auto i = v->begin(); i < v->end(); i++)
-			cout << (*i)->getName() << endl;
+		aig->print();
 
         delete aig;
 	}
@@ -59,14 +57,8 @@ int main(int argc, char* arv[]){
 		AigerReaderI reader(filePathAAG + fileName + ".aag", bidirectionOption);
 	    GraphI* aig = (GraphI*) reader.readAAGFile();
 
-	    //AIGNodeI *test = aig->getNodes();
-	    for(int i = 0; i < aig->getNumNodes(); i++){
-	    	cout << (*aig)[i].getId();
-	    }
 
 	}
-	else
-
 
 
 

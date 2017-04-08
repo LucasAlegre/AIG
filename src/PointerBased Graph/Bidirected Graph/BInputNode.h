@@ -27,11 +27,18 @@ public:
 	vector<AIGNode*> * getOutputs(){
 		return &(this->outputs);
 	}
-	void setOutput(AIGNode* node){
+	void setOutput(AIGNode* node, bool inverted){
 		outputs.push_back(node);
+		outputsInverted.push_back(inverted);
 	}
 	vector<bool> * getOutputsInverted(){
 		return &(this->outputsInverted);
+	}
+	AIGNode* getOutput(int x){
+		return outputs.at(x);
+	}
+	bool getOutputInverted(int x){
+		return outputsInverted.at(x);
 	}
 };
 

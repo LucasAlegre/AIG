@@ -40,6 +40,13 @@ public:
 		return &(this->outputsInverted);
 	}
 
+	AIGNode* getOutput(int x){
+		return outputs.at(x);
+	}
+
+	bool getOutputInverted(int x){
+		return outputsInverted.at(x);
+	}
 };
 
 

@@ -37,6 +37,8 @@ public:
 	virtual vector<InputNode*> * getInputNodes() = 0;
 	virtual vector<AndNode*> * getAndNodes() = 0;
 	virtual vector<OutputNode*> * getOutputNodes() = 0;
+
+	virtual void print() = 0;
 };
 
 /*
@@ -90,6 +92,8 @@ public:
 	 *  Sets the input pointer to all of the Ouput Nodes of the Graph
 	 */
 	void connectOutputs();
+
+	void print();
 
 	vector<AIGNode*> * getNodes();
 	vector<InputNode*> * getInputNodes();

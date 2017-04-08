@@ -96,6 +96,20 @@ AIGNodeI* GraphI::getNodes(){
 	return nodes;
 }
 
+void GraphI::print(){
+	for(int i = 0; i < numNodes; i++){
+		std::cout << "Id: " << nodes[i].getId() << endl;
+		std::cout << " name: " << nodes[i].getName() << endl;
+		int in0 = nodes[i].getInputIndex(0);
+		int in1 = nodes[i].getInputIndex(1);
+		if(in0 != -1)
+			cout << " in0: " << nodes[in0].getId() << " inv? " << nodes[i].isInputInverted(0);
+		if(in1 != -1)
+					cout << " in0: " << nodes[in1].getId() << " inv? " << nodes[i].isInputInverted(1);
+
+	}
+}
+
 int GRAPHI::getNumNodes(){
 	return this->numNodes;
 }
