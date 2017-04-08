@@ -20,6 +20,7 @@
 AigerReaderI::AigerReaderI(string sourcePath, const int bidirectionOption)
 {
     nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
+    this->bidirectionOption = bidirectionOption;
 
     if(bidirectionOption == 1){
     	aig = new GraphI;

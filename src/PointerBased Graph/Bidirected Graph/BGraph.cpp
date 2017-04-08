@@ -39,19 +39,25 @@
 
 	void BGraph::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1){
 		BAndNode* andnode = new BAndNode(id);
+		bool inp0Inverted;
+		bool inp1Inverted;
 
 		if(rhs0 % 2 == 0){
+			inp0Inverted = false;
 			andnode->setInputInverted(false, 0);
 		}
 		else{
+			inp0Inverted = true;
 			andnode->setInputInverted(true, 0);
 			rhs0--;
 		}
 
 		if(rhs1 % 2 == 0){
+			inp1Inverted = false;
 			andnode->setInputInverted(false, 1);
 		}
 		else{
+			inp1Inverted = true;
 			andnode->setInputInverted(true, 1);
 			rhs1--;
 		}
@@ -61,8 +67,8 @@
 		AIGNode *in1 = findNodeById(rhs1);
 		andnode->setInput(in0, in1);
 
-		in0->setOutput(andnode);
-		in1->setOutput(andnode);
+		in0->setOutput(andnode, inp0Inverted);
+		in1->setOutput(andnode, inp1Inverted);
 
 		this->andNodes.push_back(andnode);
 		this->nodes.push_back(andnode);
@@ -87,14 +93,16 @@
 	    vector<OutputNode*>::iterator it;
 	    vector<OutputNode*> *outputs = this->getOutputNodes();
 		for(it = outputs->begin(); it < outputs->end(); it++){
+			bool inpInverted = false;
 			int idinp = (*it)->getId();
 			if(idinp % 2 != 0){
+			     inpInverted = true;
 				(*it)->setInputInverted(true);
 				idinp--;
 			}
 			AIGNode* node = this->findNodeById(idinp);
 			(*it)->setInput(node);
-			node->setOutput((*it));
+			node->setOutput((*it), inpInverted);
 		}
 		this->addOutputToNodes();
 	}

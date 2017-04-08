@@ -44,7 +44,7 @@ vector<AIGNode*> * AIGNode::getOutputs(){
 	return NULL;
 }
 
-void AIGNode::setOutput(AIGNode* node){
+void AIGNode::setOutput(AIGNode* node, bool inverted){
         cout << "Tried to set ouput to an unidirected node\n";
 }
 

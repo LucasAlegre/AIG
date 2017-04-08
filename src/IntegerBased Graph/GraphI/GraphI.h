@@ -34,11 +34,12 @@ public:
 
 	virtual void iniatializeArray(const int nNodes) = 0;
 
-	virtual int findNodeIndexById(const unsigned int id) = 0;
+	virtual AIGNodeI* getNodes(){return NULL;}
+
+	int findNodeIndexById(const unsigned int id);
 
 	virtual void connectOutputs() = 0;
 
-	virtual AIGNodeI* getNodes() = 0;
 
     int getNumNodes();
 
@@ -93,16 +94,17 @@ public:
 	~GraphI();
 
 	void iniatializeArray(const int nNodes);
+	AIGNodeI* getNodes();
+
+	AIGNodeI& operator[](int x){
+		return nodes[x];
+	}
 
 	void insertInputNode(const unsigned int id);
 	void insertOutputNode(const unsigned int id);
 	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
 
-	int findNodeIndexById(const unsigned int id);
-
 	void connectOutputs();
-
-	AIGNodeI* getNodes();
 
 };
 

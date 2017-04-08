@@ -78,7 +78,7 @@ public:
 	*   Unidirected nodes will report a warning
 	*/
 	virtual vector<AIGNode*> * getOutputs();
-	virtual void setOutput(AIGNode* node);
+	virtual void setOutput(AIGNode* node, bool inverted);
 	virtual vector<bool> * getOutputsInverted();
 };
 

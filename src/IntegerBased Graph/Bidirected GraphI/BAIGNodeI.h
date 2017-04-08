@@ -12,8 +12,10 @@
 
 class BAIGNodeI: public AIGNodeI {
 private:
-	int *fanOut;
-	bool *invertedFanOut;
+	static const int maxSizeFanOut = 100;
+	int freeIndexFanOut;
+	int fanOut[maxSizeFanOut];
+	bool invertedFanOut[maxSizeFanOut];
 
 public:
 	/*
@@ -32,6 +34,23 @@ public:
 	*   @param nodeType Enum representing the type of the node
 	*/
 	BAIGNodeI(unsigned id, AigNodeType nodeType);
+
+	/*
+	 *  Sets the index of the output in the "freeIndexFanOut" position
+	 *  @param index Index of the output in the graph
+	 *  @param inverted Wheter the output is inverted or not
+	 */
+	void setOutputIndex(int index, bool inverted);
+
+	/*
+	 *  Gets the index in the graph of the output in the index i of the fanOut
+	 */
+	int getOutputIndex(int i);
+
+	/*
+	 *  Gets the index in the graph of the output in the index i of the fanOut
+	 */
+	int getOutputInverted(int i);
 };
 
 #endif /* INTEGERBASED_GRAPH_BIDIRECTED_GRAPHI_BAIGNODEI_H_ */

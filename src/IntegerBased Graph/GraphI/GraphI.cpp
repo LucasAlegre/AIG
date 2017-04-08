@@ -29,7 +29,7 @@ void GraphI::iniatializeArray(const int nNodes){
      this->numNodes = nNodes;
 }
 
-int GraphI::findNodeIndexById(const unsigned int id){
+int GRAPHI::findNodeIndexById(const unsigned int id){
 
 	if(id == 0)
 		return 0;
@@ -92,6 +92,7 @@ void GraphI::connectOutputs(){
 }
 
 AIGNodeI* GraphI::getNodes(){
+
 	return nodes;
 }
 

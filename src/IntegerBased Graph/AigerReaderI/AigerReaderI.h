@@ -28,6 +28,7 @@ private:
     ofstream debug;   //  debug file
     string word;
     char buf[250];
+    int bidirectionOption;
 
     GRAPHI *aig;
 

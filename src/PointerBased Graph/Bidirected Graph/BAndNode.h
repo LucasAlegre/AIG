@@ -30,8 +30,10 @@ public:
 		return &(this->outputs);
 	}
 
-	void setOutput(AIGNode* node){
+	void setOutput(AIGNode* node, bool inverted){
 		outputs.push_back(node);
+		outputsInverted.push_back(inverted);
+
 	}
 
 	vector<bool> * getOutputsInverted(){
