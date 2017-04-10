@@ -55,8 +55,9 @@ int main(int argc, char* arg[]){
 
 	else if(pointerOrInteger == 2){ // Integer Based Graph
 		AigerReaderI reader(filePathAAG + fileName + ".aag", bidirectionOption);
-	    GraphI* aig = (GraphI*) reader.readAAGFile();
+	    GRAPHI* aig = reader.readAAGFile();
 
+        aig->print();
 
 	}
 

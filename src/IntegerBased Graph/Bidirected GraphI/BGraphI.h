@@ -28,6 +28,8 @@ public:
 	void connectOutputs();
 
 	AIGNodeI* getNodes(){return NULL;}
+
+	void print();
 };
 
 #endif /* INTEGERBASED_GRAPH_BIDIRECTED_GRAPHI_BGRAPHI_H_ */
