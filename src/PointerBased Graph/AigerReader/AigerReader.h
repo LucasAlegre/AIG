@@ -15,7 +15,7 @@
 #include <list>
 
 #include "../../PointerBased Graph/Graph/Graph.h"
-using namespace std;
+//using namespace std;
 
 /*
  *  Class that implements a file reader for AIG

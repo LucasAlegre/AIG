@@ -15,7 +15,7 @@
 #include <list>
 
 #include "../../IntegerBased Graph/GraphI/GraphI.h"
-using namespace std;
+//using namespace std;
 
 /*
  *  Class that implements a file reader for AIG
