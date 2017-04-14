@@ -12,8 +12,8 @@
 
 #include "AigerReaderI.h"
 
-//#include "../../IntegerBased Graph/Bidirected Graph/BAIGNodeI.h"
-//#include "../../IntegerBased Graph/Bidirected Graph/BGraphI.h"
+#include "../../IntegerBased Graph/Bidirected GraphI/BAIGNodeI.h"
+#include "../../IntegerBased Graph/Bidirected GraphI/BGraphI.h"
 #include "../../IntegerBased Graph/GraphI/AIGNodeI.h"
 #include "../../IntegerBased Graph/GraphI/GraphI.h"
 
@@ -26,8 +26,7 @@ AigerReaderI::AigerReaderI(string sourcePath, const int bidirectionOption)
     	aig = new GraphI;
     }
     else if(bidirectionOption == 2)
-    	//TODO
-    	aig = new GraphI;
+    	aig = new BGraphI;
     else{
     	cout << "Incorrect parameters, 1 - Unidirected Graph  2 - Bidirected Graph\n";
     	exit(-2);
@@ -151,13 +150,13 @@ GRAPHI* AigerReaderI::readAAGFile()
     	exit(-1);
     }
 
-    //nNodes == nAnds + nOutputs + nFFs   and   + 1 for constant node
+    //nNodes == nAnds + nInputs + nFFs   and   + 1 for constant node
 	aig->iniatializeArray(nNodes + nOutputs + 1);
 
     // Insert VDD to Nodes
     aig->insertInputNode(0);
 
-    aig->setNumInputs(nInputs);
+    aig->setNumInputs(nInputs+1); //+1 for constant
     aig->setNumOutputs(nOutputs);
     aig->setNumAnds(nAnds);
 
