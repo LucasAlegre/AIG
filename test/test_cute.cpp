@@ -16,14 +16,16 @@
 
 using namespace std;
 
-void test_c17() {
+string filePathAAG = "aags/";
+string filePathAIG = "aigs/";
+
+/*
+void test_c17_1Pointer_1UndirectGraph() {
 
 	string fileName = "C17";
 	int pointerOrInteger = 1;
 	int bidirectionOption = 1;
 
-	string filePathAAG = "aags/";
-	string filePathAIG = "aigs/";
 
 	if(pointerOrInteger == 1){  // Pointer Based Graph
 		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
@@ -43,10 +45,41 @@ void test_c17() {
 
 	}
 }
+ */
+
+void test_c17_1Pointer_1UndirectGraph() {
+
+	string fileName = "C17";
+
+	AigerReader reader(filePathAAG + fileName + ".aag", 1);
+	GRAPH* aig = reader.readAAGFile();
+	reader.generateDot(aig, fileName + ".dot");
+
+	aig->print();
+
+	delete aig;
+
+}
+
+void test_c432_1Pointer_2BidirectGraph() {
+
+	string fileName = "C432";
+
+	AigerReader reader(filePathAAG + fileName + ".aag", 2);
+	GRAPH* aig = reader.readAAGFile();
+	reader.generateDot(aig, fileName + ".dot");
+
+	aig->print();
+
+	delete aig;
+
+}
+
 
 
 cute::suite make_suite_test_cute() {
 	cute::suite s;
-	s.push_back(CUTE(test_c17));
+	s.push_back(CUTE(test_c17_1Pointer_1UndirectGraph));
+	s.push_back(CUTE(test_c432_1Pointer_2BidirectGraph));
 	return s;
 }
