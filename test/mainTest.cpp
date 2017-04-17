@@ -1,8 +1,8 @@
-#include "cute/cute.h"
-#include "cute/cute_runner.h"
-#include "cute/cute_counting_listener.h"
-#include "cute/ide_listener.h"
-#include "cute/xml_listener.h"
+#include "../cute/cute.h"
+#include "../cute/cute_runner.h"
+#include "../cute/cute_counting_listener.h"
+#include "../cute/ide_listener.h"
+#include "../cute/xml_listener.h"
 
 #include <iostream>
 #include <string.h>
@@ -10,11 +10,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "src/PointerBased Graph/Graph/AIGNode.h"
-#include "src/PointerBased Graph/Graph/Graph.h"
-#include "src/PointerBased Graph/AigerReader/AigerReader.h"
-#include "src/IntegerBased Graph/AigerReaderI/AigerReaderI.h"
-#include "src/IntegerBased Graph/GraphI/GraphI.h"
+#include "../src/PointerBased Graph/Graph/AIGNode.h"
+#include "../src/PointerBased Graph/Graph/Graph.h"
+#include "../src/PointerBased Graph/AigerReader/AigerReader.h"
+#include "../src/IntegerBased Graph/AigerReaderI/AigerReaderI.h"
+#include "../src/IntegerBased Graph/GraphI/GraphI.h"
 
 #include "test_cute.h"
 
