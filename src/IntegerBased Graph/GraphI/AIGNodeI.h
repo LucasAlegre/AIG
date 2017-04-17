@@ -19,8 +19,8 @@ private:
 
 	AigNodeType nodeType;
 
-	int indexInput0;
-	int indexInput1;
+	unsigned indexInput0;
+	unsigned indexInput1;
 	bool input0Inverted;
 	bool input1Inverted;
 
@@ -81,28 +81,28 @@ public:
      *  @param index The index of the node's input
      *  @param input0or1 whether it's the input0 or the input1
      */
-	void setInputIndex(const int index, const int input0or1);
+	void setInputIndex(const unsigned index, const unsigned input0or1);
 
 	/*
 	 *  Checks if the input is inverted
 	 *  @param input0or1 Whether it is the input0 or input1
 	 *  @return True if it is inverted, else return false
 	 */
-	bool isInputInverted(const int input0or1) const;
+	bool isInputInverted(const unsigned input0or1) const;
 
 	/*
 	 *  Sets whether the input is inverted
 	 *  @param inputInverted True if its inverted, false if not
 	 *  @param input0or1 Whether it is the input0 or input1
 	 */
-	void setInputInverted(const bool inputInverted, const int input0or1);
+	void setInputInverted(const bool inputInverted, const unsigned input0or1);
 
 	/*
 	 *  Gets the index of the node's input
 	 *  @param input0or1 Whether it is the input0 or input1
 	 *  @return the input's index
 	 */
-	int getInputIndex(const int input0or1);
+	unsigned getInputIndex(const unsigned input0or1);
 
 
 };

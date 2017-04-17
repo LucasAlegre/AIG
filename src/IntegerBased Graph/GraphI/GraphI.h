@@ -16,9 +16,9 @@
 */
 class GRAPHI{
 protected:
-    int numNodes;
-    int nInputs, nOutputs, nAnds, nFFs;
-    int lastFreeIndex;
+	unsigned numNodes;
+	unsigned nInputs, nOutputs, nAnds, nFFs;
+	unsigned lastFreeIndex;
 
 public:
 	virtual ~GRAPHI(){};
@@ -26,13 +26,13 @@ public:
 	/*
 	 *  Returns the index of the last free available position of the array
 	 */
-	int getLastFreeIndex();
+	unsigned getLastFreeIndex();
 
 	virtual void insertInputNode(const unsigned int id) = 0;
 	virtual void insertOutputNode(const unsigned int id) = 0;
 	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;
 
-	virtual void iniatializeArray(const int nNodes) = 0;
+	virtual void iniatializeArray(const unsigned nNodes) = 0;
 
 	virtual AIGNodeI* getNodes(){return NULL;}
 
@@ -42,48 +42,24 @@ public:
 
 	virtual void print() = 0;
 
-    int getNumNodes();
-
-	int getNumAnds() const {
-		return nAnds;
-	}
-
-	void setNumAnds(int ands) {
-		nAnds = ands;
-	}
-
-	int getNumFFs() const {
-		return nFFs;
-	}
-
-	void setNumFFs(int fFs) {
-		nFFs = fFs;
-	}
-
-	int getNumInputs() const {
-		return nInputs;
-	}
-
-	void setNumInputs(int inputs) {
-		nInputs = inputs;
-	}
-
-	int getNumOutputs() const {
-		return nOutputs;
-	}
-
-	void setNumOutputs(int outputs) {
-		nOutputs = outputs;
-	}
-
-	void setNumNodes(int numNodes) {
-		this->numNodes = numNodes;
-	}
+	/*
+	 *  Getters and Setters
+	 */
+	unsigned getNumNodes()const;
+	unsigned getNumAnds() const;
+	void setNumAnds(unsigned ands);
+	unsigned getNumFFs() const;
+	void setNumFFs(unsigned fFs);
+	unsigned getNumInputs() const;
+	void setNumInputs(unsigned inputs);
+	unsigned getNumOutputs() const;
+	void setNumOutputs(unsigned outputs);
+	void setNumNodes(unsigned numNodes);
 };
 
 
 /*
-* Class that implements an AIG Graph with Integers
+*  Class that implements an AIG Graph with Integers
 *
 */
 class GraphI: public GRAPHI{
@@ -94,10 +70,10 @@ public:
 	GraphI();
 	~GraphI();
 
-	void iniatializeArray(const int nNodes);
+	void iniatializeArray(const unsigned nNodes);
 	AIGNodeI* getNodes();
 
-	AIGNodeI& operator[](int x){
+	AIGNodeI& operator[](unsigned x){
 		return nodes[x];
 	}
 

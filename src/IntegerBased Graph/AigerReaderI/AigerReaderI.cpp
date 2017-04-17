@@ -261,6 +261,8 @@ bool AigerReaderI::readHeader()
 	line >> word;
 	nAnds = atoi(word.c_str());
 
+//    BAIGNodeI::iniatilzeFanOut(123);
+
 
 	if (nNodes != nInputs + nFFs + nAnds) {
 		cout << "Wrong file header";

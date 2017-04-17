@@ -13,9 +13,9 @@
 
 #include "PointerBased Graph/Graph/AIGNode.h"
 #include "PointerBased Graph/Graph/Graph.h"
-#include "PointerBased Graph/Reader/AigerReader.h"
 #include "IntegerBased Graph/AigerReaderI/AigerReaderI.h"
 #include "IntegerBased Graph/GraphI/GraphI.h"
+#include "PointerBased Graph/AigerReader/AigerReader.h"
 
 using namespace std;
 
@@ -44,7 +44,7 @@ int main(int argc, char* arg[]){
 	string filePathAIG = "aigs/";
 
 	if(pointerOrInteger == 1){  // Pointer Based Graph
-		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
+		AigerReader reader(filePathAIG + fileName + ".aig", bidirectionOption);
 	    GRAPH* aig = reader.readAAGFile();
 		reader.generateDot(aig, fileName + ".dot");
 
@@ -58,6 +58,8 @@ int main(int argc, char* arg[]){
 	    GRAPHI* aig = reader.readAAGFile();
 
         aig->print();
+
+        delete aig;
 
 	}
 

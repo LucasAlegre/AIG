@@ -16,10 +16,11 @@ private:
     BAIGNodeI *nodes;
 
 public:
+
 	BGraphI();
 	~BGraphI();
 
-	void iniatializeArray(const int nNodes);
+	void iniatializeArray(const unsigned nNodes);
 
 	void insertInputNode(const unsigned int id);
 	void insertOutputNode(const unsigned int id);

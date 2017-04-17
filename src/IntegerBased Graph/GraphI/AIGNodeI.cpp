@@ -50,7 +50,7 @@ void AIGNodeI::setId(unsigned id) {
 }
 
 
-void AIGNodeI::setInputIndex(const int index, const int input0or1){
+void AIGNodeI::setInputIndex(const unsigned index, const unsigned input0or1){
 	if(nodeType == INPUT_NODE){
 		std::cout << "Trie to set input to an input node\n";
 		exit(-1);
@@ -62,7 +62,7 @@ void AIGNodeI::setInputIndex(const int index, const int input0or1){
 		indexInput1 = index;
 
 }
-bool AIGNodeI::isInputInverted(const int input0or1) const{
+bool AIGNodeI::isInputInverted(const unsigned input0or1) const{
 	if(nodeType == INPUT_NODE){
 		std::cout << "Trie to get inputInverted from an input node\n";
 		return false;
@@ -77,7 +77,7 @@ bool AIGNodeI::isInputInverted(const int input0or1) const{
 		return false;
 	}
 }
-int AIGNodeI::getInputIndex(const int input0or1){
+unsigned AIGNodeI::getInputIndex(const unsigned input0or1){
 	if(nodeType == INPUT_NODE){
 		std::cout << "Trie to get input index from an input node\n";
 		return -1;
@@ -99,7 +99,7 @@ int AIGNodeI::getInputIndex(const int input0or1){
 
 
 }
-void AIGNodeI::setInputInverted(const bool inputInverted, const int input0or1){
+void AIGNodeI::setInputInverted(const bool inputInverted, const unsigned input0or1){
 	if(nodeType == INPUT_NODE){
 		std::cout << "Trie to set input inverted to an input node\n";
 	}

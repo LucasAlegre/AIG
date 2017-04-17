@@ -19,6 +19,7 @@ using namespace std;
 
 /*
  *  Class that implements a file reader for AIG
+ *  Supports .aag and .aig format
  *
  */
 class AigerReaderI
@@ -35,6 +36,7 @@ private:
 	int nNodes, nInputs, nFFs, nOutputs, nAnds;
 
 public:
+
 	/*
 	 *   Constructor
 	 *
@@ -43,6 +45,11 @@ public:
 	 */
     AigerReaderI(string sourcePath, const int bidirectionOption);
 
+    /*
+     *  Destructor
+     *
+     *  Closes the files
+     */
     ~AigerReaderI(){
     	source.close();
     	debug.close();

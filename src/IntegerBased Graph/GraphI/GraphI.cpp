@@ -16,15 +16,15 @@ GraphI::GraphI() {
 }
 
 GraphI::~GraphI() {
-
+	delete[] nodes;
 }
 
-int GRAPHI::getLastFreeIndex(){
+unsigned GRAPHI::getLastFreeIndex(){
 	return this->lastFreeIndex;
 }
 
 
-void GraphI::iniatializeArray(const int nNodes){
+void GraphI::iniatializeArray(const unsigned nNodes){
      nodes = new AIGNodeI[nNodes];
      this->numNodes = nNodes;
 }
@@ -49,7 +49,7 @@ void GraphI::insertOutputNode(const unsigned int id){
 
 void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1){
 
-	int index = lastFreeIndex - nOutputs;
+	unsigned index = lastFreeIndex - nOutputs;
 
 	new (&nodes[index]) AIGNodeI(id, AND_NODE);
 
@@ -77,7 +77,7 @@ void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned in
 
 void GraphI::connectOutputs(){
 
-	for(int i = nInputs + nAnds; i < nInputs + nOutputs + nAnds; i++){
+	for(unsigned i = nInputs + nAnds; i < nInputs + nOutputs + nAnds; i++){
 
 		int idinp = nodes[i].getId();
 
@@ -98,12 +98,12 @@ AIGNodeI* GraphI::getNodes(){
 
 void GraphI::print(){
 
-	for(int i = 0; i < nInputs; i++){
+	for(unsigned i = 0; i < nInputs; i++){
 		std::cout << "Id: " << nodes[i].getId() << endl;
 		std::cout << " name: " << nodes[i].getName() << endl;
 	}
 
-	for(int i = nInputs; i < nAnds + nInputs; i++){
+	for(unsigned i = nInputs; i < nAnds + nInputs; i++){
 
 		std::cout << "Id: " << nodes[i].getId() << endl;
 		std::cout << " name: " << nodes[i].getName() << endl;
@@ -115,7 +115,7 @@ void GraphI::print(){
 			cout << " in1: " << nodes[in1].getId() << " inv? " << nodes[i].isInputInverted(1) << endl;
 	}
 
-	for(int i = nInputs + nAnds; i < numNodes; i++){
+	for(unsigned i = nInputs + nAnds; i < numNodes; i++){
 
 		std::cout << "Id: " << nodes[i].getId() << endl;
 		std::cout << " name: " << nodes[i].getName() << endl;
@@ -126,6 +126,44 @@ void GraphI::print(){
 
 }
 
-int GRAPHI::getNumNodes(){
+unsigned GRAPHI::getNumNodes()const{
 	return this->numNodes;
+}
+
+
+
+unsigned GRAPHI::getNumAnds() const {
+	return nAnds;
+}
+
+void GRAPHI::setNumAnds(unsigned ands) {
+	nAnds = ands;
+}
+
+unsigned GRAPHI::getNumFFs() const {
+	return nFFs;
+}
+
+void GRAPHI::setNumFFs(unsigned fFs) {
+	nFFs = fFs;
+}
+
+unsigned GRAPHI::getNumInputs() const {
+	return nInputs;
+}
+
+void GRAPHI::setNumInputs(unsigned inputs) {
+	nInputs = inputs;
+}
+
+unsigned GRAPHI::getNumOutputs() const {
+	return nOutputs;
+}
+
+void GRAPHI::setNumOutputs(unsigned outputs) {
+	nOutputs = outputs;
+}
+
+void GRAPHI::setNumNodes(unsigned numNodes) {
+	this->numNodes = numNodes;
 }

@@ -10,31 +10,32 @@
 #include "BAIGNodeI.h"
 
 BAIGNodeI::BAIGNodeI() {
-	freeIndexFanOut = 0;
+
 }
 
 BAIGNodeI::~BAIGNodeI() {
 	// TODO Auto-generated destructor stub
 }
 
-BAIGNodeI::BAIGNodeI(unsigned id, AigNodeType nodeType): AIGNodeI(id, nodeType){
-	freeIndexFanOut = 0;
-	fanOut[0] = -1;
+BAIGNodeI::BAIGNodeI(const unsigned id, const AigNodeType nodeType): AIGNodeI(id, nodeType){
+
 }
 
+void BAIGNodeI::setOutputIndex(const unsigned index,const bool inverted){
 
-void BAIGNodeI::setOutputIndex(int index, bool inverted){
-	fanOut[freeIndexFanOut] = index;
-	invertedFanOut[freeIndexFanOut] = inverted;
+    fanOut.push_back(index);
+    invertedFanOut.push_back(inverted);
 
-	freeIndexFanOut++;
-	fanOut[freeIndexFanOut] = -1;
 }
 
-int BAIGNodeI::getOutputIndex(int i){
+unsigned BAIGNodeI::getOutputIndex(unsigned i)const{
 	return fanOut[i];
 }
 
-int BAIGNodeI::getOutputInverted(int i){
+unsigned BAIGNodeI::getOutputInverted(unsigned i)const{
 	return invertedFanOut[i];
+}
+
+unsigned BAIGNodeI::getFanOutSize(){
+	return fanOut.size();
 }

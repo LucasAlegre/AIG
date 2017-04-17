@@ -5,12 +5,13 @@
  *      Author: lucas
  */
 
+#include "../AigerReader/AigerReader.h"
+
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <string.h>
 
-#include "AigerReader.h"
 #include "../../PointerBased Graph/Bidirected Graph/BGraph.h"
 #include "../../PointerBased Graph/Graph/AIGNode.h"
 #include "../../PointerBased Graph/Graph/Graph.h"
