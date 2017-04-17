@@ -80,7 +80,7 @@ void BGraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned i
 
 void BGraphI::connectOutputs(){
 
-	for(int i = nInputs + nAnds + 1; i <= nInputs + nOutputs + nAnds; i++){  // Pass through all outputs
+	for(int i = nInputs + nAnds; i < nInputs + nOutputs + nAnds; i++){  // Pass through all outputs
 
 		int idinp = nodes[i].getId();
         bool inpInverted = false;
@@ -98,3 +98,43 @@ void BGraphI::connectOutputs(){
 	}
 }
 
+void BGraphI::print(){
+
+
+	for(int i = 0; i < nInputs; i++){
+		std::cout << "Id: " << nodes[i].getId() << endl;
+		std::cout << " name: " << nodes[i].getName() << endl;
+		for(int j = 0; nodes[i].getOutputIndex(j) != -1; j++){
+			int index = nodes[i].getOutputIndex(j);
+			cout << " s"<<j<<": " << nodes[index].getId() << " inv? " << nodes[i].getOutputInverted(j) << endl;
+		}
+	}
+
+	for(int i = nInputs; i < nAnds + nInputs; i++){
+
+		std::cout << "Id: " << nodes[i].getId() << endl;
+		std::cout << " name: " << nodes[i].getName() << endl;
+		int in0 = nodes[i].getInputIndex(0);
+		int in1 = nodes[i].getInputIndex(1);
+		if(in0 != -1)
+			cout << " in0: " << nodes[in0].getId() << " inv? " << nodes[i].isInputInverted(0) << endl;
+		if(in1 != -1)
+			cout << " in1: " << nodes[in1].getId() << " inv? " << nodes[i].isInputInverted(1) << endl << endl;
+
+		for(int j = 0; nodes[i].getOutputIndex(j) != -1; j++){
+			int index = nodes[i].getOutputIndex(j);
+			cout << " s"<<j<<": " << nodes[index].getId() << " inv? " << nodes[i].getOutputInverted(j) << endl;
+		}
+
+
+	}
+
+	for(int i = nInputs + nAnds; i < numNodes; i++){
+
+		std::cout << "Id: " << nodes[i].getId() << endl;
+		std::cout << " name: " << nodes[i].getName() << endl;
+		int in0 = nodes[i].getInputIndex(0);
+		if(in0 != -1)
+			cout << " in0: " << nodes[in0].getId() << " inv? " << nodes[i].isInputInverted(0) << endl;
+	}
+}

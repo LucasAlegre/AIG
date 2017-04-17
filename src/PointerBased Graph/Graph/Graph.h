@@ -15,7 +15,7 @@
 #include "OutputNode.h"
 #include "AndNode.h"
 
-using namespace std;
+//using namespace std;
 
 /* 
 * Abstract Class for AIG Graph with Pointers

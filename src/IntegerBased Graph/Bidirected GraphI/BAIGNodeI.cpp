@@ -19,6 +19,7 @@ BAIGNodeI::~BAIGNodeI() {
 
 BAIGNodeI::BAIGNodeI(unsigned id, AigNodeType nodeType): AIGNodeI(id, nodeType){
 	freeIndexFanOut = 0;
+	fanOut[0] = -1;
 }
 
 
@@ -27,6 +28,7 @@ void BAIGNodeI::setOutputIndex(int index, bool inverted){
 	invertedFanOut[freeIndexFanOut] = inverted;
 
 	freeIndexFanOut++;
+	fanOut[freeIndexFanOut] = -1;
 }
 
 int BAIGNodeI::getOutputIndex(int i){

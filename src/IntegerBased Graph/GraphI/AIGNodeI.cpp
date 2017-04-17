@@ -105,9 +105,9 @@ void AIGNodeI::setInputInverted(const bool inputInverted, const int input0or1){
 	}
 
 	if(input0or1 == 0)
-		indexInput0 = inputInverted;
+		input0Inverted = inputInverted;
 	else if(input0or1 == 1)
-		indexInput1 = inputInverted;
+		input1Inverted = inputInverted;
 	else{
 		std::cout << "invalid parameter to get input index\n";
 	}

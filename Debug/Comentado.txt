@@ -29,6 +29,17 @@ read the and 4 Id: 20 from the file
    connect the and4 and set the inversion of this pins
 read the and 5 Id: 22 from the file
    connect the and5 and set the inversion of this pins
+i0
+i1
+i2
+i3
+i4
+o0
+o1
+c
+the comments began. Ignore the file from here!
 
 create the AIG and add all nodes
 return the AIG
+generating dotfile...
+dotfile generated

@@ -77,7 +77,7 @@ void GraphI::insertAndNode(const unsigned int id, unsigned int rhs0, unsigned in
 
 void GraphI::connectOutputs(){
 
-	for(int i = nInputs + nAnds + 1; i <= nInputs + nOutputs + nAnds; i++){
+	for(int i = nInputs + nAnds; i < nInputs + nOutputs + nAnds; i++){
 
 		int idinp = nodes[i].getId();
 
@@ -97,17 +97,33 @@ AIGNodeI* GraphI::getNodes(){
 }
 
 void GraphI::print(){
-	for(int i = 0; i < numNodes; i++){
+
+	for(int i = 0; i < nInputs; i++){
+		std::cout << "Id: " << nodes[i].getId() << endl;
+		std::cout << " name: " << nodes[i].getName() << endl;
+	}
+
+	for(int i = nInputs; i < nAnds + nInputs; i++){
+
 		std::cout << "Id: " << nodes[i].getId() << endl;
 		std::cout << " name: " << nodes[i].getName() << endl;
 		int in0 = nodes[i].getInputIndex(0);
 		int in1 = nodes[i].getInputIndex(1);
 		if(in0 != -1)
-			cout << " in0: " << nodes[in0].getId() << " inv? " << nodes[i].isInputInverted(0);
+			cout << " in0: " << nodes[in0].getId() << " inv? " << nodes[i].isInputInverted(0) << endl;
 		if(in1 != -1)
-					cout << " in0: " << nodes[in1].getId() << " inv? " << nodes[i].isInputInverted(1);
-
+			cout << " in1: " << nodes[in1].getId() << " inv? " << nodes[i].isInputInverted(1) << endl;
 	}
+
+	for(int i = nInputs + nAnds; i < numNodes; i++){
+
+		std::cout << "Id: " << nodes[i].getId() << endl;
+		std::cout << " name: " << nodes[i].getName() << endl;
+		int in0 = nodes[i].getInputIndex(0);
+		if(in0 != -1)
+			cout << " in0: " << nodes[in0].getId() << " inv? " << nodes[i].isInputInverted(0) << endl;
+	}
+
 }
 
 int GRAPHI::getNumNodes(){
