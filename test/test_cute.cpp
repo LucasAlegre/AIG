@@ -20,12 +20,7 @@ string filePathAAG = "aags/";
 string filePathAIG = "aigs/";
 
 /*
-void test_c17_1Pointer_1UndirectGraph() {
-
-	string fileName = "C17";
-	int pointerOrInteger = 1;
-	int bidirectionOption = 1;
-
+void test_general(string fileName, int pointerOrInteger,int bidirectionOption) {
 
 	if(pointerOrInteger == 1){  // Pointer Based Graph
 		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
@@ -45,7 +40,9 @@ void test_c17_1Pointer_1UndirectGraph() {
 
 	}
 }
- */
+*/
+
+
 
 void test_c17_1Pointer_1UndirectGraph() {
 
@@ -76,10 +73,16 @@ void test_c432_1Pointer_2BidirectGraph() {
 }
 
 
-
 cute::suite make_suite_test_cute() {
 	cute::suite s;
+	/*
+	s.push_back(CUTE( test_general("C17",  1, 1) ) );
+	s.push_back(CUTE( test_general("C432", 1, 2) ) );
+	*/
+
 	s.push_back(CUTE(test_c17_1Pointer_1UndirectGraph));
 	s.push_back(CUTE(test_c432_1Pointer_2BidirectGraph));
+
+
 	return s;
 }
