@@ -55,7 +55,6 @@ void test_c17_1Pointer_1UndirectGraph() {
 	aig->print();
 
 	delete aig;
-
 }
 
 void test_c432_1Pointer_2BidirectGraph() {
@@ -69,7 +68,31 @@ void test_c432_1Pointer_2BidirectGraph() {
 	aig->print();
 
 	delete aig;
+}
 
+
+void test_c499_2Integer_1UndirectGraph() {
+
+	string fileName = "C499";
+
+	AigerReaderI reader(filePathAAG + fileName + ".aag", 1);
+	GRAPHI* aig = reader.readAAGFile();
+
+	aig->print();
+
+	delete aig;
+}
+
+void test_c7552_2Integer_2BidirectGraph() {
+
+	string fileName = "C7552";
+
+	AigerReaderI reader(filePathAAG + fileName + ".aag", 2);
+	GRAPHI* aig = reader.readAAGFile();
+
+	aig->print();
+
+	delete aig;
 }
 
 
@@ -82,6 +105,9 @@ cute::suite make_suite_test_cute() {
 
 	s.push_back(CUTE(test_c17_1Pointer_1UndirectGraph));
 	s.push_back(CUTE(test_c432_1Pointer_2BidirectGraph));
+
+	s.push_back(CUTE(test_c499_2Integer_1UndirectGraph));
+	s.push_back(CUTE(test_c7552_2Integer_2BidirectGraph));
 
 
 	return s;
