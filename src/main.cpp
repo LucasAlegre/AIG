@@ -47,8 +47,8 @@ int main(int argc, char* arg[]){
 	string filePathAIG = "aigs/";
 
 	if(pointerOrInteger == 1){  // Pointer Based Graph
-		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
-	    GRAPH* aig = reader.readAAGFile();
+		AigerReader reader(filePathAIG + fileName + ".aig", bidirectionOption);
+	    GRAPH* aig = reader.readAIGFile();
 		reader.generateDot(aig, fileName + ".dot");
 
 		aig->print();
