@@ -43,15 +43,20 @@ public:
 	void setOutputIndex(const unsigned index,const bool inverted);
 
 	/*
-	 *  Gets the index in the graph of the output in the index i of the fanOut
+	 * 	@param i Index in the fan out of the output
+	 *  @return The index in the graph of the output located in the position i of the fanOut
 	 */
 	unsigned getOutputIndex(unsigned i)const;
 
 	/*
-	 *  Gets the index in the graph of the output in the index i of the fanOut
+	 *  @param i Index in the fan out of the output
+	 *  @return True if the output located in the position i of the fanOut is inverted, returns false otherwise
 	 */
-	unsigned getOutputInverted(unsigned i)const;
+	bool getOutputInverted(unsigned i)const;
 
+	/*
+	 *  @return The size of the fanOut of the node
+	 */
 	unsigned getFanOutSize();
 
 };

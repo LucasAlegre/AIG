@@ -32,7 +32,7 @@ unsigned BAIGNodeI::getOutputIndex(unsigned i)const{
 	return fanOut[i];
 }
 
-unsigned BAIGNodeI::getOutputInverted(unsigned i)const{
+bool BAIGNodeI::getOutputInverted(unsigned i)const{
 	return invertedFanOut[i];
 }
 

@@ -19,6 +19,36 @@
 	BGraph::BGraph(){
 
 	}
+
+	BGraph::BGraph(Graph &aig){
+		InputNode* constant = new InputNode(0);
+		constant->setName("constant");
+		getNodes()->push_back(constant);
+
+		vector<InputNode*> *inputs = aig.getInputNodes();
+		for(auto it = inputs->begin(); it < inputs->end(); it++){
+			insertInputNode((*it)->getId());
+		}
+		vector<OutputNode*> *outputs = aig.getOutputNodes();
+		for(auto it = outputs->begin(); it < outputs->end(); it++){
+			insertOutputNode((*it)->getId());
+		}
+		vector<AndNode*> *ands = aig.getAndNodes();
+		for(auto it = ands->begin(); it < ands->end(); it++){
+			unsigned i0 = (*it)->getInput(0)->getId();
+			unsigned i1 = (*it)->getInput(1)->getId();
+			if((*it)->isInputInverted(0))
+				i0++;
+			if((*it)->isInputInverted(1))
+				i1++;
+
+			insertAndNode((*it)->getId(), i0, i1);
+		}
+
+		connectOutputs();
+
+	}
+
 	BGraph::~BGraph(){
          for(auto it = nodes.begin(); it < nodes.end(); it++){
         	 delete *it;

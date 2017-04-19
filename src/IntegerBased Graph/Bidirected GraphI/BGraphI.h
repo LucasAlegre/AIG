@@ -17,19 +17,51 @@ private:
 
 public:
 
+    /*
+     *  Default constructor
+     */
 	BGraphI();
+
+	/*
+	 *  Frees the memory allocated for the array of nodes
+	 */
 	~BGraphI();
 
+	/*
+	 *  Allocates the array of nodes
+	 *  @param nNodes The size of the array
+	 */
 	void iniatializeArray(const unsigned nNodes);
 
+	/*
+	 *  Insert an input node to the graph
+	 *  @param id Literal of the node
+	 */
 	void insertInputNode(const unsigned int id);
+
+	/*
+	 *  Insert an output node to the graph
+	 *  @param id Literal of the node
+	 */
 	void insertOutputNode(const unsigned int id);
+
+	/*
+	 *  Insert an and node to the graph
+	 *  @param id Literal of the node
+	 */
 	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
 
+	/*
+	 *  Connects the output nodes in the graph
+	 */
 	void connectOutputs();
 
+	// TODO: Useless method??
 	AIGNodeI* getNodes(){return NULL;}
 
+	/*
+	 *  Prints the id and input of each node for debugging
+	 */
 	void print();
 };
 

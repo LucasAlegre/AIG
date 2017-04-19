@@ -64,25 +64,62 @@ public:
 */
 class GraphI: public GRAPHI{
 private:
-    AIGNodeI *nodes;
+    AIGNodeI *nodes; // Array of nodes
 
 public:
+
+    /*
+     *  Default constructor
+     */
 	GraphI();
+
+	/*
+	 *  Frees the memory allocated for the array of nodes
+	 */
 	~GraphI();
 
+	/*
+	 *  Allocates the array of nodes
+	 *  @param nNodes The size of the array
+	 */
 	void iniatializeArray(const unsigned nNodes);
+
+	/*
+	 *  @return Pointer to the array of nodes
+	 */
 	AIGNodeI* getNodes();
+
 
 	AIGNodeI& operator[](unsigned x){
 		return nodes[x];
 	}
 
+	/*
+	 *  Insert an input node to the graph
+	 *  @param id Literal of the node
+	 */
 	void insertInputNode(const unsigned int id);
+
+	/*
+	 *  Insert an output node to the graph
+	 *  @param id Literal of the node
+	 */
 	void insertOutputNode(const unsigned int id);
+
+	/*
+	 *  Insert an and node to the graph
+	 *  @param id Literal of the node
+	 */
 	void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1);
 
+	/*
+	 *  Connects the output nodes in the graph
+	 */
 	void connectOutputs();
 
+	/*
+	 *  Prints the id and input of each node for debugging
+	 */
 	void print();
 
 };

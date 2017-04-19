@@ -23,6 +23,7 @@ private:
 
 public:
 	BGraph();
+	BGraph(Graph &aig);
 	virtual ~BGraph();
 
 	void insertInputNode(const unsigned int id);
