@@ -1,0 +1,22 @@
+aag 10 3 0 2 7
+2
+4
+6
+18
+21
+8 4 2
+10 5 3
+12 11 9
+14 12 6
+16 13 7
+18 17 15
+20 15 9
+i0 x
+i1 y
+i2 cin
+o0 s
+o1 cout
+c
+fullAdder
+This file was written by ABC on Tue Aug 13 17:16:42 2013
+For information about AIGER format, refer to http://fmv.jku.at/aiger
