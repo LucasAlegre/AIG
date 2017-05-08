@@ -28,6 +28,7 @@ using namespace std;
  *   @param arg[1] Filename without extension
  *   @param arg[2] Pointer or Integer based 1 - Pointer 2 - Integer
  *   @param arg[3] Bidirection option 1 - Unidirected Graph 2 - Bidirected Graph
+ *   @param arg[4] AIGER file type 1 - Binary (aig) 2 - ASCII (aag)
  *
  */
 int main(int argc, char* arg[]){

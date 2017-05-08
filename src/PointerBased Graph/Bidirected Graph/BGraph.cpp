@@ -55,6 +55,7 @@
          }
 	}
 
+
 	void BGraph::insertInputNode(const unsigned id){
 		BInputNode* input = new BInputNode(id);
 		this->inputs.push_back(input);

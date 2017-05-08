@@ -24,7 +24,7 @@ unsigned GRAPHI::getLastFreeIndex(){
 }
 
 
-void GraphI::iniatializeArray(const unsigned nNodes){
+void GraphI::initializeArray(const unsigned nNodes){
      nodes = new AIGNodeI[nNodes];
      this->numNodes = nNodes;
 }

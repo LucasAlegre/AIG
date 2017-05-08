@@ -31,7 +31,11 @@ public:
 	 *  Allocates the array of nodes
 	 *  @param nNodes The size of the array
 	 */
-	void iniatializeArray(const unsigned nNodes);
+	void initializeArray(const unsigned nNodes);
+
+	BAIGNodeI& operator[](unsigned x){
+		return nodes[x];
+	}
 
 	/*
 	 *  Insert an input node to the graph

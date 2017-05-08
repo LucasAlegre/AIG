@@ -51,7 +51,7 @@ GRAPHI* AigerReaderI::readAAGFile()
     }
 
     //nNodes == nAnds + nInputs + nFFs   and   + 1 for constant node
-	aig->iniatializeArray(nNodes + nOutputs + 1);
+	aig->initializeArray(nNodes + nOutputs + 1);
 
     // Insert VDD to Nodes
     aig->insertInputNode(0);
@@ -66,7 +66,7 @@ GRAPHI* AigerReaderI::readAAGFile()
 
     aig->connectOutputs();
 
- // readAAGNames();
+    readAAGNames();
 
     debug << "\ncreate the AIG and add all nodes\n";
     debug << "return the AIG\n";
@@ -80,7 +80,7 @@ GRAPHI* AigerReaderI::readAIGFile(){
     	cout << "Header not correct" << endl;
     	exit(-1);
     }
-	aig->iniatializeArray(nNodes + nOutputs + 1);
+	aig->initializeArray(nNodes + nOutputs + 1);
 
     // Insert VDD to the Nodes
     aig->insertInputNode(0);
@@ -95,7 +95,7 @@ GRAPHI* AigerReaderI::readAIGFile(){
 
     aig->connectOutputs();
 
-    // readAAGNames();
+    readAAGNames();
 
     debug << "\ncreate the AIG and add all nodes\n";
     debug << "return the AIG";
@@ -263,8 +263,6 @@ bool AigerReaderI::readHeader()
 	line >> word;
 	nAnds = atoi(word.c_str());
 
-//    BAIGNodeI::iniatilzeFanOut(123);
-
 
 	if (nNodes != nInputs + nFFs + nAnds) {
 		cout << "Wrong file header";
@@ -283,11 +281,14 @@ bool AigerReaderI::readHeader()
 
 void AigerReaderI::readAAGNames(){
 
-    AIGNodeI* nodes = aig->getNodes();
+	BGraphI *y = static_cast<BGraphI*>(aig);
+	GraphI *x = static_cast<GraphI*>(aig);
+	if(bidirectionOption == 1)
+		x->operator [](0).setName("Constant");
+	else if(bidirectionOption == 2)
+		y->operator [](0).setName("Constant");
 
-    nodes[0].setName("Constant");
-
-    int counter = 1;
+    unsigned counter = 1;
 
     while(source)
     {
@@ -306,7 +307,11 @@ void AigerReaderI::readAAGNames(){
         else if(strcmp(word.substr(0,1).c_str(),"i")==0){
         	line >> word;
 
-        	nodes[counter].setName(word);
+        	if(bidirectionOption == 1)
+        	  	x->operator [](counter).setName(word);
+        	else if(bidirectionOption == 2)
+        		y->operator [](counter).setName(word);
+
         	if(counter == nInputs)
         		counter = 1;
         	else
@@ -314,7 +319,12 @@ void AigerReaderI::readAAGNames(){
         }
         else if(strcmp(word.substr(0,1).c_str(),"o")==0){
         	line >> word;
-        	nodes[counter + nInputs].setName(word);
+
+        	if(bidirectionOption == 1)
+        		x->operator [](counter + nInputs + nAnds).setName(word);
+        	else if(bidirectionOption == 2)
+        		y->operator [](counter + nInputs + nAnds).setName(word);
+
         	if(counter == nOutputs)
         		counter = 1;
         	else

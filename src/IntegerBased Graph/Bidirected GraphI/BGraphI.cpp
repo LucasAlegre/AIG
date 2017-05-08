@@ -20,9 +20,9 @@ BGraphI::~BGraphI() {
 }
 
 
-void BGraphI::iniatializeArray(const unsigned nNodes){
+void BGraphI::initializeArray(const unsigned nNodes){
      nodes = new BAIGNodeI[nNodes];
-     this->numNodes = nNodes;
+     this->setNumNodes(nNodes);
 }
 
 

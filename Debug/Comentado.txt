@@ -34,6 +34,15 @@ delta0: 1  delta1: 4
 rhs0: 21  rhs1: 17
 read the and 5 Id: 22 from the file
    connect the and5 and set the inversion of this pins
+i0
+i1
+i2
+i3
+i4
+o0
+o1
+c
+the comments began. Ignore the file from here!
 
 create the AIG and add all nodes
 return the AIG

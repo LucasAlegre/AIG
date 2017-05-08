@@ -32,7 +32,7 @@ public:
 	virtual void insertOutputNode(const unsigned int id) = 0;
 	virtual void insertAndNode(const unsigned int id, unsigned int rhs0, unsigned int rhs1) = 0;
 
-	virtual void iniatializeArray(const unsigned nNodes) = 0;
+	virtual void initializeArray(const unsigned nNodes) = 0;
 
 	virtual AIGNodeI* getNodes(){return NULL;}
 
@@ -82,7 +82,7 @@ public:
 	 *  Allocates the array of nodes
 	 *  @param nNodes The size of the array
 	 */
-	void iniatializeArray(const unsigned nNodes);
+	void initializeArray(const unsigned nNodes);
 
 	/*
 	 *  @return Pointer to the array of nodes
