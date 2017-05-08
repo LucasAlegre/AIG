@@ -42,6 +42,38 @@ AigerReaderI::AigerReaderI(string sourcePath, const int bidirectionOption)
 
 }
 
+GRAPHI* AigerReaderI::readAAGFile()
+{
+
+    if(!readHeader()){
+    	cout << "Header not correct" << endl;
+    	exit(-1);
+    }
+
+    //nNodes == nAnds + nInputs + nFFs   and   + 1 for constant node
+	aig->iniatializeArray(nNodes + nOutputs + 1);
+
+    // Insert VDD to Nodes
+    aig->insertInputNode(0);
+
+    aig->setNumInputs(nInputs+1); //+1 for constant
+    aig->setNumOutputs(nOutputs);
+    aig->setNumAnds(nAnds);
+
+    readAAGInputs();
+    readAAGOutputs();
+    readAAGAnds();
+
+    aig->connectOutputs();
+
+ // readAAGNames();
+
+    debug << "\ncreate the AIG and add all nodes\n";
+    debug << "return the AIG\n";
+
+    return aig;
+}
+
 GRAPHI* AigerReaderI::readAIGFile(){
 
     if(!readHeader()){
@@ -53,7 +85,7 @@ GRAPHI* AigerReaderI::readAIGFile(){
     // Insert VDD to the Nodes
     aig->insertInputNode(0);
 
-    aig->setNumInputs(nInputs);
+    aig->setNumInputs(nInputs + 1); //+1 for constant
     aig->setNumOutputs(nOutputs);
     aig->setNumAnds(nAnds);
 
@@ -63,7 +95,7 @@ GRAPHI* AigerReaderI::readAIGFile(){
 
     aig->connectOutputs();
 
-    readAAGNames();
+    // readAAGNames();
 
     debug << "\ncreate the AIG and add all nodes\n";
     debug << "return the AIG";
@@ -142,37 +174,7 @@ void AigerReaderI::readAIGOutputs(){
     }
 }
 
-GRAPHI* AigerReaderI::readAAGFile()
-{
 
-    if(!readHeader()){
-    	cout << "Header not correct" << endl;
-    	exit(-1);
-    }
-
-    //nNodes == nAnds + nInputs + nFFs   and   + 1 for constant node
-	aig->iniatializeArray(nNodes + nOutputs + 1);
-
-    // Insert VDD to Nodes
-    aig->insertInputNode(0);
-
-    aig->setNumInputs(nInputs+1); //+1 for constant
-    aig->setNumOutputs(nOutputs);
-    aig->setNumAnds(nAnds);
-
-    readAAGInputs();
-    readAAGOutputs();
-    readAAGAnds();
-
-    aig->connectOutputs();
-
- // readAAGNames();
-
-    debug << "\ncreate the AIG and add all nodes\n";
-    debug << "return the AIG\n";
-
-    return aig;
-}
 
 void AigerReaderI::readAAGInputs(){
 

@@ -53,16 +53,13 @@ int main(int argc, char* arg[]){
 
 		aig->print();
 
-		Graph *t = static_cast<Graph*>(aig);
-		BGraph teste(*t);
-		teste.print();
 
         delete aig;
 	}
 
 	else if(pointerOrInteger == 2){ // Integer Based Graph
 		AigerReaderI reader(filePathAIG + fileName + ".aig", bidirectionOption);
-	    GRAPHI* aig = reader.readAAGFile();
+	    GRAPHI* aig = reader.readAIGFile();
 
         aig->print();
 
