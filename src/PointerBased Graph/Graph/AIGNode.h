@@ -42,7 +42,7 @@ typedef enum {
 */
 class AIGNode {
 private:
-	unsigned id;   // Index of the node in the vector of nodes
+	unsigned id;   // Literal of the node in the file
 	string name;  // Name of the node
 
 public:
