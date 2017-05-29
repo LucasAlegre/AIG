@@ -11,11 +11,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "PointerBased Graph/Graph/AIGNode.h"
-#include "PointerBased Graph/Graph/Graph.h"
-#include "PointerBased Graph/Bidirected Graph/BGraph.h"
-#include "PointerBased Graph/AigerReader/AigerReader.h"
-
 #include "IntegerBased Graph/AigerReaderI/AigerReaderI.h"
 #include "IntegerBased Graph/GraphI/GraphI.h"
 
@@ -50,18 +45,7 @@ int main(int argc, char* arg[]){
 	string filePathAAG = "aags/";
 	string filePathAIG = "aigs/";
 
-	if(pointerOrInteger == 1 && aigerFileType == 1 ){  // Pointer Based Graph with aig
-		AigerReader reader(filePathAIG + fileName + ".aig", bidirectionOption);
-	    GRAPH* aig = reader.readAIGFile();
-		reader.generateDot(aig, fileName + ".dot");
-
-		aig->print();
-
-
-        delete aig;
-	}
-
-	else if(pointerOrInteger == 2 && aigerFileType == 1){ // Integer Based Graph with aig
+	if(pointerOrInteger == 2 && aigerFileType == 1){ // Integer Based Graph with aig
 		AigerReaderI reader(filePathAIG + fileName + ".aig", bidirectionOption);
 	    GRAPHI* aig = reader.readAIGFile();
 
@@ -69,17 +53,6 @@ int main(int argc, char* arg[]){
 
         delete aig;
 
-	}
-
-	else if(pointerOrInteger == 1 && aigerFileType == 2 ){  // Pointer Based Graph with aag
-		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
-	    GRAPH* aig = reader.readAAGFile();
-		reader.generateDot(aig, fileName + ".dot");
-
-		aig->print();
-
-
-        delete aig;
 	}
 
 

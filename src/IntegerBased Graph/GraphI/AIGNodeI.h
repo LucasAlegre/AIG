@@ -9,7 +9,12 @@
 #define AIGNODEI_H_
 
 #include <iostream>
-#include "../../PointerBased Graph/Graph/AIGNode.h"
+
+typedef enum {
+    AND_NODE,       // 0: AND object
+    INPUT_NODE,     // 1: Input object
+    OUTPUT_NODE     // 2: Ouput object
+} AigNodeType;
 
 class AIGNodeI {
 

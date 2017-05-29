@@ -9,11 +9,13 @@
 #define INTEGERBASED_GRAPH_BIDIRECTED_GRAPHI_BAIGNODEI_H_
 
 #include "../GraphI/AIGNodeI.h"
+#include <iostream>
+#include <vector>
 
 class BAIGNodeI: public AIGNodeI {
 private:
-	vector<unsigned> fanOut;
-	vector<bool> invertedFanOut;
+	std::vector<unsigned> fanOut;
+	std::vector<bool> invertedFanOut;
 
 public:
 
