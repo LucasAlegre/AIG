@@ -11,9 +11,6 @@
 #include <sstream>
 
 #include "AigerReaderI.h"
-
-#include "../../IntegerBased Graph/Bidirected GraphI/BAIGNodeI.h"
-#include "../../IntegerBased Graph/Bidirected GraphI/BGraphI.h"
 #include "../../IntegerBased Graph/GraphI/AIGNodeI.h"
 #include "../../IntegerBased Graph/GraphI/GraphI.h"
 
@@ -22,15 +19,7 @@ AigerReaderI::AigerReaderI(string sourcePath, const int bidirectionOption)
     nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
     this->bidirectionOption = bidirectionOption;
 
-    if(bidirectionOption == 1){
-    	aig = new GraphI;
-    }
-    else if(bidirectionOption == 2)
-    	aig = new BGraphI;
-    else{
-    	cout << "Incorrect parameters, 1 - Unidirected Graph  2 - Bidirected Graph\n";
-    	exit(-2);
-    }
+    aig = new GraphI;
 
 	try{
 		source.open(sourcePath.c_str());
@@ -281,12 +270,9 @@ bool AigerReaderI::readHeader()
 
 void AigerReaderI::readAAGNames(){
 
-	BGraphI *y = static_cast<BGraphI*>(aig);
 	GraphI *x = static_cast<GraphI*>(aig);
 	if(bidirectionOption == 1)
 		x->operator [](0).setName("Constant");
-	else if(bidirectionOption == 2)
-		y->operator [](0).setName("Constant");
 
     unsigned counter = 1;
 
@@ -309,8 +295,6 @@ void AigerReaderI::readAAGNames(){
 
         	if(bidirectionOption == 1)
         	  	x->operator [](counter).setName(word);
-        	else if(bidirectionOption == 2)
-        		y->operator [](counter).setName(word);
 
         	if(counter == nInputs)
         		counter = 1;
@@ -322,8 +306,6 @@ void AigerReaderI::readAAGNames(){
 
         	if(bidirectionOption == 1)
         		x->operator [](counter + nInputs + nAnds).setName(word);
-        	else if(bidirectionOption == 2)
-        		y->operator [](counter + nInputs + nAnds).setName(word);
 
         	if(counter == nOutputs)
         		counter = 1;
