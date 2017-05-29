@@ -45,4 +45,5 @@ c
 the comments began. Ignore the file from here!
 
 create the AIG and add all nodes
-return the AIG
+return the AIGgenerating dotfile...
+dotfile generated

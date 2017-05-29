@@ -12,22 +12,13 @@
 #include <sstream>
 #include <string.h>
 
-#include "../../PointerBased Graph/Bidirected Graph/BGraph.h"
 #include "../../PointerBased Graph/Graph/AIGNode.h"
 #include "../../PointerBased Graph/Graph/Graph.h"
 
 AigerReader::AigerReader(string sourcePath, const int bidirectionOption)
 {
-    if(bidirectionOption == 1){
-    	aig = new Graph;
-    }
-    else if(bidirectionOption == 2)
-    	aig = new BGraph;
 
-    else{
-    	cout << "Incorrect parameters, 1 - Unidirected Graph  2 - Bidirected Graph\n";
-    	exit(-2);
-    }
+    aig = new Graph;
 
 	nAnds = 0; nInputs = 0; nOutputs = 0; nNodes = 0; nFFs = 0;
 
