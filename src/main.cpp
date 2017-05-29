@@ -16,10 +16,6 @@
 #include "PointerBased Graph/Bidirected Graph/BGraph.h"
 #include "PointerBased Graph/AigerReader/AigerReader.h"
 
-#include "IntegerBased Graph/AigerReaderI/AigerReaderI.h"
-#include "IntegerBased Graph/GraphI/GraphI.h"
-
-
 using namespace std;
 
 /*
@@ -61,16 +57,6 @@ int main(int argc, char* arg[]){
         delete aig;
 	}
 
-	else if(pointerOrInteger == 2 && aigerFileType == 1){ // Integer Based Graph with aig
-		AigerReaderI reader(filePathAIG + fileName + ".aig", bidirectionOption);
-	    GRAPHI* aig = reader.readAIGFile();
-
-        aig->print();
-
-        delete aig;
-
-	}
-
 	else if(pointerOrInteger == 1 && aigerFileType == 2 ){  // Pointer Based Graph with aag
 		AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
 	    GRAPH* aig = reader.readAAGFile();
@@ -80,17 +66,6 @@ int main(int argc, char* arg[]){
 
 
         delete aig;
-	}
-
-
-	else if(pointerOrInteger == 2 && aigerFileType == 2){ // Integer Based Graph with aag
-		AigerReaderI reader(filePathAAG + fileName + ".aag", bidirectionOption);
-	    GRAPHI* aig = reader.readAAGFile();
-
-        aig->print();
-
-        delete aig;
-
 	}
 
 
