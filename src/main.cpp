@@ -26,7 +26,12 @@ using namespace std;
  *   @param arg[4] AIGER file type 1 - Binary (aig) 2 - ASCII (aag)
  *
  */
-int main(int argc, char* arg[]){
+//int main(int argc, char* arg[]){
+int main() {
+	int argc {3};
+	string arg[3];
+	arg[1] = "C17_random";
+	//arg[2] = 1;
 
 	string message = "********* AIG Pointer-based Graph (PG / GP) *********";
 
@@ -41,7 +46,8 @@ int main(int argc, char* arg[]){
 	}
 
 	string fileName(arg[1]);
-	bool showOutput=atoi(arg[2]);
+	//bool showOutput=atoi(arg[2]);
+	bool showOutput=1;
 	//int pointerOrInteger = atoi(arg[2]);
 	//int pointerOrInteger = 1;
    // int bidirectionOption = atoi(arg[3]);
@@ -52,9 +58,15 @@ int main(int argc, char* arg[]){
 	if (showOutput==true)
 		cout << message << " FileName: " << fileName << endl;
 
+	string absolutePath = "/home/marcelo/git/AIG_LucasAlegre/Debug/";
+
 	string filePathAAG = "aags/";
 
-	AigerReader reader(filePathAAG + fileName + ".aag", bidirectionOption);
+	filePathAAG = absolutePath + filePathAAG;
+
+	string fileCompletePath = filePathAAG + fileName + ".aag";
+
+	AigerReader reader(fileCompletePath, bidirectionOption);
 	GRAPH* aig = reader.readAAGFile();
 	reader.generateDot(aig, fileName + ".dot");
 
