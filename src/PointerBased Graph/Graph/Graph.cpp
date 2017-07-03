@@ -109,6 +109,8 @@ AIGNode* Graph::findNodeById(const unsigned int id){
 			return nodes[i];
 	}
 
+	return nodes[0];
+
 	/*
 	if(id == 0)
 		return nodes[0];
